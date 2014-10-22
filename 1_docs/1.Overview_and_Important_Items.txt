@@ -18,17 +18,10 @@ Important Items:
        It can be hidden with "visibility:hidden".
 
 2.  If the Mason Viewer (or the div it is created in) needs to be removed from the page with
-	Javascript code, please see the "6.Advanced_Items.txt" file.
+	Javascript code, please see the "3.Advanced_Items.txt" file.
 
 3.  The Mason Viewer should not be repeatedly added and removed on the active page.  
 	There appears to be a memory leak that the memory is not freed when the viewer is removed from the page.
 	This is noticable with large viewers ( > 4,000 blocks ) repeatedly added and removed from the page.
 
-
-Other informational aspects:
-
-1.	The Mason Viewer sometimes uses the term "Combined Row" and sometimes uses the term "Totals Row".
-	These are interchangable and mean the same thing.
-	They are referencing the top row of all multi-row Mason Viewers which is a roll up of the data in all the rows.
-	The "Combined Row" can be disabled through configuration if required.   
 
