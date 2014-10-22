@@ -1,0 +1,29 @@
+
+
+There are certain aspects that are common in in the callback functions for every element.
+
+
+1.  There is always a property of the parameter passed in called "callbackDataStorage".
+
+	This is there to support storage of data attached to a specific SVG element in the viewer.
+	This enables computations to be done and strings to be built once and then re-used 
+	for later calls to the callback functions. 
+
+
+2.  There is always a "precomputeValuesOnCreate" function that is called.
+
+	This is called first and is the place to do needed calculations and create the 
+	tool tip strings.
+	These can then be stored in the property "callbackDataStorage".
+	
+	
+3.	There is always some "getToolTipText" function(s) that is called to get the text to show in the tool tip.
+
+4.	There is always a "processClick" function that is called to process a click on the element.
+
+5.  For all blocks in the main viewer, there is a "getColorForBlock" to get the color for the block.
+
+6.	For the "total" block on the right for the row, there is a "getColorAndSize" to get 
+	   the color and the size for the block.
+	   
+	    

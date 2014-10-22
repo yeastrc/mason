@@ -1,0 +1,208 @@
+
+
+The Mason Viewer requires a set of Javascript callback functions to be passed in on creation.
+
+These provide flexibility to match the provided data and the needs of the installation.
+
+Things controlled through call backs:
+
+1.  The color of the blocks
+2.  The tool tip text/html
+3.  What clicking on a block does.
+4.  For the totals block at the right, also the size of the block
+5.  For the label on the left, what the tool tip is and what a click does
+
+These things apply to the blocks for these areas of the viewer:
+
+1.  The main blocks that are displayed for each row when no overlapping peptides were detected for that row.
+2.  The main blocks that are displayed for each row when overlapping peptides were detected for that row.
+3.  The blocks that are initially hidden for a row for each row when overlapping peptides were detected for that row
+4.  The label on the left of the row
+5.  The combined row at the top of the Viewer
+6.  The Row totals block at the right of each row
+
+The callbacks are provided as the parameter "callbackFunctionsObj"
+to the call to MasonViewer.createMasonViewer( ... ) to create the Viewer.
+
+  ie:
+	var masonViewer = MasonViewer.createMasonViewer( $masonViewerRootDiv, requestParams, configParams, callbackFunctionsObj );
+
+
+
+Common aspects of the callback functions are covered in 2.c.a_Callbacks_Common_info.txt.
+
+
+The callbacks are grouped into objects where the top level object has these properties and the properties are also objects.
+
+	var callbacks = { 	mainRowsLabel_callbackFunctions: mainRowsLabel_callbackFunctions,
+						mainRowsBlocks_callbackFunctions: mainRowsBlocks_callbackFunctions,
+						rowTotalBar_callbackFunctions: rowTotalBar_callbackFunctions,
+						combinedRow_callbackFunctions: combinedRow_callbackFunctions,
+						combinedRowTotalBar_callbackFunctions: combinedRowTotalBar_callbackFunctions,
+						mainRowsVerticalLines_callbackFunctions: mainRowsVerticalLines_callbackFunctions,
+						combinedRowVerticalLines_callbackFunctions: combinedRowVerticalLines_callbackFunctions,
+						allRowsVerticalLines_callbackFunctions: allRowsVerticalLines_callbackFunctions
+					};
+					
+If the property rowTotalBar_callbackFunctions does not exist, the totals bar to the right of the main rows will not
+be created.
+If the property combinedRowTotalBar_callbackFunctions does not exist, the totals bar to the right of the combined row will not
+be created.
+If the property mainRowsVerticalLines_callbackFunctions does not exist, the vertical lines in the main rows will not
+be created.
+If the property combinedRowVerticalLines_callbackFunctions does not exist, the vertical lines in the combined row will not
+be created.
+If the property allRowsVerticalLines_callbackFunctions does not exist, the vertical lines that span all the rows will not
+be created.
+
+
+
+The contents of mainRowsLabel_callbackFunctions is covered in 2.c.b_mainRowsLabel_callbackFunctions.txt
+The contents of mainRowsBlocks_callbackFunctions is covered in 2.c.c_mainRowsBlocks_callbackFunctions.txt
+The contents of rowTotalBar_callbackFunctions is covered in 2.c.d_rowTotalBar_callbackFunctions.txt
+The contents of combinedRow_callbackFunctions is covered in 2.c.e_combinedRow_callbackFunctions.txt
+The contents of combinedRowTotalBar_callbackFunctions is covered in 2.c.f_combinedRowTotalBar_callbackFunctions.txt
+The contents of mainRowsVerticalLines_callbackFunctions is covered in 2.c.g_mainRowsVerticalLines_callbackFunctions.txt
+The contents of combinedRowVerticalLines_callbackFunctions is covered in 2.c.h_combinedRowVerticalLines_callbackFunctions.txt
+The contents of allRowsVerticalLines_callbackFunctions is covered in 2.c.i_allRowsVerticalLines_callbackFunctions.txt
+
+
+While the call back design in the documentation talks about creating objects, 
+all the examples are using Javascript classes and then instantiating objects from those classes.
+This has been found to be easier to manage but is not required.
+
+
+============================================================================================
+
+
+
+============================================================================================
+
+
+For every element, a property called callbackDataStorage is a member of the passed in data.
+The call back can store data in this object and retrieve it in subsequent calls.
+An example would be to precompute the the tool tip text and then return that on subsequent calls.
+
+
+
+For every block:
+
+1. A "precompute" function is called first.  This can be used to support complicated computations that
+	can be shared between determining the color, the tool tip text, and the click handling
+2. A get color function is then called to get the color of the block.
+3. When a mouseover event occurs on the block, a get tool tip function is called to get the tool tip text to display
+4. When a click event occurs on the block, a handle click function is called
+
+
+
+splitAnyEntriesForRow == true for main row blocks and if any of the blocks were split due to overlapping blocks
+forHiddenBlocks == true for the non-overlapping blocks that are initially hidden since the overlapping blocks are initially shown
+
+
+blockItem == an element from the array "blockItems" in the input data.
+peptideDataItems == an array of "peptideData" elements from the input data "peptideData" under "peptideItems"
+
+
+
+The call backs for:
+
+1.  The main blocks that are displayed for each row when no overlapping peptides were detected for that row.
+
+	mainRowsPeptideBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
+		precomputeParams = { blockItem, peptideDataItems, startPos, endPos, callbackDataStorage, splitAnyEntriesForRow, forHiddenBlocks }
+
+	mainRowsPeptideBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
+		getColorForBlockParams = { blockItem, peptideDataItems, callbackDataStorage, forHiddenBlocks }
+
+	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )
+		getToolTipTextParams = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+
+	mainRowsPeptideBlocks_callbackFunctions.processClick( processClick_OverlappingPeptides )
+		processClick_OverlappingPeptides = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+
+2.  The main blocks that are displayed for each row when overlapping peptides were detected for that row.
+
+    Not Called:
+	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )
+
+	Called Instead:
+	mainRowsPeptideBlocks_callbackFunctions.getOverlappingPeptidesToolTipText( getToolTipTextParams )
+		getToolTipTextParams = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+
+
+3.  The blocks that initially hidden for a row for each row when overlapping peptides were detected for that row
+
+		Same params as above but splitAnyEntriesForRow == false and forHiddenBlocks == true
+
+	mainRowsPeptideBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
+	mainRowsPeptideBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
+	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )
+	mainRowsPeptideBlocks_callbackFunctions.processClick( processClick_OverlappingPeptides )
+
+
+4.  The totals row at the bottom of the Visualizer - No "blockItem" since totals row
+
+	combinedRow_callbackFunctions.precomputeValuesOnCreate( precomputeValuesOnCreateParams )
+		precomputeValuesOnCreateParams = { peptideDataItems, startPos, endPos, callbackDataStorage, splitAnyEntriesForRow }
+
+	combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams )
+		getColorForBlockParams = { peptideDataItems, callbackDataStorage };
+
+	combinedRow_callbackFunctions.getPeptidesToolTipText( getSinglePeptideToolTipTextParams )
+		getSinglePeptideToolTipTextParams = { startPos, endPos, peptideDataItems, callbackDataStorage }
+
+	combinedRow_callbackFunctions.processClick( processClickParams )
+		processClickParams = { startPos, endPos, peptideDataItems, callbackDataStorage }
+
+5.  The Row totals block at the right of each row
+
+	rowTotalBar_callbackFunctions.precomputeValuesOnCreate( precomputeValuesOnCreateParams )
+		precomputeValuesOnCreateParams = { blockItem, callbackDataStorage }
+
+	rowTotalBar_callbackFunctions.getColorAndSize( getColorAndSizeParams )
+		getColorAndSizeParams = { blockItem, callbackDataStorage }
+
+	rowTotalBar_callbackFunctions.getTotalBarToolTipText( toolTipTextParams )
+		toolTipTextParams = { blockItem, callbackDataStorage }
+
+	rowTotalBar_callbackFunctions.processClick( processClickParams )
+		processClickParams = { blockItem, callbackDataStorage }
+
+
+example from "3_Demos/Demos_From_Filesystem/Multi_row_example_single_viewer"
+
+  at bottom of "mason_viewer_sample_js_callbacks.js"
+
+
+	var callbackFunctionsObj = {
+		mainRowsPeptideBlocks_callbackFunctions:
+			{	precomputeValuesOnCreate: precomputeValuesOnCreateMainRowsPeptideBlocks,
+				getColorForBlock: mainRow_getColorForBlock,
+				getNonOverlappingPeptidesToolTipText: getNonOverlappingPeptidesToolTipText,
+				getOverlappingPeptidesToolTipText: getOverlappingPeptidesToolTipText,
+				processClick: mainRowPeptideBlocks_processClick_OverlappingPeptides },
+
+		combinedRow_callbackFunctions:
+			{ 	precomputeValuesOnCreate: precomputeValuesOnCreate_CombinedRow_PeptideBlocks,
+				getColorForBlock: combinedRow_getColorForBlock,
+				getPeptidesToolTipText: combinedRow_getPeptidesToolTipText,
+				processClick: combinedRow_processClickPeptides },
+
+		rowTotalBar_callbackFunctions:
+			{ 	precomputeValuesOnCreate: precomputeValuesOnCreate_rowTotalBar_PeptideBlocks,
+				getColorAndSize: rowTotalBar_GetColorAndSize,
+				getTotalBarToolTipText: rowTotalBar_getTotalBarToolTipText,
+				processClick: rowTotalBar_processClick_TotalBar }
+	};
+
+
+
+  at bottom of "mason_viewer_sample.js"
+
+
+	var masonViewer = MasonViewer.createMasonViewer( $masonViewerRootDiv, requestParams, configParams, callbackFunctionsObj );
+
+
+
+
+

@@ -1,0 +1,90 @@
+
+The Mason Viewer requires the contents of the parameter 'requestParams' to be in the format specified below.
+
+There are specific places in the input data where application specific data can be placed relatively free form.
+
+Explanation of format:
+
+At the root level of the passed in object:
+	"maxSequenceLength" - the sequence length to map the blocks onto
+	"rowItems" - an array where each entry is one line in the resulting chart
+
+An element in the rowItems array contains:
+
+	"label" - the label placed to the left of that line in the chart
+	"blockItems" - an array where each entry is one block for that line of the chart
+	Anything else needed at the row level.  
+
+For a blockItems element:
+	"startPos" - start position of the block
+	"endPos" - end position of the block
+	"blockData" - any other data associated with that block.
+
+	blockData elements are passed to application specific code for color, tool tip, and click handling.
+
+
+The format is:
+
+{"maxSequenceLength": 255,
+ "rowItems":
+    [
+    
+    	//  A row in the viewer
+    	
+	  {"label":"label1",
+	  
+		"blockItems":
+		 [
+		 
+		 	//  A block block in the row
+		   {
+			"startPos":25,
+			"endPos":37,
+			"blockData":{... Other application specific data}
+		   }
+		 ],
+		 
+		//  Vertical lines for this row
+		
+			//  All the line positions in this case are on the half (using ".5") so that they land 
+			//     specifically on the edges/boundaries between the blocks.
+			
+			//  The data under "vertLineData" is passed to the callback for determining the color, tool tip, and click handling
+
+		"vertLinesItems":
+			[{"linePos":3.5,"vertLineData":{"type":"CP"}}]	
+	  
+	  }  //  End of a row in the viewer
+	  
+	 ],  // End of the rows in the viewer
+
+	  
+	//   Viewer wide data
+	  
+	//   Vertical lines for the "Combined Row" aka "Totals Row"
+
+		//  All the line positions in this case are on the half (using ".5") so that they land 
+		//     specifically on the edges/boundaries between the blocks.
+		
+		//  The data under "vertLinesCombinedRow" is passed to the callback for determining the color, tool tip, and click handling
+		
+	"vertLinesCombinedRow":[{"linePos":3.5,"vertLineData":{"type":"CP"}}]	
+	
+	
+	
+	//  Vertical lines data that will be displayed across all the rows.
+	//        If the same lines are needed for all the rows, this is the most efficient as they result in far fewer
+	//        SVG elements in the viewer.
+	
+		//  All the line positions in this case are on the half (using ".5") so that they land 
+		//     specifically on the edges/boundaries between the blocks.
+		
+		//  The data under "vertLineData" is passed to the callback for determining the color, tool tip, and click handling
+
+	 
+	"vertLinesAllRowsItems":
+		[{"linePos":3.5,"vertLineData":{"type":"CP"}}]		 
+	 
+   }
+	
+}

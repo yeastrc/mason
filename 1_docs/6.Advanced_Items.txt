@@ -1,0 +1,13 @@
+
+Advanced Mason Viewer Items
+
+1.	If the Mason Viewer (or the div it is created in) needs to be removed from the page with
+	Javascript code, please use one of the following methods:
+
+	b.	Use the jQuery function empty() function on the div the Mason Viewer is created in or a parent element
+
+	If the div is removed using the HTML innerHTML method, the attached Mason Viewer data will not be removed
+	and will continue to consume memory in the browser.
+
+	The Mason Viewer is removed automatically if the user navigates to a different page.
+

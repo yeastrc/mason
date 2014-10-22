@@ -1,0 +1,203 @@
+
+
+  The functions of the object mainRowsBlocks_callbackFunctions.
+  
+  
+  One key thing to remember about these callbacks is that the blocks being passed are in 
+  not necessarily the blocks passed in to the Mason Viewer create function.
+  The Mason Viewer detects where blocks for a given row overlap and create new split blocks
+  and combine the data in the blocks by creating an array of blockDataItem objects. 
+  
+  
+  The object mainRowsBlocks_callbackFunctions must contain the 
+
+			  	precomputeValuesOnCreate
+				getColorForBlock
+			  
+  
+   		can contain the following functions:
+  
+				getNonOverlappingBlocksToolTipText
+				getOverlappingBlocksToolTipText
+				processClick
+	
+	"precomputeValuesOnCreate" is called on initial creation of the viewer.
+	"getNonOverlappingBlocksToolTipText" is called when a tool tip is shown when the block is moused over.
+	"getOverlappingBlocksToolTipText" is called when a tool tip is shown when the block is moused over.
+	"processClick" is called when the block is clicked on.
+	
+	
+  The data passed in to each function is covered here:
+	
+    ----------------
+
+	var precomputeValuesOnCreate = function( precomputeParams )
+	
+		precomputeParams is an object that contains the properties
+		
+			"blockDataItems"
+			"forHiddenBlocks"
+			"splitAnyEntriesForRow"
+			"startPos"
+			"endPos"
+			
+			"rowItem" 
+			
+			"callbackDataStorage"
+		
+
+
+		"blockDataItems" is the blockDataItem objects of the blocks combined to make this block, put in an array.
+						   Blocks are combined when they are overlapping for a given row
+						   
+		
+		"forHiddenBlocks" and "splitAnyEntriesForRow" taken together communicate to the callback
+			if there were overlapping and had to be split.
+
+		"splitAnyEntriesForRow" is true if any of the blocks were overlapping and had to be split.
+		
+		"forHiddenBlocks" is true if this block is a block that is not initially shown.
+					This is true if the blocks were overlapping and this is an original unsplit block.
+					"forHiddenBlocks" may be missing or undefined rather than false.
+
+		"startPos" is the start position for the block
+		"endPos" is the end position for the block
+		
+		"rowItem" is an element from the input list "rowItems" for the current row.
+		
+		"callbackDataStorage" is an object tied to this specific block and will be the same object 
+		                       passed to the next functions functions listed.
+		                       
+		One way to utilize "callbackDataStorage" is to compute the tool tip HTML here and store it in 
+		"callbackDataStorage" and then just pull it out in the function "getToolTipText".
+  
+    ----------------
+  
+	var getColorForBlock = function( getColorForBlockParams )
+	
+		This function returns an object of the format { red: 1, green: 1, blue: 1 }
+			where the values for the properties are the 0 to 255 rgb colors for this block
+			
+
+		The input parameter getColorForBlockParams is an object that contains the properties
+
+			"blockDataItems"
+			"forHiddenBlocks"
+			"startPos"
+			"endPos"
+			
+			"rowItem" 
+			
+			"callbackDataStorage"		
+		
+
+
+		"blockDataItems" is the blockDataItem objects of the blocks combined to make this block, put in an array.
+						   Blocks are combined when they are overlapping for a given row
+						   
+		
+		"forHiddenBlocks" is true if this block is a block that is not initially shown.
+					This is true if the blocks were overlapping and this is an original unsplit block.
+
+		"startPos" is the start position for the block
+		"endPos" is the end position for the block
+		
+		"rowItem" is an element from the input list "rowItems" for the current row.
+		
+		"callbackDataStorage" is an object tied to this specific block and will be the same object 
+		                       passed to the next two functions listed, "getToolTipText" and "processClick".
+			
+    ----------------
+  
+	var getOverlappingBlocksToolTipText = function( getSingleBlockToolTipTextParams )
+
+		getSingleBlockToolTipTextParams is an object that contains the properties 
+		
+			"blockDataItems"
+			"startPos"
+			"endPos"
+			
+			"rowItem" 
+			
+			"callbackDataStorage"		
+		
+		
+		"blockDataItems" is the blockDataItem objects of the blocks combined to make this block, put in an array.
+						   Blocks are combined when they are overlapping for a given row
+
+		"startPos" is the start position for the block
+		"endPos" is the end position for the block
+		
+		"rowItem" is an element from the input list "rowItems" for the current row.
+		
+		"callbackDataStorage" is an object tied to this specific block and will be the same object 
+		                       passed to the next two functions listed, "getToolTipText" and "processClick".
+			
+			
+		
+		This function must return return a string that is the HTML for the tool tip.
+
+    ----------------
+  
+	var getNonOverlappingBlocksToolTipText = function( getSingleBlockToolTipTextParams )
+
+		getSingleBlockToolTipTextParams is an object that contains the properties 
+		
+			"blockDataItems"
+			"startPos"
+			"endPos"
+			
+			"rowItem" 
+			
+			"callbackDataStorage"		
+		
+		
+		"blockDataItems" is the blockDataItem objects of the blocks combined to make this block, put in an array.
+						   Blocks are combined when they are overlapping for a given row
+
+		"startPos" is the start position for the block
+		"endPos" is the end position for the block
+		
+		"rowItem" is an element from the input list "rowItems" for the current row.
+		
+		"callbackDataStorage" is an object tied to this specific block and will be the same object 
+		                       passed to the next two functions listed, "getToolTipText" and "processClick".
+			
+			
+		
+		This function must return return a string that is the HTML for the tool tip.
+
+
+
+    ----------------
+
+	var processClick = function( processClickParams ) {  return false; };
+	
+		"processClick" is only called for non-overlapping blocks, either initially shown or shown when the row is expanded.
+	
+		processClickParams is an object that contains the properties 
+		
+			"blockDataItems"
+			"startPos"
+			"endPos"
+			
+			"rowItem" 
+			
+			"callbackDataStorage"		
+		
+		
+		"blockDataItems" is the blockDataItem objects of the blocks combined to make this block, put in an array.
+						   Blocks are combined when they are overlapping for a given row
+
+		"startPos" is the start position for the block
+		"endPos" is the end position for the block
+		
+		"rowItem" is an element from the input list "rowItems" for the current row.
+		
+		"callbackDataStorage" is an object tied to this specific block and will be the same object 
+		                       passed to the next two functions listed, "getToolTipText" and "processClick".
+			
+		
+		This function will return the value returned to the click handler.
+		This function normally returns false
+

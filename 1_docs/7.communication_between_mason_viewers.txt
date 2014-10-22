@@ -1,0 +1,22 @@
+
+
+The Mason Viewers can be created to provide communication between them.
+
+This is used for showing block alignment of the currently highlighted block in the other viewers.
+
+This requires calling
+
+MasonViewerRegistryFactory.createMasonViewerRegistry() 
+
+which returns a masonViewerRegistry object 
+
+Then as each masonViewer is created, it is added to the masonViewerRegistry as follows:
+
+		this.config.masonViewerRegistry.addMasonViewer( { itemKey: "sampleItemKey", masonViewer: masonViewer } );
+
+The itemKey has to be unique across all the viewers registered with a specific registry.
+
+If a specific masonViewer needs to be replaced in the registry, just add it again with the same key as the original
+and the new masonViewer will replace the old one in the registry.
+
+

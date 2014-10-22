@@ -1,0 +1,34 @@
+
+The Mason Viewer is written in Javascript.
+
+The Mason Viewer is designed to support a high level of application specific customization
+regarding the color of the blocks, the content of the tool tips, and the click handling.
+
+How to create a Mason Viewer is covered in 2..Creating_A_Mason_Viewer_On_The_Page.txt
+
+The Mason Viewer can be created in multiple divs on the same page (with different data for each one).
+
+
+
+
+Important Items:
+
+1.  The div the Mason Viewer is created in must not be hidden with "display:none" at the time
+       the Mason Viewer is created.  This included all parent divs or other elements.
+       It can be hidden with "visibility:hidden".
+
+2.  If the Mason Viewer (or the div it is created in) needs to be removed from the page with
+	Javascript code, please see the "6.Advanced_Items.txt" file.
+
+3.  The Mason Viewer should not be repeatedly added and removed on the active page.  
+	There appears to be a memory leak that the memory is not freed when the viewer is removed from the page.
+	This is noticable with large viewers ( > 4,000 blocks ) repeatedly added and removed from the page.
+
+
+Other informational aspects:
+
+1.	The Mason Viewer sometimes uses the term "Combined Row" and sometimes uses the term "Totals Row".
+	These are interchangable and mean the same thing.
+	They are referencing the top row of all multi-row Mason Viewers which is a roll up of the data in all the rows.
+	The "Combined Row" can be disabled through configuration if required.   
+
