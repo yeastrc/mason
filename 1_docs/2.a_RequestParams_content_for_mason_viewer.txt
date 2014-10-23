@@ -8,11 +8,14 @@ Explanation of format:
 At the root level of the passed in object:
 	"maxSequenceLength" - the sequence length to map the blocks onto
 	"rowItems" - an array where each entry is one line in the resulting chart
+	"vertLinesCombinedRow" - an optional array where each entry is one vertical line for the "Combined" row of the chart
+	"vertLinesAllRowsItems" - an optional array where each entry is one vertical line that spans all the rows of the chart
 
 An element in the rowItems array contains:
 
 	"label" - the label placed to the left of that line in the chart
-	"blockItems" - an array where each entry is one block for that line of the chart
+	"blockItems" - an array where each entry is one block for that row of the chart
+	"vertLinesItems" - an optional array where each entry is one vertical line for that row of the chart
 	Anything else needed at the row level.  
 
 For a blockItems element:
@@ -22,6 +25,12 @@ For a blockItems element:
 
 	blockData elements are passed to application specific code for color, tool tip, and click handling.
 
+
+Normally, if a particular instance of the Mason viewer will have vertical lines, 
+either "vertLinesAllRowsItems" will be populated 
+or "vertLinesItems" will be populated for each rowItem and "vertLinesCombinedRow" will be populated
+    
+    
 
 The format is:
 
