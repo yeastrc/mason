@@ -5,7 +5,7 @@ To create a Mason Viewer on the page, javascript code calls the following functi
 
 	MasonViewer.createMasonViewer( $rootDiv, requestParams, configParams, callbackFunctionsObj );
 
-This will return a masonViewer object which can be saved in a variable.
+This will return a masonViewer object which should be saved in a variable.
 
 
 The parameters are explained as follows:
@@ -17,4 +17,13 @@ The parameters are explained as follows:
  		
  	requestParams:
  	
- 		A Javascript object that will be explained in the document 3.requestParams_content_for_mason_viewer.txt
+ 		A Javascript object that will be explained in the document 2.a_requestParams_content_for_mason_viewer.txt
+ 		
+ 		
+  The masonViewer object that is created has functions/methods on it that can be called to change the Mason viewer.
+  
+  	To make the vertical lines specified in the request data visible and hidden, call:
+  	
+		masonViewer.showVerticalDataLines();
+
+		masonViewer.hideVerticalDataLines();
