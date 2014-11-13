@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>Protein Sequence Coverage Example</title>
+</head>
+<body>
+<h1>Protein Sequence Coverage Example</h1>
+
+	
+	<a href="../index.html">Example Mason Applications</a>
+	<br><br>
+
+	
+<br/>
+
+<br>
+Show/hide trypsin cut points
+<input type="checkbox" id="show-hide-vertical-data-lines-checkbox-jq" >
+<br>
+<br>
+<div  >
+
+
+	<!-- The viewer will be the width of the div it is created in  -->
+
+	<div id="multi_row_all_features_mason_viewer" style="width: 700px;" ></div>
+
+</div>
+
+<div id="svg-not-supported" style="display: none; text-align: center; color: darkred;" >
+
+	<div >&nbsp;</div>
+	<h3>Unable to show Mason Viewer due to lack of SVG support in this browser</h3>
+	<div >&nbsp;</div>
+	<div >Please use a different browser to view the Mason Viewer.<br/>
+	Possible choices are Firefox, Google Chrome, Internet Explorer version 9 or higher.</div>
+</div>
+
+
+<!-- import required libraries -->
+
+
+<script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" ></script>
+
+<script type="text/javascript"  src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"></script>
+
+<script type="text/javascript"  src="js/libraries/svg.min.js"></script>
+<script type="text/javascript"  src="js/libraries/wz_tooltip-min.js"></script>
+
+
+<!-- import mason viewer js file. -->
+
+
+<!--  import minified file for production. -->
+<!--
+-->
+<script type="text/javascript" src="js/mason_viewer/mason_viewer-min-munged.js"></script>
+
+
+<!-- Optional  import non-minified file for debugging. -->
+<!--
+<script type="text/javascript" src="js/mason_viewer/mason_viewer.js"></script>
+-->
+
+<!-- Import the JS files for this demo from the local folder  -->
+
+
+
+<script type="text/javascript" src="js/example_Multi_row_example_All_Features_sample_data.js"></script>
+
+<script type="text/javascript" src="js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_callbacks.js"></script>
+
+<script type="text/javascript" src="js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_creator.js"></script>
+
+<script type="text/javascript" src="js/example_Multi_row_example_All_Features.js"></script>
+
+</body>
+
+</html>

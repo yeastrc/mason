@@ -1,0 +1,11 @@
+coiled_coil_example.pc2
+from
+530020.pc2
+
+disordered_regions_prediction_example.diso
+from
+530020.diso
+
+secondary_structure_prediction_example.ss2
+from
+530020.ss2
