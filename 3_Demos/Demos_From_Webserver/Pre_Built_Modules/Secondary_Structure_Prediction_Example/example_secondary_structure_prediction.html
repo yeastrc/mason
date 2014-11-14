@@ -1,14 +1,19 @@
 <html>
 <head>
-	<title>Mason Viewer Secondary Structure Prediction</title>
+	<title>Mason Viewer Demo: PSIPRED Module</title>
+	<link rel="stylesheet" type="text/css" href="../../css/demo.css">
+
 </head>
 <body>
-	
-	<a href="../index.html">Pre-built Modules Page</a>
-	<br><br>
 
-	
-<div>Mason Viewer Secondary Structure Prediction</div>
+<div>
+	<a href="../../index.html">Back to Mason Demos</a>
+</div>
+
+
+
+
+<h1>Mason Viewer Pre-Built Module: PSIPRED Secondary Structure Prediction</h1>
 <br/>
 
 
@@ -23,8 +28,8 @@
 
 
 <!-- Optional enclosing div, it must have this class on it.
-		If this div exists, then the search for 
-		"mason-viewer-svg-not-supported" or "mason-viewer-secondary-structure-prediction-failed-to-create" 
+		If this div exists, then the search for
+		"mason-viewer-svg-not-supported" or "mason-viewer-secondary-structure-prediction-failed-to-create"
 		will only take place within this enclosing div.  -->
 <div class="mason-enclosing-div" >
 
@@ -35,33 +40,25 @@
 	<!-- The files must include the path  -->
 
 	<!-- The Mason viewer will be the width (at the time it is created) of the div it is created in. -->
-	<div class="mason-viewer-secondary-structure-prediction" 
-		style="width:700px;" 
+	<div class="mason-viewer-secondary-structure-prediction"
+		style="width:90%;"
 		secondary_structure_prediction_file_uri="Secondary_Structure_Prediction_Files/secondary_structure_prediction_example.ss2"
 		sequence_file_uri="Secondary_Structure_Prediction_Files/matching_protein_sequence.txt"
 		sequence=""
 		></div>
-<!--  
-		sequence_file_uri=""
-		sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"
-
-		sequence_file_uri="secondary-structure-prediction_prediction_files/matching_protein_sequence.txt"
-		sequence=""
--->
-
 
 	<!-- This div will only be shown if creating the mason viewer failed, it must have this class on it -->
 	<div class="mason-viewer-secondary-structure-prediction-failed-to-create" style="display: none; text-align: center; color: darkred;" >
-	
+
 		<div >&nbsp;</div>
 		<h3>Failed to create Mason Viewer</h3>
 		<div >&nbsp;</div>
-	
+
 	</div>
 
 	<!-- This div will only be shown if SVG is not supported, it must have this class on it -->
 	<div class="mason-viewer-svg-not-supported" style="display: none; text-align: center; color: darkred;" >
-	
+
 		<div >&nbsp;</div>
 		<h3>Unable to show Mason Viewer due to lack of SVG support in this browser</h3>
 		<div >&nbsp;</div>
@@ -72,42 +69,32 @@
 </div>
 
 
-<br>
-<br>
-<br>
-<br>
-Configuration in the HTML is:
-<br>
-<br>
-<div style="margin-left: 20px;" >
-	&lt;div class="mason-viewer-coiled-coil"<br> 
+<div style="width:90%;margin-top:20px;margin-bottom:10px;">
+	The above can be achieved for any data files using the HTML below and substituting in the location of your data. Note: The data file must be a PSIPRED data file and must
+	be on the same hostname as the HTML files for security reasons.
+</div>
+
+
+<div>Option 1 (sequence in HTML):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="mason-viewer-coiled-coil"<br>
 		style="width:700px;" <br>
-		secondary_structure_prediction_file_uri="http://my.domain.edu/Secondary_Structure_Prediction_Files/secondary_structure_prediction_example.ss2"
+		secondary_structure_prediction_file_uri="http://my.domain.edu/Secondary_Structure_Prediction_Files/secondary_structure_prediction_example.ss2"<br>
 		sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"<br>
 		&gt;&lt;/div&gt;<br>
 </div>
 
-<br>
-<br>
-or<br>
-<br>
-
-<div style="margin-left: 20px;" >
-	&lt;div class="mason-viewer-coiled-coil"<br> 
+<div style="margin-top:20px;">Option 2 (sequence retrieved from server):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="mason-viewer-coiled-coil"<br>
 		style="width:700px;" <br>
-		secondary_structure_prediction_file_uri="http://my.domain.edu/Secondary_Structure_Prediction_Files/secondary_structure_prediction_example.ss2"
+		secondary_structure_prediction_file_uri="http://my.domain.edu/Secondary_Structure_Prediction_Files/secondary_structure_prediction_example.ss2"<br>
 		sequence_file_uri="http://my.domain.edu/coiled_coil_files/matching_protein_sequence.txt"<br>
 		&gt;&lt;/div&gt;<br>
 </div>
-		
-<br>
-<br>
-The data files must come from the same host name as the web page.		
-<br>
-<br>
-<br>
-<br>
 
+<div style="margin-top:20px;">HTML to import required JavaScript files:</div>
+<div class="code-block" style="margin-left: 20px;" >
 &lt;script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" &gt;&lt;/script&gt;<br>
 
 &lt;script type="text/javascript"  src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"&gt;&lt;/script&gt;<br>
@@ -122,7 +109,7 @@ The data files must come from the same host name as the web page.
 &lt;script type="text/javascript" src="js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_creator.js"&gt;&lt;/script&gt;<br>
 
 &lt;script type="text/javascript" src="js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_HTML_config_loader.js"&gt;&lt;/script&gt;<br>
-
+</div>
 
 <!-- import required libraries -->
 

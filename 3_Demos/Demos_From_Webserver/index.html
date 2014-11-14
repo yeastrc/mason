@@ -4,15 +4,131 @@
 </head>
 <body>
 
-	<h2>Mason Demos</h2>	
-	
-	<br><br>
-	<a href="Pre_Built_Modules/index.html">Pre-built Mason Modules</a>
-	
-	<br><br>
-	<a href="Example_Applications/index.html">Example_Applications</a>
-	
+	<h1>Mason Demos</h1>
 
-	
+	<div>Welcome to the Mason demo site. Mason is a JavaScript and SVG sequence feature annotation viewer that may be integrated into
+	web sites. Mason source code and documentation may be found at our
+	<a href="https://github.com/yeastrc/mason/">GitHub site</a>.</div>
+
+
+	<div>
+	<h2>Pre-Built Modules</h2>
+	<div>Below are four pre-built modules for displaying four types of sequence annotation data: coiled-coil predictions, transmembrane and signal
+	peptide predictions, disordered regions predictions, and secondary structure predictions.</div>
+
+
+	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
+		<div style="font-weight:bold;margin-bottom:10px;">Paircoil2 coiled-coil module:
+		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Coiled_coil_prediction_example/example_Coiled_coil_prediction.html">Code and details</a>]</span></div>
+		<div class="mason-viewer-coiled-coil"
+			style="width:90%;"
+			paircoil2_file_uri="Pre_Built_Modules/Coiled_coil_prediction_example/coiled_coil_files/coiled_coil_example.pc2"
+			sequence_file_uri="Pre_Built_Modules/Coiled_coil_prediction_example/coiled_coil_files/matching_protein_sequence.txt"
+			sequence=""
+		></div>
+	</div>
+
+	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
+		<div style="font-weight:bold;margin-bottom:10px;">Philius transmembrane and signal peptide module:
+		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Philius_Example/example_philius.html">Code and details</a>]</span></div>
+		<div class="mason-viewer-philius"
+			style="width:90%;"
+			sequence_file_uri=""
+			sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"
+		></div>
+	</div>
+
+	<div style="margin-top:40px;float:left;width:45%;text-align:left;">
+		<div style="font-weight:bold;margin-bottom:10px;">DISOPRED disordered regions module: <span style="font-weight:normal;">
+		[<a href="Pre_Built_Modules/Disordered_regions_prediction_Example/example_disordered_regions_prediction.html">Code and details</a>]</span></div>
+		<div class="mason-viewer-disordered-regions"
+			style="width:90%;"
+			disordered_regions_file_uri="Pre_Built_Modules/Disordered_regions_prediction_Example/disordered_regions_prediction_files/disordered_regions_prediction_example.diso"
+			sequence_file_uri="Pre_Built_Modules/Disordered_regions_prediction_Example/disordered_regions_prediction_files/matching_protein_sequence.txt"
+			sequence=""
+		></div>
+	</div>
+
+	<div style="margin-top:40px;float:left;width:45%;text-align:left;">
+		<div style="font-weight:bold;margin-bottom:10px;">PSIPRED secondary structure prediction module:
+		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Secondary_Structure_Prediction_Example/example_secondary_structure_prediction.html">Code and details</a>]</span></div>
+		<div class="mason-viewer-secondary-structure-prediction"
+			style="width:90%;"
+			secondary_structure_prediction_file_uri="Pre_Built_Modules/Secondary_Structure_Prediction_Example/Secondary_Structure_Prediction_Files/secondary_structure_prediction_example.ss2"
+			sequence_file_uri="Pre_Built_Modules/Secondary_Structure_Prediction_Example/Secondary_Structure_Prediction_Files/matching_protein_sequence.txt"
+			sequence=""
+		></div>
+	</div>
+
+
+	</div>
+
+
+	<div style="clear:both;"></div>
+
+	<div style="margin-top:40px;">
+	<h2>Example applications:</h2>
+	<div>Below are four pre-built modules for displaying four types of sequence annotation data: coiled-coil predictions, transmembrane and signal
+	peptide predictions, disordered regions predictions, and secondary structure predictions.</div>
+
+
+	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
+		<div style="font-weight:bold;margin-bottom:10px;">Protein sequence coverage and quality from proteomics experiments:</div>
+			Show/hide trypsin cut points
+			<input type="checkbox" id="show-hide-vertical-data-lines-checkbox-jq" >
+	<br>
+			<div id="multi_row_all_features_mason_viewer" style="width: 90%;" ></div>
+	</div>
+
+	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
+		<div style="font-weight:bold;margin-bottom:10px;">Philius transmembrane and signal peptide module:
+		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Philius_Example/example_philius.html">Code and details</a>]</span></div>
+
+
+	</div>
+
+
+
+
+	</div>
+
+
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/jquery-1.8.0.min.js" ></script>
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/modernizr.v2.7.1__custom.39924_min.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/svg.min.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/wz_tooltip-min.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/mason_viewer/mason_viewer-min-munged.js"></script>
+
+<script type="text/javascript" src="Pre_Built_Modules/Disordered_regions_prediction_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_callbacks.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Disordered_regions_prediction_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_creator.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Disordered_regions_prediction_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_HTML_config_loader.js"></script>
+
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/coiled_coil_mason_viewer_related_code/coiled_coil_prediction_callbacks.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/coiled_coil_mason_viewer_related_code/coiled_coil_prediction_creator.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/coiled_coil_mason_viewer_related_code/coiled_coil_prediction_HTML_config_loader.js"></script>
+
+<script type="text/javascript" src="Pre_Built_Modules/Philius_Example/js/philius__mason_viewer_related_code/philius_callbacks.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Philius_Example/js/philius__mason_viewer_related_code/philius_creator.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Philius_Example/js/philius__mason_viewer_related_code/philius_HTML_config_loader.js"></script>
+
+<script type="text/javascript" src="Pre_Built_Modules/Secondary_Structure_Prediction_Example/js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_callbacks.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Secondary_Structure_Prediction_Example/js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_creator.js"></script>
+<script type="text/javascript" src="Pre_Built_Modules/Secondary_Structure_Prediction_Example/js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_HTML_config_loader.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/example_Multi_row_example_All_Features_sample_data.js"></script>
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_callbacks.js"></script>
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_creator.js"></script>
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/example_Multi_row_example_All_Features.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/example_PeptideAtlas_sample_data.js"></script>
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/peptide_atlas_mason_viewer_related_code/peptide_atlas_callbacks.js"></script>
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/peptide_atlas_mason_viewer_related_code/peptide_atlas_creator.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/mason_viewer/mason_viewer_registry.js"></script>
+
+
+<script type="text/javascript" src="js/example_Multiple_Viewers.js"></script>
+
+
 </body>
 </html>

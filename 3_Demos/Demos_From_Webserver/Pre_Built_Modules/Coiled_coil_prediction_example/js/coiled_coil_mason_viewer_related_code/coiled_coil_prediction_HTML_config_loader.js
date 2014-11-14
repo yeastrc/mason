@@ -1,9 +1,9 @@
 
 //   coiled_coil_prediction_HTML_config_loader.js
 
-//   This is the code that finds the 
+//   This is the code that finds the
 
-//   Coiled Coil Mason Viewer Divs and gets the 
+//   Coiled Coil Mason Viewer Divs and gets the
 
 //   data for creating for the Coiled Coil Prediction viewer
 
@@ -22,15 +22,15 @@
 //jQuery method of running code when page is loaded
 
 $(document).ready( function(){
-	
-	
 
-	//  Run on a separate event so an error 
+
+
+	//  Run on a separate event so an error
 	//  doesn't stop anything else from running on document ready.
 
 	setTimeout(function(){
-	
-	
+
+
 		var $mason_viewer_coiled_coil = $(".mason-viewer-coiled-coil");
 
 		if ( $mason_viewer_coiled_coil.length === 0 ) {
@@ -70,25 +70,25 @@ $(document).ready( function(){
 				}
 
 
-				var parcoil2_file_uri = $masonViewerRootDiv.attr("parcoil2_file_uri");
+				var paircoil2_file_uri = $masonViewerRootDiv.attr("paircoil2_file_uri");
 
 				var sequence_file_uri = $masonViewerRootDiv.attr("sequence_file_uri");
 
 				var sequence = $masonViewerRootDiv.attr("sequence");
 
-				if ( parcoil2_file_uri === undefined || parcoil2_file_uri === null || 
-						parcoil2_file_uri === "" ) {
+				if ( paircoil2_file_uri === undefined || paircoil2_file_uri === null ||
+						paircoil2_file_uri === "" ) {
 
 
 					$mason_viewer_failed_to_create.show();
 
-					throw "parcoil2_file_uri must have a value";
+					throw "paircoil2_file_uri must have a value";
 				}
 
 
-				if ( ( sequence_file_uri === undefined || sequence_file_uri === null || 
+				if ( ( sequence_file_uri === undefined || sequence_file_uri === null ||
 						sequence_file_uri === "" ) &&
-						( sequence === undefined || sequence === null || 
+						( sequence === undefined || sequence === null ||
 								sequence === "" ) ) {
 
 
@@ -97,7 +97,7 @@ $(document).ready( function(){
 					throw "sequence or sequence_file_uri must have a value";
 				}
 
-				if ( sequence === undefined || sequence === null || 
+				if ( sequence === undefined || sequence === null ||
 						sequence === "" ) {
 
 					sequence = undefined; // standardize value for further processing
@@ -105,13 +105,13 @@ $(document).ready( function(){
 
 
 				var create_MasonViewer_CoiledCoil_ConstructorParams =
-				{ config: 
-				{ 
+				{ config:
+				{
 
-					pScoreCutoff_CONSTANT : 0.1,		
+					pScoreCutoff_CONSTANT : 0.1,
 
 					//  filenames for coiled coil file and sequence file
-					parcoil2_file_uri: parcoil2_file_uri,
+					paircoil2_file_uri: paircoil2_file_uri,
 					sequence_file_uri: sequence_file_uri,
 					sequence: sequence,
 
@@ -129,7 +129,7 @@ $(document).ready( function(){
 
 
 		});
-		
+
 
 	}, 10);
 

@@ -1,24 +1,25 @@
 <html>
 <head>
-	<title>Mason Viewer Philius</title>
+	<title>Mason Viewer Demo: Philius transmembrane predictions</title>
+	<link rel="stylesheet" type="text/css" href="../../css/demo.css">
+
 </head>
 <body>
-	
-	<a href="../index.html">Pre-built Modules Page</a>
-	<br><br>
+
+<div>
+	<a href="../../index.html">Back to Mason Demos</a>
+</div>
 
 
 
-	
-	
-<div>Mason Viewer Philius</div>
+
+<h1>Mason Viewer Pre-Built Module: Philius transmembrane predictions</h1>
 <br/>
 
 
-
 <!-- Optional enclosing div, it must have this class on it.
-		If this div exists, then the search for 
-		"mason-viewer-svg-not-supported" or "mason-viewer-disordered_regions-failed-to-create" 
+		If this div exists, then the search for
+		"mason-viewer-svg-not-supported" or "mason-viewer-disordered_regions-failed-to-create"
 		will only take place within this enclosing div.  -->
 <div class="mason-enclosing-div" >
 
@@ -29,12 +30,12 @@
 	<!-- The files must include the path  -->
 
 	<!-- The Mason viewer will be the width (at the time it is created) of the div it is created in. -->
-	<div class="mason-viewer-philius" 
-		style="width:700px;" 
+	<div class="mason-viewer-philius"
+		style="width:90%;"
 		sequence_file_uri=""
 		sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"
 		></div>
-<!--  
+<!--
 		sequence_file_uri=""
 		sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"
 
@@ -45,16 +46,16 @@
 
 	<!-- This div will only be shown if creating the mason viewer failed, it must have this class on it -->
 	<div class="mason-viewer-philius-failed-to-create" style="display: none; text-align: center; color: darkred;" >
-	
+
 		<div >&nbsp;</div>
 		<h3>Failed to create Mason Viewer</h3>
 		<div >&nbsp;</div>
-	
+
 	</div>
 
 	<!-- This div will only be shown if SVG is not supported, it must have this class on it -->
 	<div class="mason-viewer-svg-not-supported" style="display: none; text-align: center; color: darkred;" >
-	
+
 		<div >&nbsp;</div>
 		<h3>Unable to show Mason Viewer due to lack of SVG support in this browser</h3>
 		<div >&nbsp;</div>
@@ -65,40 +66,32 @@
 </div>
 
 
-<br>
-<br>
-<br>
-<br>
-Configuration in the HTML is:
-<br>
-<br>
-<div style="margin-left: 20px;" >
-	&lt;div class="mason-viewer-philius"<br> 
+<div style="width:90%;margin-top:20px;margin-bottom:10px;">
+	The above can be achieved for any data files using the HTML below and substituting in the location of your data. Note: The sequence file must be on the same hostname as the HTML files for security reasons.
+</div>
+
+
+<div>Option 1 (sequence in HTML):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="mason-viewer-philius"<br>
 		style="width:700px;" <br>
 		sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"<br>
 		&gt;&lt;/div&gt;<br>
 </div>
 
-<br>
-<br>
-or<br>
-<br>
 
-<div style="margin-left: 20px;" >
-	&lt;div class="mason-viewer-philius"<br> 
+<div style="margin-top:20px;">Option 2 (sequence retrieved from server):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="mason-viewer-philius"<br>
 		style="width:700px;" <br>
 		sequence_file_uri="http://my.domain.edu/Philius_files/matching_protein_sequence.txt"<br>
 		&gt;&lt;/div&gt;<br>
 </div>
-		
-<br>
-<br>
-The data files must come from the same host name as the web page.		
-<br>
-<br>
-<br>
-<br>
 
+
+
+<div style="margin-top:20px;">HTML to import required JavaScript files:</div>
+<div class="code-block" style="margin-left: 20px;" >
 &lt;script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" &gt;&lt;/script&gt;<br>
 
 &lt;script type="text/javascript"  src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"&gt;&lt;/script&gt;<br>
@@ -114,6 +107,7 @@ The data files must come from the same host name as the web page.
 &lt;script type="text/javascript" src="js/philius__mason_viewer_related_code/philius_creator.js"&gt;&lt;/script&gt;<br>
 
 &lt;script type="text/javascript" src="js/philius__mason_viewer_related_code/philius_HTML_config_loader.js"&gt;&lt;/script&gt;<br>
+</div>
 
 
 <!-- import required libraries -->

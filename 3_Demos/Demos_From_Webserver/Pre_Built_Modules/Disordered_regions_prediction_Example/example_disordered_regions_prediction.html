@@ -1,22 +1,25 @@
 <html>
 <head>
-	<title>Mason Viewer Disordered Regions Prediction</title>
+	<title>Mason Viewer Demo: DISOPRED Module</title>
+	<link rel="stylesheet" type="text/css" href="../../css/demo.css">
+
 </head>
 <body>
-	
-	<a href="../index.html">Pre-built Modules Page</a>
-	<br><br>
+
+<div>
+	<a href="../../index.html">Back to Mason Demos</a>
+</div>
 
 
 
-	
-<div>Mason Viewer Disordered Regions Prediction</div>
+
+<h1>Mason Viewer Pre-Built Module: DISOPRED Disordered Regions</h1>
 <br/>
 
 
 <!-- Optional enclosing div, it must have this class on it.
-		If this div exists, then the search for 
-		"mason-viewer-svg-not-supported" or "mason-viewer-disordered-regions-failed-to-create" 
+		If this div exists, then the search for
+		"mason-viewer-svg-not-supported" or "mason-viewer-disordered-regions-failed-to-create"
 		will only take place within this enclosing div.  -->
 <div class="mason-enclosing-div" >
 
@@ -27,33 +30,26 @@
 	<!-- The files must include the path  -->
 
 	<!-- The Mason viewer will be the width (at the time it is created) of the div it is created in. -->
-	<div class="mason-viewer-disordered-regions" 
-		style="width:700px;" 
+	<div class="mason-viewer-disordered-regions"
+		style="width:90%;"
 		disordered_regions_file_uri="disordered_regions_prediction_files/disordered_regions_prediction_example.diso"
 		sequence_file_uri="disordered_regions_prediction_files/matching_protein_sequence.txt"
 		sequence=""
 		></div>
-<!--  
-		sequence_file_uri=""
-		sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"
-
-		sequence_file_uri="disordered_regions_prediction_files/matching_protein_sequence.txt"
-		sequence=""
--->
 
 
 	<!-- This div will only be shown if creating the mason viewer failed, it must have this class on it -->
 	<div class="mason-viewer-disordered-regions-failed-to-create" style="display: none; text-align: center; color: darkred;" >
-	
+
 		<div >&nbsp;</div>
 		<h3>Failed to create Mason Viewer</h3>
 		<div >&nbsp;</div>
-	
+
 	</div>
 
 	<!-- This div will only be shown if SVG is not supported, it must have this class on it -->
 	<div class="mason-viewer-svg-not-supported" style="display: none; text-align: center; color: darkred;" >
-	
+
 		<div >&nbsp;</div>
 		<h3>Unable to show Mason Viewer due to lack of SVG support in this browser</h3>
 		<div >&nbsp;</div>
@@ -64,42 +60,33 @@
 </div>
 
 
-<br>
-<br>
-<br>
-<br>
-Configuration in the HTML is:
-<br>
-<br>
-<div style="margin-left: 20px;" >
-	&lt;div class="mason-viewer-disordered-regions"<br> 
+<div style="width:90%;margin-top:20px;margin-bottom:10px;">
+	The above can be achieved for any data files using the HTML below and substituting in the location of your data. Note: The data file must be a DISOPRED data file and must
+	be on the same hostname as the HTML files for security reasons.
+</div>
+
+
+<div>Option 1 (sequence in HTML):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="mason-viewer-disordered-regions"<br>
 		style="width:700px;" <br>
-		disordered_regions_file_uri="http://my.domain.edu/disordered_regions_prediction_files/disordered_regions_prediction_example.diso"
+		disordered_regions_file_uri="http://my.domain.edu/disordered_regions_prediction_files/disordered_regions_prediction_example.diso"<br>
 		sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"<br>
 		&gt;&lt;/div&gt;<br>
 </div>
 
-<br>
-<br>
-or<br>
-<br>
-
-<div style="margin-left: 20px;" >
-	&lt;div class="mason-viewer-disordered-regions"<br> 
+<div style="margin-top:20px;">Option 2 (sequence retrieved from server):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="mason-viewer-disordered-regions"<br>
 		style="width:700px;" <br>
-		disordered_regions_file_uri="http://my.domain.edu/disordered_regions_prediction_files/disordered_regions_prediction_example.diso"
+		disordered_regions_file_uri="http://my.domain.edu/disordered_regions_prediction_files/disordered_regions_prediction_example.diso"<br>
 		sequence_file_uri="disordered_regions_prediction_files/matching_protein_sequence.txt"
 		&gt;&lt;/div&gt;<br>
 </div>
-		
-<br>
-<br>
-The data files must come from the same host name as the web page.		
-<br>
-<br>
-<br>
-<br>
 
+
+<div style="margin-top:20px;">HTML to import required JavaScript files:</div>
+<div class="code-block" style="margin-left: 20px;" >
 &lt;script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" &gt;&lt;/script&gt;<br>
 
 &lt;script type="text/javascript"  src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"&gt;&lt;/script&gt;<br>
@@ -116,7 +103,7 @@ The data files must come from the same host name as the web page.
 
 &lt;script type="text/javascript" src="js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_HTML_config_loader.js"&gt;&lt;/script&gt;<br>
 
-		
+</div>
 
 <!-- import required libraries -->
 
