@@ -99,7 +99,7 @@ $(document).ready( function(){
 				}
 
 
-				var create_MasonViewer_DisorderedRegions_ConstructorParams =
+				var create_MasonViewer_DisorderedRegions_Pre_Built_ConstructorParams =
 				{ config: 
 				{ 
 
@@ -112,9 +112,9 @@ $(document).ready( function(){
 					$svgNotSupportedDiv: $svg_not_supported,
 					$mason_viewer_failed_to_create: $mason_viewer_failed_to_create } };
 
-				var create_MasonViewer_DisorderedRegions = new Create_MasonViewer_DisorderedRegions( create_MasonViewer_DisorderedRegions_ConstructorParams );
+				var create_MasonViewer_DisorderedRegions_Pre_Built = new Create_MasonViewer_DisorderedRegions_Pre_Built( create_MasonViewer_DisorderedRegions_Pre_Built_ConstructorParams );
 
-				create_MasonViewer_DisorderedRegions.createCoverageMapIfNotCreated();
+				create_MasonViewer_DisorderedRegions_Pre_Built.createCoverageMapIfNotCreated();
 
 
 			}, 10);

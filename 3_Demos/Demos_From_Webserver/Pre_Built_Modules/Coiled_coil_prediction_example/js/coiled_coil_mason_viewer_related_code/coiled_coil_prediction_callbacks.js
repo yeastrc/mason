@@ -357,7 +357,7 @@
 	
 	//  Function to create the top level classes, put them in an object, and return them 
 	
-	var masonViewerPeptipediaCoiledCoilCallbacksCreator = function( param ){
+	var masonViewer_CoiledCoil_Pre_Built_CallbacksCreator = function( param ){
 
 		var mainRowsLabel_callbackFunctions = new MainRowsLabel_callbackFunctions( param );
 
@@ -371,7 +371,7 @@
 	};
 
 	
-	window.masonViewerPeptipediaCoiledCoilCallbacksCreator = masonViewerPeptipediaCoiledCoilCallbacksCreator;
+	window.masonViewer_CoiledCoil_Pre_Built_CallbacksCreator = masonViewer_CoiledCoil_Pre_Built_CallbacksCreator;
 
 
 })( window );

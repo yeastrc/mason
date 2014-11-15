@@ -21,7 +21,7 @@
 
 
  //  constructor
-var Create_MasonViewer_SecondaryStructure = function( params ) {
+var Create_MasonViewer_SecondaryStructure_Pre_Built = function( params ) {
 
 
 	this.coverageMapCreated = false; //
@@ -54,10 +54,10 @@ var Create_MasonViewer_SecondaryStructure = function( params ) {
 
 
 
-Create_MasonViewer_SecondaryStructure.prototype.VIEWER_ROW_LABEL = "Secondary Struct.";  
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.VIEWER_ROW_LABEL = "Secondary Struct.";  
 
 	
-Create_MasonViewer_SecondaryStructure.prototype.SECONDARY_STRUCTURE_TYPE_CONSTANTS = {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.SECONDARY_STRUCTURE_TYPE_CONSTANTS = {
 		
 			 BETA_SHEET : "E",
 			 ALPHA_HELIX : "H",
@@ -70,7 +70,7 @@ Create_MasonViewer_SecondaryStructure.prototype.SECONDARY_STRUCTURE_TYPE_CONSTAN
 
 /////////////
 
-Create_MasonViewer_SecondaryStructure.prototype.isCoverageMapCreated = function(  ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.isCoverageMapCreated = function(  ) {
 
 	return this.coverageMapCreated;
 };
@@ -78,14 +78,14 @@ Create_MasonViewer_SecondaryStructure.prototype.isCoverageMapCreated = function(
 
 /////////////
 
-Create_MasonViewer_SecondaryStructure.prototype.setCoverageMapCreated = function( param ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.setCoverageMapCreated = function( param ) {
 
 	this.coverageMapCreated = param;
 };
 
 
 
-Create_MasonViewer_SecondaryStructure.prototype.createCoverageMapIfNotCreated = function(  ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.createCoverageMapIfNotCreated = function(  ) {
 
 	if ( ! this.isCoverageMapCreated() ) {
 
@@ -101,7 +101,7 @@ Create_MasonViewer_SecondaryStructure.prototype.createCoverageMapIfNotCreated = 
 
 //
 
-Create_MasonViewer_SecondaryStructure.prototype.createCoverageMap = function(  ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.createCoverageMap = function(  ) {
 
 	var objectThis = this;
 
@@ -149,7 +149,7 @@ Create_MasonViewer_SecondaryStructure.prototype.createCoverageMap = function(  )
 
 
 
-Create_MasonViewer_SecondaryStructure.prototype.createCoverageMapMain = function( param ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.createCoverageMapMain = function( param ) {
 
 
 	var objectThis = this;
@@ -203,7 +203,7 @@ Create_MasonViewer_SecondaryStructure.prototype.createCoverageMapMain = function
 
 ////////////////////////////////
 
-Create_MasonViewer_SecondaryStructure.prototype.createCoverageMapMainProcessResponse = function( param ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.createCoverageMapMainProcessResponse = function( param ) {
 
 
 
@@ -236,7 +236,7 @@ Create_MasonViewer_SecondaryStructure.prototype.createCoverageMapMainProcessResp
 		var configParams = {};
 
 		
-		var callbackFunctionsObj = masonViewerPeptipediaSecondaryStructureCallbacksCreator( { config: null } );
+		var callbackFunctionsObj = masonViewer_SecondaryStructure_Pre_Built_CallbacksCreator( { config: null } );
 
 
 
@@ -275,7 +275,7 @@ Create_MasonViewer_SecondaryStructure.prototype.createCoverageMapMainProcessResp
 
 //            Always have one row, even if empty
 
-Create_MasonViewer_SecondaryStructure.prototype.createMasonViewerInputData = function( param  ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.createMasonViewerInputData = function( param  ) {
 
 
 	var secondaryStructureDataFileFromServer = param.secondaryStructureDataFileFromServer;
@@ -393,7 +393,7 @@ Create_MasonViewer_SecondaryStructure.prototype.createMasonViewerInputData = fun
 
 ///////////////////////////////////
 
-Create_MasonViewer_SecondaryStructure.prototype.addGroupToArray = function( param ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.addGroupToArray = function( param ) {
 	
 	var blockData = { type: param.type };
 
@@ -408,7 +408,7 @@ Create_MasonViewer_SecondaryStructure.prototype.addGroupToArray = function( para
 
 ///////////////////////////////////
 
-Create_MasonViewer_SecondaryStructure.prototype.loadMatchingProteinSequence = function ( param ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.loadMatchingProteinSequence = function ( param ) {
 
 	var objectThis = this;
 	
@@ -465,7 +465,7 @@ Create_MasonViewer_SecondaryStructure.prototype.loadMatchingProteinSequence = fu
 
 ///////////////////////////////////
 
-Create_MasonViewer_SecondaryStructure.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
+Create_MasonViewer_SecondaryStructure_Pre_Built.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
 
 	var data = param.data;
 

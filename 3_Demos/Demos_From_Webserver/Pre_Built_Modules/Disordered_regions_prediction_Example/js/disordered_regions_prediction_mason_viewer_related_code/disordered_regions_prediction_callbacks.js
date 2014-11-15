@@ -364,7 +364,7 @@
 //		var blockDataItem = blockDataItems[ 0 ];
 
 		return false;  // return what should be returned to the final click handler
-	}
+	};
 
 
 	
@@ -373,7 +373,7 @@
 	
 	//  Function to create the top level classes, put them in an object, and return them 
 	
-	var masonViewerPeptipediaDisorderedRegionsCallbacksCreator = function( param ){
+	var masonViewer_DisorderedRegions_Pre_Built_CallbacksCreator = function( param ){
 
 		var mainRowsLabel_callbackFunctions = new MainRowsLabel_callbackFunctions( param );
 
@@ -387,7 +387,7 @@
 	};
 
 	
-	window.masonViewerPeptipediaDisorderedRegionsCallbacksCreator = masonViewerPeptipediaDisorderedRegionsCallbacksCreator;
+	window.masonViewer_DisorderedRegions_Pre_Built_CallbacksCreator = masonViewer_DisorderedRegions_Pre_Built_CallbacksCreator;
 
 
 })( window );

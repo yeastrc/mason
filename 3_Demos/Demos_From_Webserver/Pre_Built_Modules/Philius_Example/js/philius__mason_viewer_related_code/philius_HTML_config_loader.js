@@ -87,7 +87,7 @@ $(document).ready( function(){
 				}
 
 
-				var create_MasonViewer_Philius_ConstructorParams =
+				var create_MasonViewer_Philius_Pre_Built_ConstructorParams =
 				{ config: 
 				{ 
 
@@ -99,11 +99,10 @@ $(document).ready( function(){
 					$svgNotSupportedDiv: $svg_not_supported,
 					$mason_viewer_failed_to_create: $mason_viewer_failed_to_create } };
 
-				var create_MasonViewer_Philius = new Create_MasonViewer_Philius( create_MasonViewer_Philius_ConstructorParams );
+				var create_MasonViewer_Philius_Pre_Built = new Create_MasonViewer_Philius_Pre_Built( create_MasonViewer_Philius_Pre_Built_ConstructorParams );
 
-				create_MasonViewer_Philius.createCoverageMapIfNotCreated();
-
-
+				create_MasonViewer_Philius_Pre_Built.createCoverageMapIfNotCreated();
+				
 			}, 10);
 
 

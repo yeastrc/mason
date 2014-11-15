@@ -104,7 +104,7 @@ $(document).ready( function(){
 				}
 
 
-				var create_MasonViewer_CoiledCoil_ConstructorParams =
+				var create_MasonViewer_CoiledCoil_Pre_Built_ConstructorParams =
 				{ config:
 				{
 
@@ -120,9 +120,9 @@ $(document).ready( function(){
 					$svgNotSupportedDiv: $svg_not_supported,
 					$mason_viewer_failed_to_create: $mason_viewer_failed_to_create } };
 
-				var create_MasonViewer_CoiledCoil = new Create_MasonViewer_CoiledCoil( create_MasonViewer_CoiledCoil_ConstructorParams );
+				var create_MasonViewer_CoiledCoil_Pre_Built = new Create_MasonViewer_CoiledCoil_Pre_Built( create_MasonViewer_CoiledCoil_Pre_Built_ConstructorParams );
 
-				create_MasonViewer_CoiledCoil.createCoverageMapIfNotCreated();
+				create_MasonViewer_CoiledCoil_Pre_Built.createCoverageMapIfNotCreated();
 
 
 			}, 10);

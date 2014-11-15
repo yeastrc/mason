@@ -75,14 +75,84 @@
 	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
 		<div style="font-weight:bold;margin-bottom:10px;">Protein sequence coverage and quality from proteomics experiments:</div>
 			Show/hide trypsin cut points
-			<input type="checkbox" id="show-hide-vertical-data-lines-checkbox-jq" >
+			<input type="checkbox" id="protein_sequence_coverage_example_show_hide_vertical_data_lines_checkbox_jq" >
 	<br>
-			<div id="multi_row_all_features_mason_viewer" style="width: 90%;" ></div>
+			<div id="protein_sequence_coverage_example_mason_viewer" style="width: 90%;" ></div>
 	</div>
 
 	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
-		<div style="font-weight:bold;margin-bottom:10px;">Philius transmembrane and signal peptide module:
-		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Philius_Example/example_philius.html">Code and details</a>]</span></div>
+		<div style="font-weight:bold;margin-bottom:10px;">
+		
+			Multi-viewer
+		
+		</div>
+
+
+		
+		Show/hide trypsin cut points
+		<input type="checkbox" id="multi_row_show-hide-vertical-data-lines-checkbox-jq" >
+		<br>
+		<div  >
+		
+		
+			<!-- The viewer will be the width of the div it is created in  -->
+		
+			<div id="multi_row_all_features_mason_viewer" style="width: 90%;" ></div>
+		
+		</div>
+		
+		
+		<br>
+		Show/hide trypsin cut points
+		<input type="checkbox" id="peptide-atlas-show-hide-vertical-data-lines-checkbox-jq" >
+		<br>
+		<div  >
+		
+		
+			<!-- The viewer will be the width of the div it is created in  -->
+		
+			<div id="peptide_atlas_mason_viewer" style="width: 90%;" ></div>
+		
+		</div>
+		
+		
+		<div  >
+		
+		
+			<!-- The viewer will be the width of the div it is created in  -->
+		
+			<div id="philius-mason-viewer" style="width: 90%;" ></div>
+		</div>
+		
+		<div  >
+		
+		
+			<!-- The viewer will be the width of the div it is created in  -->
+		
+			<div id="secondary-structure-prediction-mason-viewer" style="width: 90%;" ></div>
+		
+		</div>
+		
+		
+		<div  >
+		
+			<!-- The viewer will be the width of the div it is created in  -->
+		
+			<div id="coiled-coil-mason-viewer" style="width: 90%;" ></div>
+		
+		</div>
+		
+		
+		<div  >
+		
+			<!-- The viewer will be the width of the div it is created in  -->
+		
+			<div id="disordered-regions-prediction-mason-viewer" style="width: 90%;" ></div>
+		</div>
+		
+		
+
+
 
 
 	</div>
@@ -115,19 +185,68 @@
 <script type="text/javascript" src="Pre_Built_Modules/Secondary_Structure_Prediction_Example/js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_creator.js"></script>
 <script type="text/javascript" src="Pre_Built_Modules/Secondary_Structure_Prediction_Example/js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_HTML_config_loader.js"></script>
 
-<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/example_Multi_row_example_All_Features_sample_data.js"></script>
-<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_callbacks.js"></script>
-<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_creator.js"></script>
-<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/example_Multi_row_example_All_Features.js"></script>
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/Protein_Sequence_Coverage_Example_sample_data.js"></script>
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/Protein_Sequence_Coverage_Example_mason_viewer_related_code/Protein_Sequence_Coverage_Example_callbacks.js"></script>
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/Protein_Sequence_Coverage_Example_mason_viewer_related_code/Protein_Sequence_Coverage_Example_creator.js"></script>
+<script type="text/javascript" src="Example_Applications/Protein_Sequence_Coverage_Example/js/Protein_Sequence_Coverage_Example.js"></script>
 
-<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/example_PeptideAtlas_sample_data.js"></script>
-<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/peptide_atlas_mason_viewer_related_code/peptide_atlas_callbacks.js"></script>
-<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/peptide_atlas_mason_viewer_related_code/peptide_atlas_creator.js"></script>
 
+
+
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/load_matching_protein_sequence.js"></script>
 <script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/mason_viewer/mason_viewer_registry.js"></script>
 
 
-<script type="text/javascript" src="js/example_Multiple_Viewers.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/example_Multi_row_example_All_Features_sample_data.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/multi_row__all_features_mason_viewer_related_code/multi_row__all_features_creator.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/example_PeptideAtlas_sample_data.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/peptide_atlas_mason_viewer_related_code/peptide_atlas_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/peptide_atlas_mason_viewer_related_code/peptide_atlas_creator.js"></script>
+
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/philius__mason_viewer_related_code/philius_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/philius__mason_viewer_related_code/philius_creator.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/secondary_structure_prediction_mason_viewer_related_code/secondary_structure_prediction_creator.js"></script>
+
+
+
+
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/coiled_coil_mason_viewer_related_code/coiled_coil_prediction_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/coiled_coil_mason_viewer_related_code/coiled_coil_prediction_creator.js"></script>
+
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_creator.js"></script>
+
+
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/coiled_coil_mason_viewer_related_code/coiled_coil_prediction_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/coiled_coil_mason_viewer_related_code/coiled_coil_prediction_creator.js"></script>
+
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_callbacks.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_creator.js"></script>
+
+<script type="text/javascript" src="Example_Applications/Multiple_Viewers_on_One_Page_Example/js/example_Multiple_Viewers.js"></script>
+
+
 
 
 </body>

@@ -401,7 +401,7 @@
 	
 	//  Function to create the top level classes, put them in an object, and return them 
 	
-	var masonViewerPeptipediaSecondaryStructureCallbacksCreator = function( param ){
+	var masonViewer_SecondaryStructure_Pre_Built_CallbacksCreator = function( param ){
 
 		var mainRowsLabel_callbackFunctions = new MainRowsLabel_callbackFunctions( param );
 
@@ -415,7 +415,7 @@
 	};
 
 	
-	window.masonViewerPeptipediaSecondaryStructureCallbacksCreator = masonViewerPeptipediaSecondaryStructureCallbacksCreator;
+	window.masonViewer_SecondaryStructure_Pre_Built_CallbacksCreator = masonViewer_SecondaryStructure_Pre_Built_CallbacksCreator;
 
 
 })( window );

@@ -22,7 +22,7 @@
 
 
  //  constructor
-var Create_MasonViewer_Philius = function( params ) {
+var Create_MasonViewer_Philius_Pre_Built = function( params ) {
 
 
 	this.coverageMapCreated = false; //
@@ -52,14 +52,14 @@ var Create_MasonViewer_Philius = function( params ) {
 
 //  4 minutes max wait time for Philius job to complete
 
-Create_MasonViewer_Philius.prototype.TOTAL_ALLOWED_WAIT_FOR_PHILIUS_JOB_TO_COMPLETE_TIME = 4 * 60 * 1000;  
+Create_MasonViewer_Philius_Pre_Built.prototype.TOTAL_ALLOWED_WAIT_FOR_PHILIUS_JOB_TO_COMPLETE_TIME = 4 * 60 * 1000;  
 
 
 
-Create_MasonViewer_Philius.prototype.VIEWER_ROW_LABEL = "TM and SP";  
+Create_MasonViewer_Philius_Pre_Built.prototype.VIEWER_ROW_LABEL = "TM and SP";  
 
 
-Create_MasonViewer_Philius.prototype.PHILIUS_TYPE_CONSTANTS = {
+Create_MasonViewer_Philius_Pre_Built.prototype.PHILIUS_TYPE_CONSTANTS = {
 		
 			 SP : 0,				// signal peptide segment
 			 NON_CYTOPLASMIC : 1,	// non-cytoplastmic segment
@@ -67,7 +67,7 @@ Create_MasonViewer_Philius.prototype.PHILIUS_TYPE_CONSTANTS = {
 			 TM_HELIX : 3			// transmembrane helix
 	};
 	
-Create_MasonViewer_Philius.prototype.PHILIUS_TYPE_STRINGS = [
+Create_MasonViewer_Philius_Pre_Built.prototype.PHILIUS_TYPE_STRINGS = [
 		
 		"Signal Peptide",
 		"Non-Cytoplasmic",
@@ -79,7 +79,7 @@ Create_MasonViewer_Philius.prototype.PHILIUS_TYPE_STRINGS = [
 
 /////////////
 
-Create_MasonViewer_Philius.prototype.isCoverageMapCreated = function(  ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.isCoverageMapCreated = function(  ) {
 
 	return this.coverageMapCreated;
 };
@@ -87,14 +87,14 @@ Create_MasonViewer_Philius.prototype.isCoverageMapCreated = function(  ) {
 
 /////////////
 
-Create_MasonViewer_Philius.prototype.setCoverageMapCreated = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.setCoverageMapCreated = function( param ) {
 
 	this.coverageMapCreated = param;
 };
 
 
 
-Create_MasonViewer_Philius.prototype.createCoverageMapIfNotCreated = function(  ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMapIfNotCreated = function(  ) {
 
 	if ( ! this.isCoverageMapCreated() ) {
 
@@ -110,7 +110,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapIfNotCreated = function(  
 
 //
 
-Create_MasonViewer_Philius.prototype.createCoverageMap = function(  ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMap = function(  ) {
 
 	var objectThis = this;
 
@@ -156,7 +156,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMap = function(  ) {
 
 
 
-Create_MasonViewer_Philius.prototype.createCoverageMapMain = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMapMain = function( param ) {
 
 
 	var objectThis = this;
@@ -207,7 +207,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapMain = function( param ) {
 
 ////////////////////////////////
 
-Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessSubmitResponse = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMapMainProcessSubmitResponse = function( param ) {
 
 	
 	var objectThis = this;
@@ -255,7 +255,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessSubmitResponse 
 
 ////////////////////////////////
 
-Create_MasonViewer_Philius.prototype.createCoverageMapMainCheckIfPhiliusJobDone = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMapMainCheckIfPhiliusJobDone = function( param ) {
 
 	
 	var objectThis = this;
@@ -300,7 +300,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapMainCheckIfPhiliusJobDone 
 
 ////////////////////////////////
 
-Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessIfPhiliusJobDoneResponse = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMapMainProcessIfPhiliusJobDoneResponse = function( param ) {
 
 	
 	var objectThis = this;
@@ -357,7 +357,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessIfPhiliusJobDon
 
 ////////////////////////////////
 
-Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessGetPhiliusResults = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMapMainProcessGetPhiliusResults = function( param ) {
 
 	
 
@@ -412,7 +412,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessGetPhiliusResul
 
 ////////////////////////////////
 
-Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessGetPhiliusResultsResponse = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createCoverageMapMainProcessGetPhiliusResultsResponse = function( param ) {
 
 
 
@@ -435,7 +435,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessGetPhiliusResul
 		var configParams = {};
 
 		
-		var callbackFunctionsObj = masonViewerPeptipediaPhiliusCallbacksCreator( { config: null } );
+		var callbackFunctionsObj = masonViewer_PhiliusCallbacksCreator_Pre_Built( { config: null } );
 
 
 
@@ -473,7 +473,7 @@ Create_MasonViewer_Philius.prototype.createCoverageMapMainProcessGetPhiliusResul
 
 //            Always have one row, even if empty
 
-Create_MasonViewer_Philius.prototype.createMasonViewerInputData = function( philiusResult ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.createMasonViewerInputData = function( philiusResult ) {
 	
 	var sequenceLength = philiusResult.sequence.length;
 	
@@ -510,7 +510,7 @@ Create_MasonViewer_Philius.prototype.createMasonViewerInputData = function( phil
 	}
 	
 	
-//	Create_MasonViewer_Philius.prototype.PHILIUS_TYPE_CONSTANTS = {
+//	Create_MasonViewer_Philius_Pre_Built.prototype.PHILIUS_TYPE_CONSTANTS = {
 //		
 //			 SP : 0,				// signal peptide segment
 //			 NON_CYTOPLASMIC : 1,	// non-cytoplastmic segment
@@ -546,7 +546,7 @@ Create_MasonViewer_Philius.prototype.createMasonViewerInputData = function( phil
 
 ///////////////////////////////////
 
-Create_MasonViewer_Philius.prototype.loadMatchingProteinSequence = function ( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.loadMatchingProteinSequence = function ( param ) {
 
 	var objectThis = this;
 	
@@ -599,7 +599,7 @@ Create_MasonViewer_Philius.prototype.loadMatchingProteinSequence = function ( pa
 
 ///////////////////////////////////
 
-Create_MasonViewer_Philius.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
+Create_MasonViewer_Philius_Pre_Built.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
 
 	var data = param.data;
 

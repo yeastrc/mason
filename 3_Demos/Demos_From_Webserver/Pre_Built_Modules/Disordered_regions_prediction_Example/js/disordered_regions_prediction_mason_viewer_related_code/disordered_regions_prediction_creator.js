@@ -22,7 +22,7 @@
 
 
  //  constructor
-var Create_MasonViewer_DisorderedRegions = function( params ) {
+var Create_MasonViewer_DisorderedRegions_Pre_Built = function( params ) {
 
 
 	this.coverageMapCreated = false; //
@@ -55,10 +55,10 @@ var Create_MasonViewer_DisorderedRegions = function( params ) {
 
 
 
-Create_MasonViewer_DisorderedRegions.prototype.VIEWER_ROW_LABEL = "Disordered";
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.VIEWER_ROW_LABEL = "Disordered";
 
 
-Create_MasonViewer_DisorderedRegions.prototype.DISORDERED_REGIONS_TYPE_CONSTANTS = {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.DISORDERED_REGIONS_TYPE_CONSTANTS = {
 
 			 DISORDERED : "*",
 };
@@ -67,7 +67,7 @@ Create_MasonViewer_DisorderedRegions.prototype.DISORDERED_REGIONS_TYPE_CONSTANTS
 
 /////////////
 
-Create_MasonViewer_DisorderedRegions.prototype.isCoverageMapCreated = function(  ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.isCoverageMapCreated = function(  ) {
 
 	return this.coverageMapCreated;
 };
@@ -75,14 +75,14 @@ Create_MasonViewer_DisorderedRegions.prototype.isCoverageMapCreated = function( 
 
 /////////////
 
-Create_MasonViewer_DisorderedRegions.prototype.setCoverageMapCreated = function( param ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.setCoverageMapCreated = function( param ) {
 
 	this.coverageMapCreated = param;
 };
 
 
 
-Create_MasonViewer_DisorderedRegions.prototype.createCoverageMapIfNotCreated = function(  ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.createCoverageMapIfNotCreated = function(  ) {
 
 	if ( ! this.isCoverageMapCreated() ) {
 
@@ -98,7 +98,7 @@ Create_MasonViewer_DisorderedRegions.prototype.createCoverageMapIfNotCreated = f
 
 //
 
-Create_MasonViewer_DisorderedRegions.prototype.createCoverageMap = function(  ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.createCoverageMap = function(  ) {
 
 	var objectThis = this;
 
@@ -144,7 +144,7 @@ Create_MasonViewer_DisorderedRegions.prototype.createCoverageMap = function(  ) 
 
 
 
-Create_MasonViewer_DisorderedRegions.prototype.createCoverageMapMain = function( param ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.createCoverageMapMain = function( param ) {
 
 
 	var objectThis = this;
@@ -193,7 +193,7 @@ Create_MasonViewer_DisorderedRegions.prototype.createCoverageMapMain = function(
 
 ////////////////////////////////
 
-Create_MasonViewer_DisorderedRegions.prototype.createCoverageMapMainProcessResponse = function( param ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.createCoverageMapMainProcessResponse = function( param ) {
 
 
 
@@ -226,7 +226,7 @@ Create_MasonViewer_DisorderedRegions.prototype.createCoverageMapMainProcessRespo
 		
 
 
-		var callbackFunctionsObj = masonViewerPeptipediaDisorderedRegionsCallbacksCreator( { config: null } );
+		var callbackFunctionsObj = masonViewer_DisorderedRegions_Pre_Built_CallbacksCreator( { config: null } );
 
 
 
@@ -264,7 +264,7 @@ Create_MasonViewer_DisorderedRegions.prototype.createCoverageMapMainProcessRespo
 
 //            Always have one row, even if empty
 
-Create_MasonViewer_DisorderedRegions.prototype.createMasonViewerInputData = function( param ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.createMasonViewerInputData = function( param ) {
 
 
 
@@ -385,7 +385,7 @@ Create_MasonViewer_DisorderedRegions.prototype.createMasonViewerInputData = func
 
 ///////////////////////////////////
 
-Create_MasonViewer_DisorderedRegions.prototype.addGroupToArray = function( param ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.addGroupToArray = function( param ) {
 
 	var blockData = { type: param.type };
 
@@ -401,7 +401,7 @@ Create_MasonViewer_DisorderedRegions.prototype.addGroupToArray = function( param
 
 ///////////////////////////////////
 
-Create_MasonViewer_DisorderedRegions.prototype.loadMatchingProteinSequence = function ( param ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.loadMatchingProteinSequence = function ( param ) {
 
 	var objectThis = this;
 	
@@ -458,7 +458,7 @@ Create_MasonViewer_DisorderedRegions.prototype.loadMatchingProteinSequence = fun
 
 ///////////////////////////////////
 
-Create_MasonViewer_DisorderedRegions.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
+Create_MasonViewer_DisorderedRegions_Pre_Built.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
 
 	var data = param.data;
 

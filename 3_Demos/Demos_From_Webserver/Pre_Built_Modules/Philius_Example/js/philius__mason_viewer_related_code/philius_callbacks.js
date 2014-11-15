@@ -71,7 +71,7 @@
 		"Transmembrane and signal peptide prediction by the Philius algorithm. <br>" +
 		"Reynolds SM, Käll L, Riffle ME, Bilmes JA, Noble WS (2008) <br>" +
 		"Transmembrane Topology and Signal Peptide Prediction <br>" +
-		"Using Dynamic Bayesian Networks. PLoS Comput Biol 4(11)<br>"
+		"Using Dynamic Bayesian Networks. PLoS Comput Biol 4(11)<br>";
 
 	
 	
@@ -430,7 +430,7 @@
 	
 	//  Function to create the top level classes, put them in an object, and return them 
 	
-	var masonViewerPeptipediaPhiliusCallbacksCreator = function( param ){
+	var masonViewer_PhiliusCallbacksCreator_Pre_Built = function( param ){
 
 		var mainRowsLabel_callbackFunctions = new MainRowsLabel_callbackFunctions( param );
 
@@ -444,7 +444,7 @@
 	};
 
 	
-	window.masonViewerPeptipediaPhiliusCallbacksCreator = masonViewerPeptipediaPhiliusCallbacksCreator;
+	window.masonViewer_PhiliusCallbacksCreator_Pre_Built = masonViewer_PhiliusCallbacksCreator_Pre_Built;
 
 
 })( window );

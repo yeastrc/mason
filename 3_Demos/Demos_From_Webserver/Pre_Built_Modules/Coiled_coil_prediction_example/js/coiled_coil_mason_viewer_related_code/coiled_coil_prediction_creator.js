@@ -21,7 +21,7 @@
 
 
  //  constructor
-var Create_MasonViewer_CoiledCoil = function( params ) {
+var Create_MasonViewer_CoiledCoil_Pre_Built = function( params ) {
 
 
 	this.coverageMapCreated = false; //
@@ -62,7 +62,7 @@ var Create_MasonViewer_CoiledCoil = function( params ) {
 
 
 
-Create_MasonViewer_CoiledCoil.prototype.VIEWER_ROW_LABEL = "Coiled-coil";
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.VIEWER_ROW_LABEL = "Coiled-coil";
 
 
 
@@ -71,7 +71,7 @@ Create_MasonViewer_CoiledCoil.prototype.VIEWER_ROW_LABEL = "Coiled-coil";
 
 /////////////
 
-Create_MasonViewer_CoiledCoil.prototype.isCoverageMapCreated = function(  ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.isCoverageMapCreated = function(  ) {
 
 	return this.coverageMapCreated;
 };
@@ -79,14 +79,14 @@ Create_MasonViewer_CoiledCoil.prototype.isCoverageMapCreated = function(  ) {
 
 /////////////
 
-Create_MasonViewer_CoiledCoil.prototype.setCoverageMapCreated = function( param ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.setCoverageMapCreated = function( param ) {
 
 	this.coverageMapCreated = param;
 };
 
 
 
-Create_MasonViewer_CoiledCoil.prototype.createCoverageMapIfNotCreated = function(  ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.createCoverageMapIfNotCreated = function(  ) {
 
 	if ( ! this.isCoverageMapCreated() ) {
 
@@ -102,7 +102,7 @@ Create_MasonViewer_CoiledCoil.prototype.createCoverageMapIfNotCreated = function
 
 //
 
-Create_MasonViewer_CoiledCoil.prototype.createCoverageMap = function(  ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.createCoverageMap = function(  ) {
 
 	var objectThis = this;
 
@@ -147,7 +147,7 @@ Create_MasonViewer_CoiledCoil.prototype.createCoverageMap = function(  ) {
 
 
 
-Create_MasonViewer_CoiledCoil.prototype.createCoverageMapMain = function( param ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.createCoverageMapMain = function( param ) {
 
 
 	var objectThis = this;
@@ -194,7 +194,7 @@ Create_MasonViewer_CoiledCoil.prototype.createCoverageMapMain = function( param 
 
 ////////////////////////////////
 
-Create_MasonViewer_CoiledCoil.prototype.createCoverageMapMainProcessResponse = function( param ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.createCoverageMapMainProcessResponse = function( param ) {
 
 
 
@@ -229,7 +229,7 @@ Create_MasonViewer_CoiledCoil.prototype.createCoverageMapMainProcessResponse = f
 		var configParams = {};
 
 
-		var callbackFunctionsObj = masonViewerPeptipediaCoiledCoilCallbacksCreator( { config: null } );
+		var callbackFunctionsObj = masonViewer_CoiledCoil_Pre_Built_CallbacksCreator( { config: null } );
 
 
 
@@ -267,7 +267,7 @@ Create_MasonViewer_CoiledCoil.prototype.createCoverageMapMainProcessResponse = f
 
 //            Always have one row, even if empty
 
-Create_MasonViewer_CoiledCoil.prototype.createMasonViewerInputData = function( param ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.createMasonViewerInputData = function( param ) {
 
 	var coiledCoilDataFromServer = param.coiledCoilDataFromServer;
 
@@ -418,7 +418,7 @@ Create_MasonViewer_CoiledCoil.prototype.createMasonViewerInputData = function( p
 
 ///////////////////////////////////
 
-Create_MasonViewer_CoiledCoil.prototype.addGroupToArray = function( param ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.addGroupToArray = function( param ) {
 
 	var blockData = {  };
 
@@ -435,7 +435,7 @@ Create_MasonViewer_CoiledCoil.prototype.addGroupToArray = function( param ) {
 
 ///////////////////////////////////
 
-Create_MasonViewer_CoiledCoil.prototype.loadMatchingProteinSequence = function ( param ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.loadMatchingProteinSequence = function ( param ) {
 
 	var objectThis = this;
 
@@ -492,7 +492,7 @@ Create_MasonViewer_CoiledCoil.prototype.loadMatchingProteinSequence = function (
 
 ///////////////////////////////////
 
-Create_MasonViewer_CoiledCoil.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
+Create_MasonViewer_CoiledCoil_Pre_Built.prototype.loadMatchingProteinSequenceProcessResponse = function( param ) {
 
 	var data = param.data;
 
