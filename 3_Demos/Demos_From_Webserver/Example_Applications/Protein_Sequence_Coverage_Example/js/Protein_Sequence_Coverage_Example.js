@@ -1,5 +1,5 @@
 
-//  example_Multi_row_example_All_Features.js
+//  Protein_Sequence_Coverage_Example.js
 
 //   This is the code that initiates
 
@@ -24,18 +24,19 @@
 $(document).ready( function(){
 	
 	
-	var $masonViewerRootDiv = $("#multi_row_all_features_mason_viewer");
+	var $masonViewerRootDiv = $("#protein_sequence_coverage_example_mason_viewer");
 	
 	var $svg_not_supported = $("#svg-not-supported");
 
 
-	var Create_MasonViewer_Multi_row_All_Features_ConstructorParams =
+	var create_MasonViewer_Protein_Sequence_Coverage_Example_ConstructorParams =
 			{ config: { $masonViewerRootDiv: $masonViewerRootDiv,
 						$svgNotSupportedDiv: $svg_not_supported } };
 
-	var create_MasonViewer_Multi_row_All_Features = new Create_MasonViewer_Multi_row_All_Features( Create_MasonViewer_Multi_row_All_Features_ConstructorParams );
+	var masonViewer_Protein_Sequence_Coverage_Example = 
+			new Create_MasonViewer_Protein_Sequence_Coverage_Example( create_MasonViewer_Protein_Sequence_Coverage_Example_ConstructorParams );
 
-	create_MasonViewer_Multi_row_All_Features.createCoverageMapIfNotCreated();
+	masonViewer_Protein_Sequence_Coverage_Example.createCoverageMapIfNotCreated();
 
 
 	

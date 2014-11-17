@@ -1,7 +1,7 @@
 
-//   multi_row__all_features_callbacks.js
+//   Protein_Sequence_Coverage_Example_callbacks.js
 
-//   This is the multi_row__all_features specific callbacks for the Mason Viewer (prot_cov_viewer)
+//   This is the Protein_Sequence_Coverage_Example specific callbacks for the Mason Viewer
 
 
 //   Depends on jquery
@@ -1488,7 +1488,7 @@
 
 	//  Function to create the top level classes, put them in an object, and return them
 
-	var masonViewerMultipleRunsAllFeaturesCallbacksCreator = function( param ){
+	var masonViewer_Protein_Sequence_Coverage_Example_CallbacksCreator = function( param ){
 
 
 
@@ -1541,7 +1541,7 @@
 	};
 
 
-	window.masonViewerMultipleRunsAllFeaturesCallbacksCreator = masonViewerMultipleRunsAllFeaturesCallbacksCreator;
+	window.masonViewer_Protein_Sequence_Coverage_Example_CallbacksCreator = masonViewer_Protein_Sequence_Coverage_Example_CallbacksCreator;
 
 
 })( window );

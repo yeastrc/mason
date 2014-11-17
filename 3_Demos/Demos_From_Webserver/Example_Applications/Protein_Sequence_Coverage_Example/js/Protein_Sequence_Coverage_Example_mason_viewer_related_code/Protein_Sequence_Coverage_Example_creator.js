@@ -22,7 +22,7 @@
 
 
  //  constructor
-var Create_MasonViewer_Multi_row_All_Features = function( params ) {
+var Create_MasonViewer_Protein_Sequence_Coverage_Example = function( params ) {
 
 
 	this.BLOCK_TYPE_LABEL_PLURAL_PEPTIDES = "peptides";
@@ -43,7 +43,7 @@ var Create_MasonViewer_Multi_row_All_Features = function( params ) {
 
 /////////////
 
-Create_MasonViewer_Multi_row_All_Features.prototype.isCoverageMapCreated = function(  ) {
+Create_MasonViewer_Protein_Sequence_Coverage_Example.prototype.isCoverageMapCreated = function(  ) {
 
 	return this.coverageMapCreated;
 };
@@ -51,7 +51,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.isCoverageMapCreated = funct
 
 /////////////
 
-Create_MasonViewer_Multi_row_All_Features.prototype.setCoverageMapCreated = function( param ) {
+Create_MasonViewer_Protein_Sequence_Coverage_Example.prototype.setCoverageMapCreated = function( param ) {
 
 	this.coverageMapCreated = param;
 };
@@ -60,7 +60,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.setCoverageMapCreated = func
 
 
 
-Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMapIfNotCreated = function(  ) {
+Create_MasonViewer_Protein_Sequence_Coverage_Example.prototype.createCoverageMapIfNotCreated = function(  ) {
 
 	if ( ! this.isCoverageMapCreated() ) {
 
@@ -76,7 +76,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMapIfNotCreate
 
 //
 
-Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMap = function(  ) {
+Create_MasonViewer_Protein_Sequence_Coverage_Example.prototype.createCoverageMap = function(  ) {
 
 	var objectThis = this;
 
@@ -101,7 +101,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMap = function
 
 	//  Checkbox for show/hide vertical lines for trypsin cut points.  Initial show/hide set below
 
-	$("#show-hide-vertical-data-lines-checkbox-jq").change(function( event, ui ) {
+	$("#protein_sequence_coverage_example_show_hide_vertical_data_lines_checkbox_jq").change(function( event, ui ) {
 
 		var $this = $(this);
 
@@ -119,7 +119,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMap = function
 
 //////////////////////////
 
-Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMapMain = function(  ) {
+Create_MasonViewer_Protein_Sequence_Coverage_Example.prototype.createCoverageMapMain = function(  ) {
 
 
 
@@ -169,7 +169,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMapMain = func
 			  	viewProtein_RunsPeptides_Tab: this.config.viewProtein_RunsPeptides_Tab };
 
 
-		var callbackFunctionsObj = masonViewerMultipleRunsAllFeaturesCallbacksCreator( callbacksConfigParams );
+		var callbackFunctionsObj = masonViewer_Protein_Sequence_Coverage_Example_CallbacksCreator( callbacksConfigParams );
 
 		var requestParams = { inputData: results.protViewerCoreInputData };
 
@@ -239,7 +239,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.createCoverageMapMain = func
 
 ///////////////////////////////////
 
-Create_MasonViewer_Multi_row_All_Features.prototype.createLoadingSpinner = function() {
+Create_MasonViewer_Protein_Sequence_Coverage_Example.prototype.createLoadingSpinner = function() {
 
 //	var $spinnerContainer = this.$root_block.find(".coverage-map-loading-spinner-block");
 //
@@ -256,7 +256,7 @@ Create_MasonViewer_Multi_row_All_Features.prototype.createLoadingSpinner = funct
 };
 
 
-Create_MasonViewer_Multi_row_All_Features.prototype.deleteLoadingSpinner = function(  ) {
+Create_MasonViewer_Protein_Sequence_Coverage_Example.prototype.deleteLoadingSpinner = function(  ) {
 
 //	this.loadingSpinner.stop();
 //
