@@ -20,7 +20,7 @@
 	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
 		<div style="font-weight:bold;margin-bottom:10px;">Paircoil2 coiled-coil module:
 		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Coiled_coil_prediction_example/example_Coiled_coil_prediction.html">Code and details</a>]</span></div>
-		<div class="mason-viewer-coiled-coil"
+		<div class="mason-viewer-coiled-coil mason-viewer-jq"
 			style="width:90%;"
 			paircoil2_file_uri="Pre_Built_Modules/Coiled_coil_prediction_example/coiled_coil_files/coiled_coil_example.pc2"
 			sequence_file_uri="Pre_Built_Modules/Coiled_coil_prediction_example/coiled_coil_files/matching_protein_sequence.txt"
@@ -31,7 +31,7 @@
 	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
 		<div style="font-weight:bold;margin-bottom:10px;">Philius transmembrane and signal peptide module:
 		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Philius_Example/example_philius.html">Code and details</a>]</span></div>
-		<div class="mason-viewer-philius"
+		<div class="mason-viewer-philius mason-viewer-jq"
 			style="width:90%;"
 			sequence_file_uri=""
 			sequence="MVESDEDFAPQEFPHTDTDVIVNEHRDENDGYASDEVGGTLSRRASSIFSINTTPLAPPNATDIQKFTSDEHHFSMMRNLHMADYITMLNGFSGFYSIVSCLRFTLTGKPHYVQRAHFFILLGMCFDFLDGRVARLRNRSSLMGQELDSLADLVSFGVAPAAIAFAIGFQTTFDVMILSFFVLCGLARLARFNVTVAQLPKDSSTGKSKYFEGLPMPTTLALVLGMAYCVRKGLIFDNIPFGIFREDQILEFHPIILVFFIHGCGMISKSLKIPKP"
@@ -41,7 +41,7 @@
 	<div style="margin-top:40px;float:left;width:45%;text-align:left;">
 		<div style="font-weight:bold;margin-bottom:10px;">DISOPRED disordered regions module: <span style="font-weight:normal;">
 		[<a href="Pre_Built_Modules/Disordered_regions_prediction_Example/example_disordered_regions_prediction.html">Code and details</a>]</span></div>
-		<div class="mason-viewer-disordered-regions"
+		<div class="mason-viewer-disordered-regions mason-viewer-jq"
 			style="width:90%;"
 			disordered_regions_file_uri="Pre_Built_Modules/Disordered_regions_prediction_Example/disordered_regions_prediction_files/disordered_regions_prediction_example.diso"
 			sequence_file_uri="Pre_Built_Modules/Disordered_regions_prediction_Example/disordered_regions_prediction_files/matching_protein_sequence.txt"
@@ -52,7 +52,7 @@
 	<div style="margin-top:40px;float:left;width:45%;text-align:left;">
 		<div style="font-weight:bold;margin-bottom:10px;">PSIPRED secondary structure prediction module:
 		<span style="font-weight:normal;">[<a href="Pre_Built_Modules/Secondary_Structure_Prediction_Example/example_secondary_structure_prediction.html">Code and details</a>]</span></div>
-		<div class="mason-viewer-secondary-structure-prediction"
+		<div class="mason-viewer-secondary-structure-prediction mason-viewer-jq"
 			style="width:90%;"
 			secondary_structure_prediction_file_uri="Pre_Built_Modules/Secondary_Structure_Prediction_Example/Secondary_Structure_Prediction_Files/secondary_structure_prediction_example.ss2"
 			sequence_file_uri="Pre_Built_Modules/Secondary_Structure_Prediction_Example/Secondary_Structure_Prediction_Files/matching_protein_sequence.txt"
@@ -79,7 +79,7 @@
 			Show/hide trypsin cut points
 			<input type="checkbox" id="protein_sequence_coverage_example_show_hide_vertical_data_lines_checkbox_jq" >
 	<br>
-			<div id="protein_sequence_coverage_example_mason_viewer" style="width: 90%;" ></div>
+			<div id="protein_sequence_coverage_example_mason_viewer" class="mason-viewer-jq" style="width: 90%;" ></div>
 	</div>
 
 	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
@@ -102,7 +102,7 @@
 
 			<!-- The viewer will be the width of the div it is created in  -->
 
-			<div id="multi_row_all_features_mason_viewer" style="width: 90%;" ></div>
+			<div id="multi_row_all_features_mason_viewer" class="mason-viewer-jq" style="width: 90%;" ></div>
 
 		</div>
 
@@ -116,7 +116,7 @@
 
 			<!-- The viewer will be the width of the div it is created in  -->
 
-			<div id="peptide_atlas_mason_viewer" style="width: 90%;" ></div>
+			<div id="peptide_atlas_mason_viewer" class="mason-viewer-jq" style="width: 90%;" ></div>
 
 		</div>
 
@@ -126,7 +126,7 @@
 
 			<!-- The viewer will be the width of the div it is created in  -->
 
-			<div id="philius-mason-viewer" style="width: 90%;" ></div>
+			<div id="philius-mason-viewer" class="mason-viewer-jq" style="width: 90%;" ></div>
 		</div>
 
 		<div  >
@@ -134,16 +134,7 @@
 
 			<!-- The viewer will be the width of the div it is created in  -->
 
-			<div id="secondary-structure-prediction-mason-viewer" style="width: 90%;" ></div>
-
-		</div>
-
-
-		<div  >
-
-			<!-- The viewer will be the width of the div it is created in  -->
-
-			<div id="coiled-coil-mason-viewer" style="width: 90%;" ></div>
+			<div id="secondary-structure-prediction-mason-viewer" class="mason-viewer-jq" style="width: 90%;" ></div>
 
 		</div>
 
@@ -152,7 +143,16 @@
 
 			<!-- The viewer will be the width of the div it is created in  -->
 
-			<div id="disordered-regions-prediction-mason-viewer" style="width: 90%;" ></div>
+			<div id="coiled-coil-mason-viewer" class="mason-viewer-jq" style="width: 90%;" ></div>
+
+		</div>
+
+
+		<div  >
+
+			<!-- The viewer will be the width of the div it is created in  -->
+
+			<div id="disordered-regions-prediction-mason-viewer" class="mason-viewer-jq" style="width: 90%;" ></div>
 		</div>
 
 
@@ -168,11 +168,52 @@
 	</div>
 
 
-<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/jquery-1.8.0.min.js" ></script>
-<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/modernizr.v2.7.1__custom.39924_min.js"></script>
-<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/svg.min.js"></script>
-<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/libraries/wz_tooltip-min.js"></script>
-<script type="text/javascript" src="Pre_Built_Modules/Coiled_coil_prediction_example/js/mason_viewer/mason_viewer-min-munged.js"></script>
+<script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" ></script>
+<script type="text/javascript" src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"></script>
+<script type="text/javascript" src="js/libraries/svg.min.js"></script>
+<script type="text/javascript" src="js/libraries/wz_tooltip-min.js"></script>
+
+<script type="text/javascript">
+
+
+
+//jQuery method of running code when page is loaded
+
+$(document).ready( function(){
+
+	$(".mason-viewer-jq").each(function() {
+		
+		var $this = $( this );
+		
+		
+		//  Change the  width of the enclosing div of the mason viewers
+		//  from percent to pixels all at the same time so that 
+		//  if they all have the same percentage they will all have the same width.
+		
+		//  This is done since the page may grow as each mason viewer is created,
+		//  the page may exceed the height of the browser view port and a scroll bar may
+		//  appear to the page changing the width of the view port, changing the width
+		//  of the divs since they are specified as a percentage, changing the width 
+		//  of the mason viewers created after the scroll bar appears.
+		
+		//  Change the width from percent to pixels
+		
+		// get the width in pixels
+		var divWidth = $this.width();
+		
+		//  set the width in pixels
+		$this.width( divWidth )
+		
+	});
+	
+	
+});
+
+</script>
+
+
+
+<script type="text/javascript" src="js/mason_viewer/mason_viewer-min-munged.js"></script>
 
 <script type="text/javascript" src="Pre_Built_Modules/Disordered_regions_prediction_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_callbacks.js"></script>
 <script type="text/javascript" src="Pre_Built_Modules/Disordered_regions_prediction_Example/js/disordered_regions_prediction_mason_viewer_related_code/disordered_regions_prediction_creator.js"></script>

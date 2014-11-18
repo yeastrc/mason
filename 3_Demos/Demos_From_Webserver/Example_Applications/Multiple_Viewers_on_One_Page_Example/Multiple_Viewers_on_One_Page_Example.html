@@ -27,7 +27,7 @@ Show/hide trypsin cut points
 
 	<!-- The viewer will be the width of the div it is created in  -->
 
-	<div id="multi_row_all_features_mason_viewer" style="width:90%;" ></div>
+	<div id="multi_row_all_features_mason_viewer" class="mason-viewer-jq" style="width:90%;" ></div>
 
 </div>
 
@@ -41,7 +41,7 @@ Show/hide trypsin cut points
 
 	<!-- The viewer will be the width of the div it is created in  -->
 
-	<div id="peptide_atlas_mason_viewer" style="width:90%;" ></div>
+	<div id="peptide_atlas_mason_viewer" class="mason-viewer-jq" style="width:90%;" ></div>
 
 </div>
 
@@ -51,7 +51,7 @@ Show/hide trypsin cut points
 
 	<!-- The viewer will be the width of the div it is created in  -->
 
-	<div id="philius-mason-viewer" style="width:90%;" ></div>
+	<div id="philius-mason-viewer" class="mason-viewer-jq" style="width:90%;" ></div>
 </div>
 
 <div style="width:100%;">
@@ -59,16 +59,7 @@ Show/hide trypsin cut points
 
 	<!-- The viewer will be the width of the div it is created in  -->
 
-	<div id="secondary-structure-prediction-mason-viewer" style="width:90%;" ></div>
-
-</div>
-
-
-<div style="width:100%;">
-
-	<!-- The viewer will be the width of the div it is created in  -->
-
-	<div id="coiled-coil-mason-viewer" style="width:90%;" ></div>
+	<div id="secondary-structure-prediction-mason-viewer" class="mason-viewer-jq" style="width:90%;" ></div>
 
 </div>
 
@@ -77,7 +68,16 @@ Show/hide trypsin cut points
 
 	<!-- The viewer will be the width of the div it is created in  -->
 
-	<div id="disordered-regions-prediction-mason-viewer" style="width:90%;" ></div>
+	<div id="coiled-coil-mason-viewer" class="mason-viewer-jq" style="width:90%;" ></div>
+
+</div>
+
+
+<div style="width:100%;">
+
+	<!-- The viewer will be the width of the div it is created in  -->
+
+	<div id="disordered-regions-prediction-mason-viewer" class="mason-viewer-jq" style="width:90%;" ></div>
 </div>
 
 <div id="svg-not-supported" style="display: none; text-align: center; color: darkred;" >
@@ -99,6 +99,44 @@ Show/hide trypsin cut points
 
 <script type="text/javascript"  src="js/libraries/svg.min.js"></script>
 <script type="text/javascript"  src="js/libraries/wz_tooltip-min.js"></script>
+
+<script type="text/javascript">
+
+
+
+//jQuery method of running code when page is loaded
+
+$(document).ready( function(){
+
+	$(".mason-viewer-jq").each(function() {
+		
+		var $this = $( this );
+		
+		//  Change the  width of the enclosing div of the mason viewers
+		//  from percent to pixels all at the same time so that 
+		//  if they all have the same percentage they will all have the same width.
+		
+		//  This is done since the page may grow as each mason viewer is created,
+		//  the page may exceed the height of the browser view port and a scroll bar may
+		//  appear to the page changing the width of the view port, changing the width
+		//  of the divs since they are specified as a percentage, changing the width 
+		//  of the mason viewers created after the scroll bar appears.
+		
+				
+		//  Change the width from percent to pixels
+
+		// get the width in pixels
+		var divWidth = $this.width();
+		
+		//  set the width in pixels
+		$this.width( divWidth )
+		
+	});
+	
+	
+});
+
+</script>
 
 
 <!-- import mason viewer js file. -->
