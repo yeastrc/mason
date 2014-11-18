@@ -13,7 +13,7 @@
 
 	<div>
 	<h2>Pre-Built Modules</h2>
-	<div>Below are four pre-built modules for displaying four types of sequence annotation data: coiled-coil predictions, transmembrane and signal
+	<div style="width:90%">Below are four pre-built modules for displaying four types of sequence annotation data: coiled-coil predictions, transmembrane and signal
 	peptide predictions, disordered regions predictions, and secondary structure predictions.</div>
 
 
@@ -67,13 +67,15 @@
 	<div style="clear:both;"></div>
 
 	<div style="margin-top:40px;">
-	<h2>Example applications:</h2>
-	<div>Below are four pre-built modules for displaying four types of sequence annotation data: coiled-coil predictions, transmembrane and signal
-	peptide predictions, disordered regions predictions, and secondary structure predictions.</div>
+	<h2>Example Applications:</h2>
+	<div style="width:90%">Below are two example applications of the Mason viewer. The first is the display of protein sequence coverage in multiple mass
+	spec proteomics experiments. The second is an example of incorporating multiple Mason viewers into a single page for showing different
+	types of sequence annotations for the same protein.</div>
 
 
 	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
-		<div style="font-weight:bold;margin-bottom:10px;">Protein sequence coverage and quality from proteomics experiments:</div>
+		<div style="font-weight:bold;margin-bottom:10px;">Protein sequence coverage and quality from proteomics experiments:
+				<span style="font-weight:normal;">[<a href="Example_Applications/Protein_Sequence_Coverage_Example/Protein_Sequence_Coverage_Example.html">Code and details</a>]</span></div>
 			Show/hide trypsin cut points
 			<input type="checkbox" id="protein_sequence_coverage_example_show_hide_vertical_data_lines_checkbox_jq" >
 	<br>
@@ -82,75 +84,78 @@
 
 	<div style="margin-top:20px;float:left;width:45%;text-align:left;">
 		<div style="font-weight:bold;margin-bottom:10px;">
-		
-			Multi-viewer
-		
+
+			Multiple Mason viewers for the same protein on a single page.
+
+			<span style="font-weight:normal;">[<a href="Example_Applications/Multiple_Viewers_on_One_Page_Example/Multiple_Viewers_on_One_Page_Example.html">Code and details</a>]</span>
+
+
 		</div>
 
 
-		
+
 		Show/hide trypsin cut points
 		<input type="checkbox" id="multi_row_show-hide-vertical-data-lines-checkbox-jq" >
 		<br>
 		<div  >
-		
-		
+
+
 			<!-- The viewer will be the width of the div it is created in  -->
-		
+
 			<div id="multi_row_all_features_mason_viewer" style="width: 90%;" ></div>
-		
+
 		</div>
-		
-		
+
+
 		<br>
 		Show/hide trypsin cut points
 		<input type="checkbox" id="peptide-atlas-show-hide-vertical-data-lines-checkbox-jq" >
 		<br>
 		<div  >
-		
-		
+
+
 			<!-- The viewer will be the width of the div it is created in  -->
-		
+
 			<div id="peptide_atlas_mason_viewer" style="width: 90%;" ></div>
-		
+
 		</div>
-		
-		
+
+
 		<div  >
-		
-		
+
+
 			<!-- The viewer will be the width of the div it is created in  -->
-		
+
 			<div id="philius-mason-viewer" style="width: 90%;" ></div>
 		</div>
-		
+
 		<div  >
-		
-		
+
+
 			<!-- The viewer will be the width of the div it is created in  -->
-		
+
 			<div id="secondary-structure-prediction-mason-viewer" style="width: 90%;" ></div>
-		
+
 		</div>
-		
-		
+
+
 		<div  >
-		
+
 			<!-- The viewer will be the width of the div it is created in  -->
-		
+
 			<div id="coiled-coil-mason-viewer" style="width: 90%;" ></div>
-		
+
 		</div>
-		
-		
+
+
 		<div  >
-		
+
 			<!-- The viewer will be the width of the div it is created in  -->
-		
+
 			<div id="disordered-regions-prediction-mason-viewer" style="width: 90%;" ></div>
 		</div>
-		
-		
+
+
 
 
 
