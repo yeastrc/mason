@@ -1375,7 +1375,7 @@ MasonViewerPerInstance.prototype.reformatDataToInternalFormat = function( reques
 		try {
 
 			//  Create the SVG main object ( from svg.js file ) which will create the <svg > root object on the DOM
-			this.GLOBALS.masonViewerSVG = SVG( masonViewerRootHTML_Element ).size( overallWidth, 500 ); //  TODO  Hard coded starting height
+			this.GLOBALS.masonViewerSVG = SVG( masonViewerRootHTML_Element ).size( overallWidth, 5 ); //  TODO  Hard coded starting height
 
 		} catch ( e ) {
 
