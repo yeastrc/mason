@@ -5,7 +5,7 @@
 
 //   the creation of the Mason Viewer
 
-//   for the Multiple viewers on the page 
+//   for the Multiple viewers on the page
 
 
 //   Depends on jquery, Modernizr SVG support detection
@@ -22,25 +22,25 @@
 //jQuery method of running code when page is loaded
 
 $(document).ready( function(){
-	
+
 	var $multiRowMasonViewerRootDiv = $("#multi_row_all_features_mason_viewer");
-	
+
 	var $peptideAtlasMasonViewerRootDiv = $("#peptide_atlas_mason_viewer");
-	
-	
-	
+
+
+
 	var $philiusMasonViewerRootDiv = $("#philius-mason-viewer");
 
 	var $secondaryStructurePredictionMasonViewerRootDiv = $("#secondary-structure-prediction-mason-viewer");
-	
-	
+
+
 	var $coiledCoilMasonViewerRootDiv = $("#coiled-coil-mason-viewer");
 
 	var $disorderedRegionsMasonViewerRootDiv = $("#disordered-regions-prediction-mason-viewer");
-	
-	
+
+
 	var $svg_not_supported = $("#svg-not-supported");
-	
+
 
 	//  Registry that allows the viewers in the coverage map tab to communicate with each other
 	var masonViewerRegistry = MasonViewerRegistryFactory.createMasonViewerRegistry();
@@ -56,7 +56,7 @@ $(document).ready( function(){
 
 	create_MasonViewer_Multi_row_All_Features.createCoverageMapIfNotCreated();
 
-	
+
 
 
 	var Create_MasonViewer_PeptideAtlas_ConstructorParams =
@@ -68,8 +68,8 @@ $(document).ready( function(){
 
 	create_MasonViewer_PeptideAtlas.createCoverageMapIfNotCreated();
 
-	
-	
+
+
 
 	var create_MasonViewer_Philius_ConstructorParams =
 			{ config: { masonViewerRegistry: masonViewerRegistry,
@@ -80,7 +80,7 @@ $(document).ready( function(){
 
 	create_MasonViewer_Philius.createCoverageMapIfNotCreated();
 
-	
+
 	var create_MasonViewer_SecondaryStructure_ConstructorParams =
 			{ config: { masonViewerRegistry: masonViewerRegistry,
 						$masonViewerRootDiv: $secondaryStructurePredictionMasonViewerRootDiv,
@@ -90,8 +90,8 @@ $(document).ready( function(){
 
 	create_MasonViewer_SecondaryStructure.createCoverageMapIfNotCreated();
 
-	
-	
+
+
 	var create_MasonViewer_CoiledCoil_ConstructorParams =
 			{ config: { masonViewerRegistry: masonViewerRegistry,
 				$masonViewerRootDiv: $coiledCoilMasonViewerRootDiv,
@@ -112,6 +112,5 @@ $(document).ready( function(){
 	create_MasonViewer_DisorderedRegions.createCoverageMapIfNotCreated();
 
 
-	
-});	
-	
+
+});
