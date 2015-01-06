@@ -4,7 +4,7 @@
   This file follows JSON syntax, which is a little more strict than standard Javascript syntax
 
 
-{"maxSequenceLength":255,
+{"sequenceLength":255,
  "rowItems":
   [
    //  A row in the output

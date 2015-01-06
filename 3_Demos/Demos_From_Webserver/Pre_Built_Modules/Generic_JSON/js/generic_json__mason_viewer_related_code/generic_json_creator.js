@@ -259,12 +259,12 @@ Create_MasonViewer_Generic_JSON_Pre_Built.prototype.createMasonViewerInputData =
 
 	var genericJSONData = param.genericJSONData;
 
-	var maxSequenceLength = genericJSONData.maxSequenceLength;
+	var sequenceLength = genericJSONData.sequenceLength;
 
 	
-	if ( maxSequenceLength === undefined || maxSequenceLength === null ) {
+	if ( sequenceLength === undefined || sequenceLength === null ) {
 		
-		throw 'No "maxSequenceLength" attribute on the JSON';
+		throw 'No "sequenceLength" attribute on the JSON';
 	}
 
 	
@@ -279,7 +279,7 @@ Create_MasonViewer_Generic_JSON_Pre_Built.prototype.createMasonViewerInputData =
 	var rowItems = new Array();
 	
 	var masonViewerInputData
-		= { maxSequenceLength: maxSequenceLength ,
+		= { maxSequenceLength: sequenceLength ,
 			rowItems:rowItems
 		  };
 

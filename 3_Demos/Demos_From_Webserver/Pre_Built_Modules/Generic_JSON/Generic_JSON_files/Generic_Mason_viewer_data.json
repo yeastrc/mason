@@ -1,5 +1,5 @@
 
-{"maxSequenceLength":255,
+{"sequenceLength":255,
  "rows":
   [
    {"label":"Row Label 1",
