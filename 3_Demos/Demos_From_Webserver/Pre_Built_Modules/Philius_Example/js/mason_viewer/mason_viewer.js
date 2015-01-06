@@ -2478,12 +2478,9 @@ MasonViewerPerInstanceRenderOnPage.prototype.addFullHeightLines = function(  ) {
 
 			//  returns  colorForLine = "#112233"
 
-			//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
-
-			//				colorForLine = roundAndValidateColor( colorForLine );
-
-			//				({ color: '#f06', width: 1 });
-
+			//  throws exception if not valid
+			this.isValidColor( colorForLine );
+			
 			var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y1, x, y2 ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
 			this.GLOBALS.setSVGVerticalDataLines.add( verticalLineSVG );
@@ -2581,6 +2578,82 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 
 
 
+	//////////////////////////////////////
+	
+	MasonViewerPerInstanceRenderOnPage.prototype. convertBlockColorTo_SVGJS_FillColor = function( colorForBlock ) {
+	
+		//  SVGjs requires the fill color object to be { r: , g: , b: } or to be a string as listed above.
+
+		//  The block callbacks are returning either a hex string six based (e.g. #ff0066)
+		//                   or an object with { red: , green: , blue: }
+		
+		//  If a string is passed in, it will be validated and returned
+		
+		//  If anything else is passed in, it will be assumed to be the object 
+		//  and will be validated and rounded and converted to  { r: , g: , b: }
+		
+
+		if ( colorForBlock === undefined || colorForBlock === null ) {
+
+			throw "ERROR: colorForBlock === undefined || colorForBlock === null";
+		}
+
+		if (typeof colorForBlock == 'string' || colorForBlock instanceof String) {
+
+			//  Throws Exception if error
+			this.isValidColor( colorForBlock );
+				
+			return colorForBlock;
+			
+
+		} else {
+
+			var colorForBlockRoundedAndValidated = this.roundAndValidateColor( colorForBlock );
+
+			var fillColor = { r: colorForBlockRoundedAndValidated.red, g: colorForBlockRoundedAndValidated.green, b: colorForBlockRoundedAndValidated.blue };
+			
+			return fillColor;
+		}
+		
+		
+		throw "Code error in 'convertBlockColorTo_SVGJS_FillColor', should have returned by this point: value passed is: " + colorForBlock;
+	};
+	
+
+
+	//////////////////////////////////////
+	
+	MasonViewerPerInstanceRenderOnPage.prototype. isValidColor = function( colorParam ) {
+	
+
+		if (typeof colorParam == 'string' || colorParam instanceof String) {
+
+			
+		} else {
+			
+			throw "'isValidColor' only valid for string input.  colorParam: " + colorParam;
+		}
+		
+//	    if ( colorParam.match(/^#[a-f0-9]{6}$/i) !== null ) {
+		
+		if ( /^#[a-f0-9]{6}$/i.test( colorParam ) ) {
+			
+	    	// The pattern is in the string.  
+	    	// Since the pattern covers from the start to the end of the string, the whole string is checked.
+			
+			return; 
+	    }
+	    
+		throw "color is a string but is not a valid hex color with 6 positions  (e.g. #ff0066): value passed is: " + colorParam;
+
+	};
+
+	//	^ match beginning
+	//	# a hash
+	//	[a-f0-9] any letter from a-f and 0-9
+	//	{6} the previous group appears exactly 6 times
+	//	$ match end
+	//	i ignore case
 
 	//////////////////////////////////////
 
@@ -2591,6 +2664,22 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 		if ( colorForBlock === undefined || colorForBlock === null ) {
 
 			throw "ERROR: colorForBlock === undefined || colorForBlock === null";
+		}
+		
+
+		if ( colorForBlock.red === undefined || colorForBlock.red === null ) {
+
+			throw "ERROR: colorForBlock.red === undefined || colorForBlock.red === null";
+		}
+
+		if ( colorForBlock.green === undefined || colorForBlock.green === null ) {
+
+			throw "ERROR: colorForBlock.green === undefined || colorForBlock.green === null";
+		}
+
+		if ( colorForBlock.blue === undefined || colorForBlock.blue === null ) {
+
+			throw "ERROR: colorForBlock.blue === undefined || colorForBlock.blue === null";
 		}
 
 		var colorForBlockOut = { red: Math.round( colorForBlock.red  ), green: Math.round( colorForBlock.green  ), blue: Math.round( colorForBlock.blue  ) };
@@ -3995,8 +4084,9 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 			var colorForBlock = colorAndSize.colorForBlock;
 
 			//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
-
-			colorForBlock = this.roundAndValidateColor( colorForBlock );
+			//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+			
+			var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
 			var rectWidth = sizeZeroToOne * this.configDisplayOptions.ROW_TOTALS_BAR_RIGHT_MAX_WIDTH;;
 
@@ -4006,7 +4096,7 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 				rectWidth = this.configDisplayOptions.ROW_TOTAL_BLOCK_MINIMUM_SIZE;
 			}
 
-			var rowTotalBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+			var rowTotalBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 			rowTotalBlockSVG.move( this.GLOBALS.rowTotalsBarRightStartingPoint, y );
 
@@ -4656,11 +4746,12 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 
 				var colorForBlock = objectThis.constructorParams.callbackFunctionsObj.mainRowsBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams );
 
-				//  returns  colorForBlock = { red: 1, green: 1, blue: 1 }
+				//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
+				//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+				
+				var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
-				colorForBlock = this.roundAndValidateColor( colorForBlock );
-
-				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 				blockBlockSVG.move( x, y );
 
@@ -4811,12 +4902,8 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 
 					//  returns  colorForLine = "#112233"
 
-					//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
-
-	//				colorForLine = roundAndValidateColor( colorForLine );
-
-	//				({ color: '#f06', width: 1 });
-	//				ss ss
+					//  throws exception if not valid
+					this.isValidColor( colorForLine );
 
 					var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y, x, y + this.configDisplayOptions.BLOCK_HEIGHT ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
@@ -4940,12 +5027,14 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 
 				var colorForBlock = objectThis.constructorParams.callbackFunctionsObj.mainRowsBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams );
 
-				//  returns  colorForBlock = { red: 1, green: 1, blue: 1 }
 
-				colorForBlock = this.roundAndValidateColor( colorForBlock );
+				//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
+				//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+				
+				var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
 
-				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 				blockBlockSVG.move( x, y );
 
@@ -5078,12 +5167,10 @@ MasonViewerPerInstanceRenderOnPage.prototype.updateFullHeightLines = function( p
 
 				//  returns  colorForLine = "#112233"
 
-				//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
 
-//				colorForLine = roundAndValidateColor( colorForLine );
+				//  throws exception if not valid
+				this.isValidColor( colorForLine );
 
-//				({ color: '#f06', width: 1 });
-//				ss ss
 
 				var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y, x, y + this.configDisplayOptions.BLOCK_HEIGHT ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
@@ -5927,12 +6014,13 @@ MasonViewerPerInstanceRenderOnPage.prototype. limitCharPositionMaxSeqLength = fu
 				var colorForBlock = objectThis.constructorParams.callbackFunctionsObj.combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams );
 
 
-				//  returns  colorForBlock = { red: 1, green: 1, blue: 1 }
+				//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
+				//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+				
+				var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
-				colorForBlock = this.roundAndValidateColor( colorForBlock );
 
-
-				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 				blockBlockSVG.move( x, y );
 
@@ -6060,12 +6148,9 @@ MasonViewerPerInstanceRenderOnPage.prototype. limitCharPositionMaxSeqLength = fu
 
 				//  returns  colorForLine = "#112233"
 
-				//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
+				//  throws exception if not valid
+				this.isValidColor( colorForLine );
 
-//				colorForLine = roundAndValidateColor( colorForLine );
-
-//				({ color: '#f06', width: 1 });
-//				ss ss
 
 				var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y, x, y + this.configDisplayOptions.BLOCK_HEIGHT ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
@@ -6233,12 +6318,12 @@ MasonViewerPerInstanceRenderOnPage.prototype. limitCharPositionMaxSeqLength = fu
 
 				var colorForBlock = objectThis.constructorParams.callbackFunctionsObj.combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams );
 
-				//  returns  colorForBlock = { red: 1, green: 1, blue: 1 }
+				//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
+				//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+				
+				var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
-				colorForBlock = this.roundAndValidateColor( colorForBlock );
-
-
-				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 				blockBlockSVG.move( x, y );
 
@@ -6392,9 +6477,8 @@ MasonViewerPerInstanceRenderOnPage.prototype. limitCharPositionMaxSeqLength = fu
 
 					//  returns  colorForLine = "#112233"
 
-					//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
-
-	//				colorForLine = this.roundAndValidateColor( colorForLine ); //  Skip since doesn't work for color as string
+					//  throws exception if not valid
+					this.isValidColor( colorForLine );
 
 					var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y, x, y + this.configDisplayOptions.BLOCK_HEIGHT ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
@@ -6496,8 +6580,9 @@ MasonViewerPerInstanceRenderOnPage.prototype. limitCharPositionMaxSeqLength = fu
 			var colorForBlock = colorAndSize.colorForBlock;
 
 			//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
-
-			colorForBlock = this.roundAndValidateColor( colorForBlock );
+			//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+			
+			var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
 			var rectWidth = sizeZeroToOne * this.configDisplayOptions.ROW_TOTALS_BAR_RIGHT_MAX_WIDTH;;
 
@@ -6507,7 +6592,7 @@ MasonViewerPerInstanceRenderOnPage.prototype. limitCharPositionMaxSeqLength = fu
 				rectWidth = this.configDisplayOptions.ROW_TOTAL_BLOCK_MINIMUM_SIZE;
 			}
 
-			var rowTotalBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+			var rowTotalBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 			rowTotalBlockSVG.move( this.GLOBALS.rowTotalsBarRightStartingPoint, y );
 

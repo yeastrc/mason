@@ -684,12 +684,13 @@
 				var colorForBlock = objectThis.constructorParams.callbackFunctionsObj.combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams );
 
 
-				//  returns  colorForBlock = { red: 1, green: 1, blue: 1 }
+				//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
+				//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+				
+				var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
-				colorForBlock = this.roundAndValidateColor( colorForBlock );
 
-
-				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 				blockBlockSVG.move( x, y );
 
@@ -817,12 +818,9 @@
 
 				//  returns  colorForLine = "#112233"
 
-				//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
+				//  throws exception if not valid
+				this.isValidColor( colorForLine );
 
-//				colorForLine = roundAndValidateColor( colorForLine );
-
-//				({ color: '#f06', width: 1 });
-//				ss ss
 
 				var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y, x, y + this.configDisplayOptions.BLOCK_HEIGHT ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
@@ -990,12 +988,12 @@
 
 				var colorForBlock = objectThis.constructorParams.callbackFunctionsObj.combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams );
 
-				//  returns  colorForBlock = { red: 1, green: 1, blue: 1 }
+				//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
+				//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+				
+				var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
-				colorForBlock = this.roundAndValidateColor( colorForBlock );
-
-
-				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+				var blockBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 				blockBlockSVG.move( x, y );
 
@@ -1149,9 +1147,8 @@
 
 					//  returns  colorForLine = "#112233"
 
-					//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
-
-	//				colorForLine = this.roundAndValidateColor( colorForLine ); //  Skip since doesn't work for color as string
+					//  throws exception if not valid
+					this.isValidColor( colorForLine );
 
 					var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y, x, y + this.configDisplayOptions.BLOCK_HEIGHT ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
@@ -1253,8 +1250,9 @@
 			var colorForBlock = colorAndSize.colorForBlock;
 
 			//  returns  colorForBlock = { red: 10, green: 255, blue: 1 }
-
-			colorForBlock = this.roundAndValidateColor( colorForBlock );
+			//                or colorForBlock = "#RRGGBB" (6 positions hex color)
+			
+			var fillColor = this.convertBlockColorTo_SVGJS_FillColor( colorForBlock );
 
 			var rectWidth = sizeZeroToOne * this.configDisplayOptions.ROW_TOTALS_BAR_RIGHT_MAX_WIDTH;;
 
@@ -1264,7 +1262,7 @@
 				rectWidth = this.configDisplayOptions.ROW_TOTAL_BLOCK_MINIMUM_SIZE;
 			}
 
-			var rowTotalBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: { r: colorForBlock.red, g: colorForBlock.green, b: colorForBlock.blue } } );
+			var rowTotalBlockSVG = this.GLOBALS.masonViewerSVG.rect( rectWidth, this.configDisplayOptions.BLOCK_HEIGHT ).attr( { fill: fillColor } );
 
 			rowTotalBlockSVG.move( this.GLOBALS.rowTotalsBarRightStartingPoint, y );
 

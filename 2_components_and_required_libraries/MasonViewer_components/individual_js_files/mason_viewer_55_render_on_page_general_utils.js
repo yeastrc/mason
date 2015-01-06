@@ -34,6 +34,82 @@
 
 
 
+	//////////////////////////////////////
+	
+	MasonViewerPerInstanceRenderOnPage.prototype. convertBlockColorTo_SVGJS_FillColor = function( colorForBlock ) {
+	
+		//  SVGjs requires the fill color object to be { r: , g: , b: } or to be a string as listed above.
+
+		//  The block callbacks are returning either a hex string six based (e.g. #ff0066)
+		//                   or an object with { red: , green: , blue: }
+		
+		//  If a string is passed in, it will be validated and returned
+		
+		//  If anything else is passed in, it will be assumed to be the object 
+		//  and will be validated and rounded and converted to  { r: , g: , b: }
+		
+
+		if ( colorForBlock === undefined || colorForBlock === null ) {
+
+			throw "ERROR: colorForBlock === undefined || colorForBlock === null";
+		}
+
+		if (typeof colorForBlock == 'string' || colorForBlock instanceof String) {
+
+			//  Throws Exception if error
+			this.isValidColor( colorForBlock );
+				
+			return colorForBlock;
+			
+
+		} else {
+
+			var colorForBlockRoundedAndValidated = this.roundAndValidateColor( colorForBlock );
+
+			var fillColor = { r: colorForBlockRoundedAndValidated.red, g: colorForBlockRoundedAndValidated.green, b: colorForBlockRoundedAndValidated.blue };
+			
+			return fillColor;
+		}
+		
+		
+		throw "Code error in 'convertBlockColorTo_SVGJS_FillColor', should have returned by this point: value passed is: " + colorForBlock;
+	};
+	
+
+
+	//////////////////////////////////////
+	
+	MasonViewerPerInstanceRenderOnPage.prototype. isValidColor = function( colorParam ) {
+	
+
+		if (typeof colorParam == 'string' || colorParam instanceof String) {
+
+			
+		} else {
+			
+			throw "'isValidColor' only valid for string input.  colorParam: " + colorParam;
+		}
+		
+//	    if ( colorParam.match(/^#[a-f0-9]{6}$/i) !== null ) {
+		
+		if ( /^#[a-f0-9]{6}$/i.test( colorParam ) ) {
+			
+	    	// The pattern is in the string.  
+	    	// Since the pattern covers from the start to the end of the string, the whole string is checked.
+			
+			return; 
+	    }
+	    
+		throw "color is a string but is not a valid hex color with 6 positions  (e.g. #ff0066): value passed is: " + colorParam;
+
+	};
+
+	//	^ match beginning
+	//	# a hash
+	//	[a-f0-9] any letter from a-f and 0-9
+	//	{6} the previous group appears exactly 6 times
+	//	$ match end
+	//	i ignore case
 
 	//////////////////////////////////////
 
@@ -44,6 +120,22 @@
 		if ( colorForBlock === undefined || colorForBlock === null ) {
 
 			throw "ERROR: colorForBlock === undefined || colorForBlock === null";
+		}
+		
+
+		if ( colorForBlock.red === undefined || colorForBlock.red === null ) {
+
+			throw "ERROR: colorForBlock.red === undefined || colorForBlock.red === null";
+		}
+
+		if ( colorForBlock.green === undefined || colorForBlock.green === null ) {
+
+			throw "ERROR: colorForBlock.green === undefined || colorForBlock.green === null";
+		}
+
+		if ( colorForBlock.blue === undefined || colorForBlock.blue === null ) {
+
+			throw "ERROR: colorForBlock.blue === undefined || colorForBlock.blue === null";
 		}
 
 		var colorForBlockOut = { red: Math.round( colorForBlock.red  ), green: Math.round( colorForBlock.green  ), blue: Math.round( colorForBlock.blue  ) };

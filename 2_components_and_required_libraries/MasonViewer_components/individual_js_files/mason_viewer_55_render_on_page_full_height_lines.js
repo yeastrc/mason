@@ -104,12 +104,9 @@ MasonViewerPerInstanceRenderOnPage.prototype.addFullHeightLines = function(  ) {
 
 			//  returns  colorForLine = "#112233"
 
-			//  WAS   returns  colorForLine = { red: 1, green: 1, blue: 1 }
-
-			//				colorForLine = roundAndValidateColor( colorForLine );
-
-			//				({ color: '#f06', width: 1 });
-
+			//  throws exception if not valid
+			this.isValidColor( colorForLine );
+			
 			var verticalLineSVG = this.GLOBALS.masonViewerSVG.line( x, y1, x, y2 ).stroke( { color: colorForLine, width: this.configDisplayOptions.BORDER_WIDTH } );
 
 			this.GLOBALS.setSVGVerticalDataLines.add( verticalLineSVG );

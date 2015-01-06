@@ -1,0 +1,295 @@
+<html>
+<head>
+	<title>Mason Viewer Demo: Generic JSON</title>
+	<link rel="stylesheet" type="text/css" href="../../css/demo.css">
+
+</head>
+<body>
+
+<div>
+	<a href="../../index.html">Back to Mason Demos</a>
+</div>
+
+
+
+
+<h1>Mason Viewer Pre-Built Module: Generic JSON</h1>
+<br/>
+
+Example 1, data loaded from JSON file on server<br>
+
+<!-- Optional enclosing div, it must have this class on it.
+		If this div exists, then the search for
+		"mason-viewer-svg-not-supported" or "mason-viewer-generic-json-failed-to-create"
+		will only take place within this enclosing div.  -->
+<div class="mason-enclosing-div" >
+
+
+	<!-- mason_data_json_file_uri is required. -->
+	<!-- The file must include the path  -->
+
+	<!-- The Mason viewer will be the width (at the time it is created) of the div it is created in. -->
+	<div class="generic-json-mason-viewer"
+		style="width:90%;"
+		mason_data_json_file_uri="Generic_JSON_files/Generic_Mason_viewer_data.json"
+		></div>
+
+
+	<!-- This div will only be shown if creating the mason viewer failed, it must have this class on it -->
+	<div class="mason-viewer-generic-json-failed-to-create" style="display: none; text-align: center; color: darkred;" >
+
+		<div >&nbsp;</div>
+		<h3>Failed to create Mason Viewer</h3>
+		<div >&nbsp;</div>
+
+	</div>
+
+	<!-- This div will only be shown if SVG is not supported, it must have this class on it -->
+	<div class="mason-viewer-svg-not-supported" style="display: none; text-align: center; color: darkred;" >
+
+		<div >&nbsp;</div>
+		<h3>Unable to show Mason Viewer due to lack of SVG support in this browser</h3>
+		<div >&nbsp;</div>
+		<div >Please use a different browser to view the Mason Viewer.<br/>
+		Possible choices are Firefox, Google Chrome, Internet Explorer version 9 or higher.</div>
+	</div>
+
+</div>
+
+<br>
+Example 2, data on the page in a Javascript object<br>
+
+
+<!-- Optional enclosing div, it must have this class on it.
+		If this div exists, then the search for
+		"mason-viewer-svg-not-supported" or "mason-viewer-generic-json-failed-to-create"
+		will only take place within this enclosing div.  -->
+<div class="mason-enclosing-div" >
+
+
+	<!-- mason_data_json_file_uri is required. -->
+	<!-- The file must include the path  -->
+
+	<!-- The Mason viewer will be the width (at the time it is created) of the div it is created in. -->
+	<div id="generic-json-mason-viewer-page-data"
+		style="width:90%;"
+		></div>
+
+
+	<!-- This div will only be shown if creating the mason viewer failed, it must have this class on it -->
+	<div class="mason-viewer-generic-json-failed-to-create" style="display: none; text-align: center; color: darkred;" >
+
+		<div >&nbsp;</div>
+		<h3>Failed to create Mason Viewer</h3>
+		<div >&nbsp;</div>
+
+	</div>
+
+	<!-- This div will only be shown if SVG is not supported, it must have this class on it -->
+	<div class="mason-viewer-svg-not-supported" style="display: none; text-align: center; color: darkred;" >
+
+		<div >&nbsp;</div>
+		<h3>Unable to show Mason Viewer due to lack of SVG support in this browser</h3>
+		<div >&nbsp;</div>
+		<div >Please use a different browser to view the Mason Viewer.<br/>
+		Possible choices are Firefox, Google Chrome, Internet Explorer version 9 or higher.</div>
+	</div>
+
+</div>
+
+
+
+<div style="width:90%;margin-top:20px;margin-bottom:10px;">
+	The above can be achieved for any data files using the HTML below and substituting in the location of your data. Note: The sequence file must be on the same hostname as the HTML files for security reasons.
+</div>
+
+
+<div>Option 1 (retrieve Mason data from server):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="generic-json-mason-viewer"<br>
+		style="width:700px;" <br>
+		mason_data_json_file_uri="Generic_JSON_files/Generic_Mason_viewer_data.json"<br>
+		&gt;&lt;/div&gt;<br>
+</div>
+
+
+<div style="margin-top:20px;">Option 2 (Mason data on the page):</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div id="generic-json-mason-viewer-page-data"<br>
+		style="width:700px;" <br>
+		&gt;&lt;/div&gt;<br>
+</div>
+
+
+
+<div style="margin-top:20px;">HTML to import required JavaScript files:</div>
+<div class="code-block" style="margin-left: 20px;" >
+&lt;script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" &gt;&lt;/script&gt;<br>
+
+&lt;script type="text/javascript"  src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"&gt;&lt;/script&gt;<br>
+
+&lt;script type="text/javascript"  src="js/libraries/svg.min.js"&gt;&lt;/script&gt;<br>
+&lt;script type="text/javascript"  src="js/libraries/wz_tooltip-min.js"&gt;&lt;/script&gt;<br>
+
+&lt;script type="text/javascript" src="js/mason_viewer/mason_viewer-min-munged.js"&gt;&lt;/script&gt;<br>
+
+
+&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_creator.js"&gt;&lt;/script&gt;<br>
+
+&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_creator.js"&gt;&lt;/script&gt;<br>
+
+&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_HTML_config_loader.js"&gt;&lt;/script&gt;<br>
+</div>
+
+
+<!-- import required libraries -->
+
+
+<script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" ></script>
+
+<script type="text/javascript"  src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"></script>
+
+<script type="text/javascript"  src="js/libraries/svg.min.js"></script>
+<script type="text/javascript"  src="js/libraries/wz_tooltip-min.js"></script>
+
+
+<!-- import mason viewer js file. -->
+
+<!--  import minified file for production. -->
+<!--
+-->
+<script type="text/javascript" src="js/mason_viewer/mason_viewer-min-munged.js"></script>
+
+
+<!-- Optional  import non-minified file for debugging. -->
+<!--
+<script type="text/javascript" src="js/mason_viewer/mason_viewer.js"></script>
+-->
+
+
+<!-- Import the JS files for this demo from the local folder  -->
+
+
+<script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_callbacks.js"></script>
+
+<script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_creator.js"></script>
+
+<script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_HTML_config_loader.js"></script>
+
+
+<!-- create Mason viewer with data on the page as a Javascript object  -->
+
+
+<script type="text/javascript">
+
+
+var masonData = 
+	
+			
+			{"maxSequenceLength":255,
+			 "rows":
+			  [
+			   {"label":"Row Label 1",
+			    "color":"#999999",
+			    "xcolor":"#990000",
+				"blocks": 
+				[
+				  {	"startPos":12,
+					"endPos":24,
+					"tooltip":"tooltip for this block", 
+					"link":"http://google.com" 
+				  }
+				]
+			   },
+			   {"label":"Row Label 2",
+			    "color":"#337700",
+			    "xcolor":"#000088",
+				"blocks": 
+				[
+				  {	"startPos":55,
+					"endPos":77,
+					"tooltip":"tooltip for this block", 
+					"link":"http://google.com" 
+				  },
+				  {	"startPos":65,
+					"endPos":87,
+					"tooltip":"tooltip for this block", 
+					"link":"http://google.com" 
+				  }
+				]
+			   },
+			   {"label":"Row Label 3",
+			    "color":"#880000",
+			    "xcolor":"#008800",
+				"blocks": 
+				[
+				  {	"startPos":51,
+					"endPos":77,
+					"tooltip":"", 
+					"link":"" 
+				  }
+				]
+			   }
+			  ]
+			};
+			
+			
+
+//jQuery method of running code when page is loaded
+
+$(document).ready( function(){
+	
+	//  Run on a separate event so an error 
+	//  doesn't stop anything else from running on document ready.
+
+	setTimeout(function(){
+						
+		
+		var $masonViewerRootDiv = $("#generic-json-mason-viewer-page-data");
+		
+		//  "#svg-not-supported" specifies id of div on page that will be shown if SVG is not supported.
+		//  $svg_not_supported.show();  is called.
+		
+		var $svg_not_supported = $(".mason-viewer-svg-not-supported");
+		
+		var $mason_viewer_failed_to_create = $(".mason-viewer-generic-json-failed-to-create");
+		
+		var $mason_enclosing_div = $masonViewerRootDiv.closest(".mason-enclosing-div");
+		
+		if ( $mason_enclosing_div.length !== 0 ) {
+		
+			$svg_not_supported = $mason_enclosing_div.find(".mason-viewer-svg-not-supported");
+		
+			$mason_viewer_failed_to_create = $mason_enclosing_div.find(".mason-viewer-generic-json-failed-to-create");
+		}
+		
+		
+		
+		
+		var create_MasonViewer_Generic_JSON_Pre_Built_ConstructorParams =
+		{ config: 
+		{ 
+			mason_data: masonData,
+		
+			$masonViewerRootDiv: $masonViewerRootDiv,
+			$svgNotSupportedDiv: $svg_not_supported,
+			$mason_viewer_failed_to_create: $mason_viewer_failed_to_create } };
+		
+		var create_MasonViewer_Generic_JSON_Pre_Built = new Create_MasonViewer_Generic_JSON_Pre_Built( create_MasonViewer_Generic_JSON_Pre_Built_ConstructorParams );
+		
+		create_MasonViewer_Generic_JSON_Pre_Built.createCoverageMapIfNotCreated();
+
+		
+
+	}, 10);
+
+});
+
+
+
+
+</script>
+
+</body>
+
+</html>

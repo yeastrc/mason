@@ -1,7 +1,6 @@
 <html>
 <head>
   <title>Mason Demos</title>
-	<link rel="stylesheet" type="text/css" href="css/demo.css">
 </head>
 <body>
 
@@ -183,31 +182,31 @@
 $(document).ready( function(){
 
 	$(".mason-viewer-jq").each(function() {
-
+		
 		var $this = $( this );
-
-
+		
+		
 		//  Change the  width of the enclosing div of the mason viewers
-		//  from percent to pixels all at the same time so that
+		//  from percent to pixels all at the same time so that 
 		//  if they all have the same percentage they will all have the same width.
-
+		
 		//  This is done since the page may grow as each mason viewer is created,
 		//  the page may exceed the height of the browser view port and a scroll bar may
 		//  appear to the page changing the width of the view port, changing the width
-		//  of the divs since they are specified as a percentage, changing the width
+		//  of the divs since they are specified as a percentage, changing the width 
 		//  of the mason viewers created after the scroll bar appears.
-
+		
 		//  Change the width from percent to pixels
-
+		
 		// get the width in pixels
 		var divWidth = $this.width();
-
+		
 		//  set the width in pixels
 		$this.width( divWidth )
-
+		
 	});
-
-
+	
+	
 });
 
 </script>

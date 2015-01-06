@@ -1,0 +1,25 @@
+
+  Input JSON to the Generic JSON viewer, this is retrieved using AJAX
+
+  This file follows JSON syntax, which is a little more strict than standard Javascript syntax
+
+
+{"maxSequenceLength":255,
+ "rowItems":
+  [
+   //  A row in the output
+   {"label":"row label",
+    "color":"",  		// color for blocks
+    "xcolor":"", 		// color for blocks that are overlapping when the row is expanded
+	"blockItems": 
+	[
+	  //  A block in the row
+	  {	"startPos":25,
+		"endPos":37,
+		"tooltip":"tooltip for this block", // "tooltip" is optional
+		"link":"http://google.com"          // "link" is optional, used when the block is clicked
+	  }
+	]
+   }
+  ]
+}

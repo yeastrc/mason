@@ -14,11 +14,7 @@
 <div style="width:90%">Multiple Mason viewers may appear on the same page. When the viewers are describing the same sequence, the
 viewers may optionally register with a central registry to enable a visual indication of where the currently moused-over feature maps onto
 the other viewers. This aids in understanding annotations in the context of other annotations, and is especially useful in the
-event of many rows and/or many viewers. In the example below, six Mason viewers are shown: protein sequence coverage from 13 proteomics
-experiments shown in separate rows(red), protein sequence coverage from the PeptideAtlas resource (purple), transmembrane and signal peptide predictions (olive),
-secondary structure prediction (green), coiled-coil predictions (cyan), and disordered regions predictions (black).</div>
-
-<div style="margin-top:15px;width:90%">More information about displaying multiple rows and showing vertical lines of interest (trypsin cut points in example below) can be found <a href="../Protein_Sequence_Coverage_Example/Protein_Sequence_Coverage_Example.html">here</a>.</div>
+event of many rows and/or many viewers. The example below shows six viewers:</div>
 
 
 
@@ -94,36 +90,6 @@ Show/hide trypsin cut points
 </div>
 
 
-
-<div style="width:90%;margin-top:20px;margin-bottom:10px;">
-	Below is sample code showing how Mason viewers should register with the registry to support inter-viewer display of highlighted features. First,
-	the registry is a separate JavaScript file and must be included in the HTML:
-</div>
-
-<pre class="code-block" style="margin-left: 20px;" >
-	&lt;script type="text/javascript" src="js/mason_viewer/mason_viewer_registry.js"&gt;</script>
-</pre>
-
-<div style="width:90%;margin-top:20px;margin-bottom:10px;">
-	Then, Mason viewer objects may be added to the registry by calling <span class="code">addMasonViewer()</span> as shown below. More detailed
-	documentation can be found at the <a href="https://github.com/yeastrc/mason">GitHub site</a>.
-</div>
-
-<pre class="code-block" style="margin-left: 20px;" >
-
-		// create the Mason viewer.
-		var masonViewer = MasonViewer.createMasonViewer( $rootDivPeptide_coverage, requestParams, configParams, callbackFunctionsObj );
-
-		// add this Mason viewer to the registry.
-		if ( this.config.masonViewerRegistry ) {
-
-			//   itemKey has to be unique across all the viewers registered with a specific registry
-			this.config.masonViewerRegistry.addMasonViewer( { itemKey: "coiledcoil", masonViewer: masonViewer } );
-		}
-
-</pre>
-
-
 <!-- import required libraries -->
 
 
@@ -143,31 +109,31 @@ Show/hide trypsin cut points
 $(document).ready( function(){
 
 	$(".mason-viewer-jq").each(function() {
-
+		
 		var $this = $( this );
-
+		
 		//  Change the  width of the enclosing div of the mason viewers
-		//  from percent to pixels all at the same time so that
+		//  from percent to pixels all at the same time so that 
 		//  if they all have the same percentage they will all have the same width.
-
+		
 		//  This is done since the page may grow as each mason viewer is created,
 		//  the page may exceed the height of the browser view port and a scroll bar may
 		//  appear to the page changing the width of the view port, changing the width
-		//  of the divs since they are specified as a percentage, changing the width
+		//  of the divs since they are specified as a percentage, changing the width 
 		//  of the mason viewers created after the scroll bar appears.
-
-
+		
+				
 		//  Change the width from percent to pixels
 
 		// get the width in pixels
 		var divWidth = $this.width();
-
+		
 		//  set the width in pixels
 		$this.width( divWidth )
-
+		
 	});
-
-
+	
+	
 });
 
 </script>
