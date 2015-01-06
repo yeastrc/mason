@@ -29,7 +29,7 @@ Example 1, data loaded from JSON file on server<br>
 	<!-- The file must include the path  -->
 
 	<!-- The Mason viewer will be the width (at the time it is created) of the div it is created in. -->
-	<div class="generic-json-mason-viewer"
+	<div class="generic-json-mason-viewer mason-viewer-jq"
 		style="width:90%;"
 		mason_data_json_file_uri="Generic_JSON_files/Generic_Mason_viewer_data.json"
 		></div>
@@ -71,7 +71,7 @@ Example 2, data on the page in a Javascript object<br>
 	<!-- The file must include the path  -->
 
 	<!-- The Mason viewer will be the width (at the time it is created) of the div it is created in. -->
-	<div id="generic-json-mason-viewer-page-data"
+	<div id="generic-json-mason-viewer-page-data" class="mason-viewer-jq"
 		style="width:90%;"
 		></div>
 
@@ -151,6 +151,46 @@ Example 2, data on the page in a Javascript object<br>
 
 <script type="text/javascript"  src="js/libraries/svg.min.js"></script>
 <script type="text/javascript"  src="js/libraries/wz_tooltip-min.js"></script>
+
+
+
+<script type="text/javascript">
+
+
+
+//jQuery method of running code when page is loaded
+
+$(document).ready( function(){
+
+	$(".mason-viewer-jq").each(function() {
+		
+		var $this = $( this );
+		
+		
+		//  Change the  width of the enclosing div of the mason viewers
+		//  from percent to pixels all at the same time so that 
+		//  if they all have the same percentage they will all have the same width.
+		
+		//  This is done since the page may grow as each mason viewer is created,
+		//  the page may exceed the height of the browser view port and a scroll bar may
+		//  appear to the page changing the width of the view port, changing the width
+		//  of the divs since they are specified as a percentage, changing the width 
+		//  of the mason viewers created after the scroll bar appears.
+		
+		//  Change the width from percent to pixels
+		
+		// get the width in pixels
+		var divWidth = $this.width();
+		
+		//  set the width in pixels
+		$this.width( divWidth )
+		
+	});
+	
+	
+});
+
+</script>
 
 
 <!-- import mason viewer js file. -->
