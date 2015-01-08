@@ -1,4 +1,4 @@
-mason-viewer-js
+# Mason
 ==========================
 
 Mason Viewer - Javascript
