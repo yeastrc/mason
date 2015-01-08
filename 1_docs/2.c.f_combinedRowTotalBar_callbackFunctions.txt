@@ -41,15 +41,24 @@
     ----------------
   
 	var getColorAndSize = function( getColorAndSizeParams )
-	
+
 		This function returns an object of the format 
 			{ "blockSize":  ,
-			  "colorForBlock": { red: 1, green: 1, blue: 1 } 
+			  "colorForBlock":  
 			}
 			
 			where the values for the properties of:
-			   "blockSize" is zero to one, which is used as a scaling of the width of the block
-			   "red", "green", and "blue" are the 0 to 255 rgb colors for this block
+			
+			   "blockSize" is a number between zero to one, which is used as a scaling of the width of the block
+			   
+			   "colorForBlock" is either:
+					an object of the format { red: 1, green: 1, blue: 1 }
+					where the values for the properties are the 0 to 255 rgb colors for this block
+					
+					or
+					
+					a String of the format "#RRGGBB" where "RR", "GG", and "BB" are hex colors "00" to "FF"
+			
 			
 
 		The input parameter getColorAndSizeParams is an object that contains the properties
