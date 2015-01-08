@@ -10,4 +10,4 @@
 
 //   If including directly into the page for testing, skip mason_viewer_01 and mason_viewer_95
 
-(function( window, undefined ) {
+(function( window ) {
