@@ -1,5 +1,5 @@
 # Mason
-### A JavaScript and SVG widget for viewing features of sequences
+### A JavaScript widget for viewing sequence features and annotations
 
 Mason Viewer - Javascript
 
