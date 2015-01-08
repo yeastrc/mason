@@ -1,5 +1,4 @@
 # Mason
-==========================
 
 Mason Viewer - Javascript
 
