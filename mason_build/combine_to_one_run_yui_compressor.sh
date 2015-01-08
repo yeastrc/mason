@@ -27,6 +27,12 @@ PATH_TO_MASON_VIEWER_COMBINED_MINIFIED_JS_FILES=../mason_download/
 
 PATH_TO_MASON_VIEWER_RUNSPACE=build_runspace/
 
+if [ ! -d ${PATH_TO_MASON_VIEWER_RUNSPACE} ];
+then
+    echo "Directory '${PATH_TO_MASON_VIEWER_RUNSPACE}' defined by variable PATH_TO_MASON_VIEWER_RUNSPACE not found, creating it"
+	mkdir ${PATH_TO_MASON_VIEWER_RUNSPACE}
+fi
+
 if [ ! -f ${YUICOMRESSOR_JAR_WITH_PATH} ];
 then
     echo "File '${YUICOMRESSOR_JAR_WITH_PATH}' defined by variable YUICOMRESSOR_JAR_WITH_PATH not found!"
