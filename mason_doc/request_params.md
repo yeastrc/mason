@@ -77,26 +77,19 @@ The definition of the requestParams object should adhere to the following format
 ##Explanation of format:
 - At the root level of the passed in object:
 	- `maxSequenceLength` - the length of the sequence being annotated
-	- "rowItems" - an array where each entry is one line in the resulting viewer
-	- "vertLinesCombinedRow" - an optional array where each entry is one vertical line for the "Combined" row of the chart
-	- "vertLinesAllRowsItems" - an optional array where each entry is one vertical line that spans all the rows of the chart
+	- `rowItems` - an array where each entry is one line in the resulting viewer
+	- `vertLinesCombinedRow` - an optional array where each entry is one vertical line for the "Combined" row of the chart
+	- `vertLinesAllRowsItems` - an optional array where each entry is one vertical line that spans all the rows of the chart
 
-An element in the rowItems array contains:
-	"label" - the label placed to the left of that line in the chart
-	"blockItems" - an array where each entry is one block for that row of the chart
-	"vertLinesItems" - an optional array where each entry is one vertical line for that row of the chart
-	Anything else needed at the row level.  
+- An element in the rowItems array contains:
+	- `label` - the label placed to the left of that line in the viewer
+	- `blockItems` - an array where each entry is an annotated segment of the sequence
+	- `vertLinesItems` - an optional array where each entry is one vertical line for that row of the viewer
+	- Anything else needed at the row level.  
 
-For a blockItems element:
-	"startPos" - start position of the block
-	"endPos" - end position of the block
-	"blockData" - any other data associated with that block.
+- For a blockItems element:
+	- `startPos` - start position of the block
+	- `endPos` - end position of the block
+	- `blockData` - any other data associated with that block. `blockData` elements are passed to module-specific <a href="callback_functions">callback functions</a> for color, tool tip, and click handling.
 
-	blockData elements are passed to application specific code for color, tool tip, and click handling.
-
-
-Normally, if a particular instance of the Mason viewer will have vertical lines, 
-either "vertLinesAllRowsItems" will be populated 
-or "vertLinesItems" will be populated for each rowItem and "vertLinesCombinedRow" will be populated
-    
 
