@@ -23,7 +23,7 @@ Please see <a href="mason_docs">our documentation section</a> for more informati
 ## Download and Install Mason
 The <a href="mason_download">mason_download</a> directory contains the core Mason JavaScript files and all required 3rd party libraries to install Mason on your web site. 
 
-Once downloaded, place the JavaScript files in an appropriate directory on your web server and import the file susing standard HTML:
+Once downloaded, place the JavaScript files in an appropriate directory on your web server and import the file using standard HTML:
 
 ```html
 <script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" ></script>
