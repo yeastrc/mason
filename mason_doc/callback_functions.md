@@ -36,4 +36,4 @@ be created.
 - `mainRowsVerticalLines_callbackFunctions` is covered <a href="callbacks/mainRowsVerticalLines_callbackFunctions.md">here</a>.
 - `combinedRowVerticalLines_callbackFunctions` is covered <a href="callbacks/combinedRowVerticalLines_callbackFunctions.md">here</a>.
 - `allRowsVerticalLines_callbackFunctions` is covered <a href="callbacks/allRowsVerticalLines_callbackFunctions.md">here</a>.
-- 
+
