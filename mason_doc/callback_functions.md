@@ -21,7 +21,7 @@ Below is example JavaScript for creating the `callbackFunctionsObj` object, whic
   };
   ```
 Note, only the `mainRowsLabel_callbackFunctions`, `mainRowsBlocks_callbackFunctions`, and `combinedRow_callbackFunctions` properties are required:
-  -I f the property `rowTotalBar_callbackFunctions` does not exist, the totals bar to the right of the main rows will not be created.
+  - If the property `rowTotalBar_callbackFunctions` does not exist, the totals bar to the right of the main rows will not be created.
   - If the property `combinedRowTotalBar_callbackFunctions` does not exist, the totals bar to the right of the combined row will not be created.
   - If the property `mainRowsVerticalLines_callbackFunctions` does not exist, the vertical lines in the main rows will not
 be created.
