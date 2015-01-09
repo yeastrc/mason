@@ -14,7 +14,7 @@ In this document, we describe the `callbackFunctionsObj` object, which contains 
     combinedRow_callbackFunctions: combinedRow_callbackFunctions,
     combinedRowTotalBar_callbackFunctions: combinedRowTotalBar_callbackFunctions,
     mainRowsVerticalLines_callbackFunctions: mainRowsVerticalLines_callbackFunctions,
-    	combinedRowVerticalLines_callbackFunctions: combinedRowVerticalLines_callbackFunctions,
+    combinedRowVerticalLines_callbackFunctions: combinedRowVerticalLines_callbackFunctions,
     allRowsVerticalLines_callbackFunctions: allRowsVerticalLines_callbackFunctions
   };
   ```
