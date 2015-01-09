@@ -18,7 +18,7 @@ We have developed a generalized pre-built module that accepts simple JSON as inp
 
 
 ## Documentation
-Please see <a href="mason_docs">our documentation section</a> for more information on installing, configuring, and customizing Mason--including a step-by-step example on how to build a new module that customizes the appearance and behavior of the Mason viewer.
+Please see <a href="mason_docs">our documentation section</a> for more information on installing, configuring, and customizing Mason--including a guide on how to build a new module that customizes the appearance and behavior of the Mason viewer.
 
 ## Download and Install Mason
 The <a href="mason_download">mason_download</a> directory contains the core Mason JavaScript files and all required 3rd party libraries to install Mason on your web site. 
