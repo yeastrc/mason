@@ -5,7 +5,7 @@ Recall that the Mason viewer is instantiated with JavaScript similar to:
 ```javascript
 MasonViewer.createMasonViewer( $rootDiv, requestParams, configParams, callbackFunctionsObj );
 ```
-In this document, we describe the "requestParams" object, which contains the data to be displayed in the Mason viewer. <b>Note:</b> This is not the JSON format used by the Generic JSON pre-built module. For more information on that, please see <a href="http://www.yeastrc.org/mason/generic-json-module/">the Generic JSON module demo page</a>.
+In this document, we describe the "requestParams" object, which contains the data to be displayed in the Mason viewer. This document is for those intending to write their own module and is <b>NOT</b> the JSON format used by the Generic JSON pre-built module. For more information on that, please see <a href="http://www.yeastrc.org/mason/generic-json-module/">the Generic JSON module demo page</a>.
 
 The definition of the requestParams object should adhere to the following format:
 
