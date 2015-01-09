@@ -8,6 +8,15 @@ A thorough description of Mason, its features and capabilities, may be found in 
 
 Daniel Jaschob, Trisha N. Davis, and Michael Riffle. Mason: A JavaScript web site widget for visualizing and comparing annotated features in nucleotide or protein sequences. Journal. Date. Volume(Issue) Pages.
 
+## Learn More about Mason
+The http://mason_docs directory holds HTML files containing documentation, examples, pre-built modules, and demos. These files may be downloaded to your local machine or viewed on our web server at http://www.yeastrc.org/mason.
+
+## Download Mason
+
+## Build Mason
+
+
+
 ## Features
 
 ## Demos
@@ -17,13 +26,4 @@ Daniel Jaschob, Trisha N. Davis, and Michael Riffle. Mason: A JavaScript web sit
 ## Getting Started
 
 ## Download
-
-This is a general placement of blocks viewer written in Javascript.
-
-One use is as a protein coverage viewer.
-
-Please see the Docs for the required format of the input Javascript object and what 
-Javascript functions are required as callback functions.
-
-A demo is hosted at www.yeastrc.org/mason
 
