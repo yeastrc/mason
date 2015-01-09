@@ -62,28 +62,26 @@ The definition of the requestParams object should adhere to the following format
 	  
 	//   Optional: Vertical lines for the "Combined Row" aka "Totals Row" The data under "vertLinesCombinedRow" is passed to the callback for determining the color, tool tip, and click handling
 		
-	"vertLinesCombinedRow":[{"linePos":3.5,"vertLineData":{"type":"CP"}}]	
+	"vertLinesCombinedRow":[{"linePos":3.5,"vertLineData":{"type":"CP"}}],
 
 	//  Optional: Vertical lines data that will be displayed across all the rows. If the same lines are needed for all the rows, this is the most efficient as they result in far fewer. SVG elements in the viewer.  The data under "vertLineData" is passed to the callback for determining the color, tool tip, and click handling
 
 	"vertLinesAllRowsItems":
-		[{"linePos":3.5,"vertLineData":{"type":"CP"}}]		 
+		[{"linePos":3.5,"vertLineData":{"type":"CP"}}], 
 	 
    }
 	
 }
 ```
 
-Explanation of format:
-
-At the root level of the passed in object:
-	"maxSequenceLength" - the sequence length to map the blocks onto
-	"rowItems" - an array where each entry is one line in the resulting chart
-	"vertLinesCombinedRow" - an optional array where each entry is one vertical line for the "Combined" row of the chart
-	"vertLinesAllRowsItems" - an optional array where each entry is one vertical line that spans all the rows of the chart
+##Explanation of format:
+- At the root level of the passed in object:
+	- "maxSequenceLength" - the length of the sequence being annotated
+	- "rowItems" - an array where each entry is one line in the resulting viewer
+	- "vertLinesCombinedRow" - an optional array where each entry is one vertical line for the "Combined" row of the chart
+	- "vertLinesAllRowsItems" - an optional array where each entry is one vertical line that spans all the rows of the chart
 
 An element in the rowItems array contains:
-
 	"label" - the label placed to the left of that line in the chart
 	"blockItems" - an array where each entry is one block for that row of the chart
 	"vertLinesItems" - an optional array where each entry is one vertical line for that row of the chart
