@@ -1,0 +1,1 @@
+This directory contains a number of Javascript files that are combined to make the final "mason_viewer.js" file for distribution. The files are combined using the script in the <a href="../../build_scripts">build_scripts</a> directory.
