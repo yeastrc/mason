@@ -10,9 +10,12 @@ Daniel Jaschob, Trisha N. Davis, and Michael Riffle. Mason: A JavaScript web sit
 
 ## Get Started with Mason
 
-### Demos and Pre-Build Modules
+### What can Mason do?
+Working demos, examples and pre-built modules may be accessed at <a href="http://www.yeastrc.org/mason">our Mason demo site</a>. Pre-built modules may be used out-of-the-box with no JavaScript knowledge to display sequence feature annotations from some commonly-used annotation programs.
 
-### Generic Implementation
+### Generic JSON Module
+We have developed a generalized pre-built module that accepts simple JSON as input for feature annotations, which works out-of-the-box and requires no JavaScript editing to install. This module includes support for overlapping annotations, row-level coloring, expanded row coloring (when expanding rows to disambiguate overlapping features), and feature-level tooltips and links. Please see our <a href="http://www.yeastrc.org/mason/generic-jason-module">generic JSON module</a> page at <a href="http://www.yeastrc.org/mason">our Mason demo site</a> for more informaton and to download.
+
 
 ### Documentation
 
