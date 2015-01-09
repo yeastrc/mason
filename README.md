@@ -14,11 +14,11 @@ Daniel Jaschob, Trisha N. Davis, and Michael Riffle. Mason: A JavaScript web sit
 Working demos, examples and pre-built modules may be accessed at <a href="http://www.yeastrc.org/mason">our Mason demo site</a>. Pre-built modules may be used out-of-the-box with no JavaScript knowledge to display sequence feature annotations from some commonly-used annotation programs.
 
 ### Generic JSON Module
-We have developed a generalized pre-built module that accepts simple JSON as input for feature annotations, which works out-of-the-box and requires no JavaScript editing to install. This module includes support for overlapping annotations, row-level coloring, expanded row coloring (when expanding rows to disambiguate overlapping features), and feature-level tooltips and links. Please see our <a href="http://www.yeastrc.org/mason/generic-jason-module">generic JSON module</a> page at <a href="http://www.yeastrc.org/mason">our Mason demo site</a> for more informaton and to download.
+We have developed a generalized pre-built module that accepts simple JSON as input for feature annotations, which works out-of-the-box and requires no JavaScript editing to install. This module includes support for overlapping annotations, row-level coloring, expanded row coloring (when expanding rows to disambiguate overlapping features), and feature-level tooltips and links. Please see our <a href="http://www.yeastrc.org/mason/generic-jason-module">generic JSON module</a> page at <a href="http://www.yeastrc.org/mason">our Mason demo site</a> for a demo, installation instructions, and to download.
 
 
 ### Documentation
-
+Please see <a href="mason_docs">our documentation section</a> for more information on installing, configuring, and customizing Mason--including a step-by-step example on how to build a new module if your needs exceed those that can be met by our generic JSON module or other pre-built modules.
 
 ## Download and Install Mason
 The <a href="mason_download">mason_download</a> directory contains the core Mason JavaScript files and all required 3rd party libraries to install Mason on your web site. 
@@ -34,7 +34,6 @@ Once downloaded, place the JavaScript files in an appropriate directory on your 
 <script type="text/javascript" src="js/mason_viewer/mason_viewer_registry.js"></script>
 ```
 
-
 ## Build Mason
-
+If you wish to download, change, and rebuild the Mason JavaScript files youself, please visit our <a href="mason_build">mason_build</a> directory for more information. This directory holds the official source used to build Mason.
 
