@@ -1,2 +1,8 @@
 # Request Params
-When the Mason Viewer is instantiated, one of the required parameters is a JavaScript object that contains the data to be displayed, what Mason refers to as "requestParams". 
+
+Recall that the Mason viewer is instantiated with JavaScript similar to:
+
+```javascript
+MasonViewer.createMasonViewer( $rootDiv, requestParams, configParams, callbackFunctionsObj );
+```
+In this document, we describe the "requestParams" object, which contains the data to be displayed in the Mason viewer.
