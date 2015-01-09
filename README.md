@@ -8,8 +8,14 @@ A thorough description of Mason, its features and capabilities, may be found in 
 
 Daniel Jaschob, Trisha N. Davis, and Michael Riffle. Mason: A JavaScript web site widget for visualizing and comparing annotated features in nucleotide or protein sequences. Journal. Date. Volume(Issue) Pages.
 
-## Learn More about Mason
-Documentation, examples, pre-built modules, and demos may be accessed through the Mason web site at http://www.yeastrc.org/mason. The <a href="mason_docs">mason_docs</a> directory has all the HTML files and may be downloaded to your local machine. Note: Many of the demos make use of AJAX, and so must be accessed via a web server to function as designed.
+## Get Started with Mason
+
+### Demos and Pre-Build Modules
+
+### Generic Implementation
+
+### Documentation
+
 
 ## Download and Install Mason
 The <a href="mason_download">mason_download</a> directory contains the core Mason JavaScript files and all required 3rd party libraries to install Mason on your web site. 
@@ -28,15 +34,4 @@ Once downloaded, place the JavaScript files in an appropriate directory on your 
 
 ## Build Mason
 
-
-
-## Features
-
-## Demos
-
-## Pre-built Modules
-
-## Getting Started
-
-## Download
 
