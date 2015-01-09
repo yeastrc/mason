@@ -90,6 +90,6 @@ The definition of the requestParams object must adhere to the following format:
 - For a blockItems element:
 	- `startPos` - start position of the block
 	- `endPos` - end position of the block
-	- `blockData` - any other data associated with that block. `blockData` elements are passed to module-specific <a href="callback_functions">callback functions</a> for color, tool tip, and click handling.
+	- `blockData` - any other data associated with that block. `blockData` elements are passed to module-specific <a href="callback_functions.md">callback functions</a> for color, tool tip, and click handling.
 
 
