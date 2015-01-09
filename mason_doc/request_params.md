@@ -76,7 +76,7 @@ The definition of the requestParams object should adhere to the following format
 
 ##Explanation of format:
 - At the root level of the passed in object:
-	- "maxSequenceLength" - the length of the sequence being annotated
+	- `maxSequenceLength` - the length of the sequence being annotated
 	- "rowItems" - an array where each entry is one line in the resulting viewer
 	- "vertLinesCombinedRow" - an optional array where each entry is one vertical line for the "Combined" row of the chart
 	- "vertLinesAllRowsItems" - an optional array where each entry is one vertical line that spans all the rows of the chart
