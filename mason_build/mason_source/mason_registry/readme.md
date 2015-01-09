@@ -1,1 +1,1 @@
-mason_viewer_registry.js is optional. It allows for communication between Mason viewer instances so that the location of moused-over annotations may be indicated in the other viewers.
+<a href="mason_viewer_registry.js">mason_viewer_registry.js</a> is optional. It allows for communication between Mason viewer instances so that the location of moused-over annotations may be indicated in the other viewers.
