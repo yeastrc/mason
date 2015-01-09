@@ -32,9 +32,18 @@ PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES=../../mason_download/orig/
 PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES=../../mason_download/min/
 
 
+NON_MINIFIED_ZIP_FILENAME=mason_js.zip
+
+MINIFIED_ZIP_FILENAME=mason_js_min.zip
+
+
+
+
 #  This variable MUST end in "/"
 
 PATH_TO_MASON_VIEWER_RUNSPACE=build_runspace/
+
+
 
 if [ ! -d ${PATH_TO_MASON_VIEWER_RUNSPACE} ];
 then
@@ -119,6 +128,8 @@ if [ $copyExitValue -ne 0 ] ; then
 fi
 
 
+#   Minifiy and munge the core Mason file and the the Mason Registry file
+
 # run with " --nomunge" param to not munge  variable names
 
  java -jar ${YUICOMRESSOR_JAR_WITH_PATH} --line-break 6000  \
@@ -139,8 +150,8 @@ fi
   --verbose \
   -o ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}mason_viewer_registry-min.js \
   ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}mason_viewer_registry.js \
-  > ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor-min-munged_out.txt \
-  2> ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor-min_munged_err.txt
+  > ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor_mason_viewer_registry.js_-min-munged_out.txt \
+  2> ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor_mason_viewer_registry.js_-min_munged_err.txt
 
 yuiCompressorExitValue=$?
 if [[ $yuiCompressorExitValue != 0 ]] ; then
@@ -148,5 +159,32 @@ if [[ $yuiCompressorExitValue != 0 ]] ; then
     exit $yuiCompressorExitValue
 fi
 
+
+#  Zip up the download directories
+
+if [ -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} ];
+then
+    echo "Zip File '${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME}' defined by variable NON_MINIFIED_ZIP_FILENAME exists so renaming it"
+
+	mv ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME}_OLD
+fi
+
+zip ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} \
+ ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}/mason_viewer.js \
+ ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}/mason_viewer_registry.js \
+ ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}/required_libraries \
+
+
+if [ -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME} ];
+then
+    echo "Zip File '${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME}' defined by variable MINIFIED_ZIP_FILENAME exists so renaming it"
+
+	mv ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME} ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME}_OLD
+fi
+
+zip ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME} \
+ ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}/mason_viewer-min.js \
+ ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}/mason_viewer_registry-min.js \
+ ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}/required_libraries \
 
 
