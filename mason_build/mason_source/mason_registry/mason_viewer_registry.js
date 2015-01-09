@@ -28,11 +28,11 @@ var MasonViewerRegistry = function () {
 MasonViewerRegistry.prototype.addMasonViewer = function ( params ) {
 
 	var itemKey = params.itemKey;
-	var protCovViewer = params.protCovViewer;
+	var masonViewer = params.masonViewer;
 	
-	this.viewerRegistry[ itemKey ] = protCovViewer;
+	this.viewerRegistry[ itemKey ] = masonViewer;
 	
-	protCovViewer.registerBlockHoverListener( { hoverListener: this } );
+	masonViewer.registerBlockHoverListener( { hoverListener: this } );
 };
 
 MasonViewerRegistry.prototype.removeMasonViewer = function ( params ) {
@@ -55,8 +55,8 @@ MasonViewerRegistry.prototype.passMessage = function ( params ) {
 
 var MasonViewerRegistryFactory = { createMasonViewerRegistry: function (  ) {
 	
-		var protCovViewerRegistry = new MasonViewerRegistry();
+		var masonViewerRegistry = new MasonViewerRegistry();
 		
-		return protCovViewerRegistry;
+		return masonViewerRegistry;
 	}
 };
