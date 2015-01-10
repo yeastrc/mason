@@ -71,7 +71,9 @@ The specific callback functions called and their corresponding block states are 
 #### Case 2.  For blocks in main rows with overlapping annotations.
 
  Not Called:
-	`mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )`
+```javascript
+	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )`
+```
 
  Called Instead:
 
