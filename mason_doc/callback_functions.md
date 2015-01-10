@@ -55,17 +55,18 @@ Case 1.  For blocks in rows with no overlapping annotations:
 
 ```javascript
 	mainRowsPeptideBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-  precomputeParams = { blockItem, peptideDataItems, startPos, endPos, callbackDataStorage, splitAnyEntriesForRow, forHiddenBlocks }
-```
+	precomputeParams = { blockItem, peptideDataItems, startPos, endPos, callbackDataStorage, splitAnyEntriesForRow, forHiddenBlocks }
 
 	mainRowsPeptideBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
-		getColorForBlockParams = { blockItem, peptideDataItems, callbackDataStorage, forHiddenBlocks }
+	getColorForBlockParams = { blockItem, peptideDataItems, callbackDataStorage, forHiddenBlocks }
 
 	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )
-		getToolTipTextParams = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+	getToolTipTextParams = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
 
 	mainRowsPeptideBlocks_callbackFunctions.processClick( processClick_OverlappingPeptides )
-		processClick_OverlappingPeptides = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+	processClick_OverlappingPeptides = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+```
+
 
 2.  The main blocks that are displayed for each row when overlapping peptides were detected for that row.
 
