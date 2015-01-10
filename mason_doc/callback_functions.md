@@ -47,6 +47,70 @@ For every block in the viewer, the following logic determines when a callback fu
 3. When a mouseover event occurs on the block, a get tool tip function is called to get the tool tip text to display.
 4. When a click event occurs on the block, a handle click function is called.
 
-The specific callback function called in these cases is determined by the state of the block (a block here is the displayed area between the start and end position of an annotation). (Note the state of a block may be determined using the `splitAnyEntriesForRow` property (true for main row blocks if there were overlapping blocks) and the `forHiddenBlocks` property(true for the blocks that appear when a row is expanded to show non-overlapping blocks).) The specific callback functions called and their corresponding block states are given below:
+The specific callback function called in these cases is determined by the state of the block (a block here is the displayed area between the start and end position of an annotation). Note the state of a block may be determined using the `splitAnyEntriesForRow` property (true for main row blocks if there were overlapping blocks) and the `forHiddenBlocks` property(true for the blocks that appear when a row is expanded to show non-overlapping blocks).
+
+The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockItem` is an element from the array `blockItems`.
+
+Case 1.  For blocks in rows with no overlapping annotations:
+
+```javascript
+	mainRowsPeptideBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
+  precomputeParams = { blockItem, peptideDataItems, startPos, endPos, callbackDataStorage, splitAnyEntriesForRow, forHiddenBlocks }
+```
+
+	mainRowsPeptideBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
+		getColorForBlockParams = { blockItem, peptideDataItems, callbackDataStorage, forHiddenBlocks }
+
+	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )
+		getToolTipTextParams = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+
+	mainRowsPeptideBlocks_callbackFunctions.processClick( processClick_OverlappingPeptides )
+		processClick_OverlappingPeptides = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
+
+2.  The main blocks that are displayed for each row when overlapping peptides were detected for that row.
+
+    Not Called:
+	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )
+
+	Called Instead:
+	mainRowsPeptideBlocks_callbackFunctions.getOverlappingPeptidesToolTipText( getToolTipTextParams )
+		getToolTipTextParams = { startPos, endPos, peptideDataItems, blockItem, callbackDataStorage	}
 
 
+3.  The blocks that initially hidden for a row for each row when overlapping peptides were detected for that row
+
+		Same params as above but splitAnyEntriesForRow == false and forHiddenBlocks == true
+
+	mainRowsPeptideBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
+	mainRowsPeptideBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
+	mainRowsPeptideBlocks_callbackFunctions.getNonOverlappingPeptidesToolTipText( getToolTipTextParams )
+	mainRowsPeptideBlocks_callbackFunctions.processClick( processClick_OverlappingPeptides )
+
+
+4.  The totals row at the bottom of the Visualizer - No "blockItem" since totals row
+
+	combinedRow_callbackFunctions.precomputeValuesOnCreate( precomputeValuesOnCreateParams )
+		precomputeValuesOnCreateParams = { peptideDataItems, startPos, endPos, callbackDataStorage, splitAnyEntriesForRow }
+
+	combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams )
+		getColorForBlockParams = { peptideDataItems, callbackDataStorage };
+
+	combinedRow_callbackFunctions.getPeptidesToolTipText( getSinglePeptideToolTipTextParams )
+		getSinglePeptideToolTipTextParams = { startPos, endPos, peptideDataItems, callbackDataStorage }
+
+	combinedRow_callbackFunctions.processClick( processClickParams )
+		processClickParams = { startPos, endPos, peptideDataItems, callbackDataStorage }
+
+5.  The Row totals block at the right of each row
+
+	rowTotalBar_callbackFunctions.precomputeValuesOnCreate( precomputeValuesOnCreateParams )
+		precomputeValuesOnCreateParams = { blockItem, callbackDataStorage }
+
+	rowTotalBar_callbackFunctions.getColorAndSize( getColorAndSizeParams )
+		getColorAndSizeParams = { blockItem, callbackDataStorage }
+
+	rowTotalBar_callbackFunctions.getTotalBarToolTipText( toolTipTextParams )
+		toolTipTextParams = { blockItem, callbackDataStorage }
+
+	rowTotalBar_callbackFunctions.processClick( processClickParams )
+		processClickParams = { blockItem, callbackDataStorage }
