@@ -51,7 +51,7 @@ The specific callback function called in these cases is determined by the state 
 
 The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockItem` is an element from the array `blockItems`.
 
-Case 1.  For blocks in rows with no overlapping annotations:
+### Case 1.  For blocks in rows with no overlapping annotations:
 
 ```javascript
 	mainRowsPeptideBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
