@@ -47,6 +47,6 @@ For every block in the viewer, the following logic determines when a callback fu
 3. When a mouseover event occurs on the block, a get tool tip function is called to get the tool tip text to display.
 4. When a click event occurs on the block, a handle click function is called.
 
-The specific callback function called in these cases is determined by the state of the block (a block here is the displayed area between the start and end position of an annotation). Note the state of a block may be determined using the `splitAnyEntriesForRow` property (true for main row blocks if there were overlapping blocks) and `forHiddenBlocks` (true for the blocks that appear when a row is expanded to show non-overlapping blocks). The specific callback functions called and their corresponding states are given below:
+The specific callback function called in these cases is determined by the state of the block (a block here is the displayed area between the start and end position of an annotation). (Note the state of a block may be determined using the `splitAnyEntriesForRow` property (true for main row blocks if there were overlapping blocks) and the `forHiddenBlocks` property(true for the blocks that appear when a row is expanded to show non-overlapping blocks).) The specific callback functions called and their corresponding states are given below:
 
 
