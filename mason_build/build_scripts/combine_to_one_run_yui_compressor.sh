@@ -160,6 +160,10 @@ if [[ $yuiCompressorExitValue != 0 ]] ; then
 fi
 
 
+#  cd to download org directory 
+
+
+
 #  Zip up the download directories
 
 if [ -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} ];
@@ -169,10 +173,13 @@ then
 	mv ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME}_OLD
 fi
 
-zip ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} \
- ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}/mason_viewer.js \
- ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}/mason_viewer_registry.js \
- ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}/required_libraries \
+
+cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES} && \
+ zip -v -r -x\*.md ${NON_MINIFIED_ZIP_FILENAME} \
+ mason_viewer.js \
+ mason_viewer_registry.js \
+ required_libraries 
+
 
 
 if [ -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME} ];
@@ -186,5 +193,12 @@ zip ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME} \
  ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}/mason_viewer-min.js \
  ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}/mason_viewer_registry-min.js \
  ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}/required_libraries \
+
+
+cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES} && \
+ zip -v -r -x\*.md ${MINIFIED_ZIP_FILENAME} \
+ mason_viewer-min.js \
+ mason_viewer_registry-min.js \
+ required_libraries
 
 
