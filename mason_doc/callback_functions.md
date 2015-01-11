@@ -39,6 +39,8 @@ be created.
 - `combinedRowVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/combinedRowVerticalLines_callbackFunctions.md">here</a>.
 - `allRowsVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/allRowsVerticalLines_callbackFunctions.md">here</a>.
 
+# !!!!!!!!  Probably delete all below here !!!!
+
 ## When are the callback functions called?
 Below is a description of when the various callback functions are called by the Mason viewer and what parameters are passed into them. Note that all functions take as their parameter a single properties object that associates specific property names with values. Every properties object should contain a property named `callbackDataStorage`, which can store data and retrieve it in subsequent function calls. An example use would be to precompute the the tool tip text and then return that on subsequent calls.
 
@@ -53,6 +55,7 @@ The specific callback function called in these cases is determined by the state 
 
 The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockItem` is an element from the array `blockItems` and `peptideDataItems` is an array of `peptideData` elements from the input data `peptideData` under `peptideItems`.
 
+# !!!!!!!!  OR Probably delete all below here !!!!
 
 #### Case 1.  For blocks in main rows with no overlapping annotations:
 
