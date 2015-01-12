@@ -529,7 +529,7 @@ MasonViewerPerInstance.prototype.computeRepresentation = function( $rootDiv, dat
 
 
 
-//   mason_viewer_process_overlapping_peptides.js
+//   mason_viewer_35_process_overlapping_blocks.js
 
 //     This is a part of MasonViewer
 
@@ -1491,8 +1491,14 @@ MasonViewerPerInstance.prototype.reformatDataToInternalFormat = function( reques
 
 
 		//  create totals row at top area
+		
+		//    create only if:
+		//		this.constructorParams.callbackFunctionsObjcallbackFunctionsObj.combinedRow_callbackFunctions is defined
+		//		more than 1 output row or configDisplayOptions.createCombinedLineOnly is true
+		//		configDisplayOptions.skipCreateCombinedLine is false
 
-		if ( ( outputRows.length > 1 || this.configDisplayOptions.createCombinedLineOnly ) &&
+		if ( this.constructorParams.callbackFunctionsObj.combinedRow_callbackFunctions &&
+				( outputRows.length > 1 || this.configDisplayOptions.createCombinedLineOnly ) &&
 				! this.configDisplayOptions.skipCreateCombinedLine ) {
 
 			this.processCombinedRow( outputRows, 0 /* rowCount */, currentSVGgroupOfRowXandBelow, currentSVGgroupOfRowXandBelowProgramaticDataStorage );
