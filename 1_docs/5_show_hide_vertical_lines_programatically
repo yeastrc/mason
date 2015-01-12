@@ -1,0 +1,9 @@
+
+All the vertical lines defined in the Mason viewer
+can be made visible or invisible be making calls on the MasonViewer object
+returned from the call to MasonViewer.createMasonViewer(...)
+
+To make the vertical lines visible, call showVerticalDataLines() on the returned object.
+
+To make the vertical lines invisible, call hideVerticalDataLines() on the returned object.
+
