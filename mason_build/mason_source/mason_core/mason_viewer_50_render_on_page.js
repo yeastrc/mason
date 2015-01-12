@@ -320,8 +320,14 @@
 
 
 		//  create totals row at top area
+		
+		//    create only if:
+		//		this.constructorParams.callbackFunctionsObjcallbackFunctionsObj.combinedRow_callbackFunctions is defined
+		//		more than 1 output row or configDisplayOptions.createCombinedLineOnly is true
+		//		configDisplayOptions.skipCreateCombinedLine is false
 
-		if ( ( outputRows.length > 1 || this.configDisplayOptions.createCombinedLineOnly ) &&
+		if ( this.constructorParams.callbackFunctionsObj.combinedRow_callbackFunctions &&
+				( outputRows.length > 1 || this.configDisplayOptions.createCombinedLineOnly ) &&
 				! this.configDisplayOptions.skipCreateCombinedLine ) {
 
 			this.processCombinedRow( outputRows, 0 /* rowCount */, currentSVGgroupOfRowXandBelow, currentSVGgroupOfRowXandBelowProgramaticDataStorage );
