@@ -1,5 +1,5 @@
 
-//   mason_viewer_process_overlapping_peptides.js
+//   mason_viewer_35_process_overlapping_blocks.js
 
 //     This is a part of MasonViewer
 

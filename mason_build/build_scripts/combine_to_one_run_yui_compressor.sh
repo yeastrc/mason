@@ -92,7 +92,7 @@ cat \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_20_constants.js  \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_30_per_instance.js  \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_35_compute_representation.js  \
-    ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_35_process_overlapping_peptides.js  \
+    ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_35_process_overlapping_blocks.js  \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_35_reformat_data_to_internal_format.js  \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_40_ProgramaticDataStorage.js  \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_50_render_on_page.js  \
