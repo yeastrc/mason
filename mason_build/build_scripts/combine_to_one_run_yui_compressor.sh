@@ -1,4 +1,24 @@
 
+#  combine_to_one_run_yui_compressor.sh
+
+#  Script for creating the files in the download directories.
+
+#  This script: 
+
+#	combines the files that make up the Mason core into one file in the mason_download/orig dir.
+#	copies the Mason Registry file to the mason_download/orig dir.
+#	minifies the Mason core and Registry and writes them to mason_download/min.
+#	zips the files in mason_download/orig.
+#	zips the files in mason_download/min.
+
+
+#  Run this on linux using:
+#  bash combine_to_one_run_yui_compressor.sh
+
+
+# abort the script for any errors
+set -e
+
 
 #  run with "bash -x" to debug
 
@@ -12,6 +32,7 @@
 
 YUICOMRESSOR_JAR_WITH_PATH=../../../yuicompressor-2.4.8.jar
 
+# !!  Relative Paths from "build_scripts" directory
 
 #  This variable MUST end in "/"
 
@@ -25,11 +46,16 @@ PATH_TO_MASON_VIEWER_REGISTRY_JS_FILE=../mason_source/mason_registry/
 
 #  This variable MUST end in "/"
 
-PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES=../../mason_download/orig/
+PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES=../../mason_download/orig/
 
 #  This variable MUST end in "/"
 
 PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES=../../mason_download/min/
+
+
+#  This variable MUST end in "/"
+
+PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES_FROM_DOWNLOAD_ORIG_FILES=../min/
 
 
 NON_MINIFIED_ZIP_FILENAME=mason_js.zip
@@ -42,6 +68,11 @@ MINIFIED_ZIP_FILENAME=mason_js_min.zip
 #  This variable MUST end in "/"
 
 PATH_TO_MASON_VIEWER_RUNSPACE=build_runspace/
+
+#  This variable MUST end in "/"
+
+PATH_TO_MASON_VIEWER_RUNSPACE_FROM_DOWNLOAD_DIR_ORIG_OR_MIN=../../mason_build/build_scripts/build_runspace
+
 
 
 
@@ -64,9 +95,9 @@ then
 fi
 
 
-if [ ! -d ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES} ];
+if [ ! -d ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES} ];
 then
-    echo "Directory '${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}' defined by variable PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES not found!"
+    echo "Directory '${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES}' defined by variable PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES not found!"
 	exit 1;
 fi
 
@@ -79,7 +110,7 @@ fi
 
 # echo before remove files
 
-rm -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}mason_viewer.js
+rm -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES}mason_viewer.js
 
 rm -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}mason_viewer_all-min.js
 
@@ -107,11 +138,11 @@ cat \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_55_render_on_page_pixel_positioning.js  \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_55_render_on_page_totals_row.js  \
     ${PATH_TO_MASON_VIEWER_INDIVIDUAL_JS_FILES}mason_viewer_95_end_outer_enclosing_function.js  \
-    > ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}mason_viewer.js
+    > ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES}mason_viewer.js
 
 catExitValue=$?
 if [ $catExitValue -ne 0 ] ; then
-	echo cat of files to combine them to download dir failed
+	echo cat of files to combine them to download dir failed with exit value $catExitValue
     exit $catExitValue
 fi
 
@@ -119,11 +150,11 @@ fi
 
 # copy registry file to download dir
 
-cp  ${PATH_TO_MASON_VIEWER_REGISTRY_JS_FILE}mason_viewer_registry.js  ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}
+cp  ${PATH_TO_MASON_VIEWER_REGISTRY_JS_FILE}mason_viewer_registry.js  ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES}
 
 copyExitValue=$?
 if [ $copyExitValue -ne 0 ] ; then
-	echo copy of registry file to download dir failed
+	echo copy of registry file to download dir failed with exit value $copyExitValue
     exit $catExitValue
 fi
 
@@ -135,7 +166,7 @@ fi
  java -jar ${YUICOMRESSOR_JAR_WITH_PATH} --line-break 6000  \
   --verbose \
   -o ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}mason_viewer-min.js \
-  ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}mason_viewer.js \
+  ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES}mason_viewer.js \
   > ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor-min-munged_out.txt \
   2> ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor-min_munged_err.txt
 
@@ -149,7 +180,7 @@ fi
  java -jar ${YUICOMRESSOR_JAR_WITH_PATH} --line-break 6000  \
   --verbose \
   -o ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}mason_viewer_registry-min.js \
-  ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}mason_viewer_registry.js \
+  ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES}mason_viewer_registry.js \
   > ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor_mason_viewer_registry.js_-min-munged_out.txt \
   2> ${PATH_TO_MASON_VIEWER_RUNSPACE}zzz_yuicompressor_mason_viewer_registry.js_-min_munged_err.txt
 
@@ -160,40 +191,101 @@ if [[ $yuiCompressorExitValue != 0 ]] ; then
 fi
 
 
-#  cd to download org directory 
-
-
-
 #  Zip up the download directories
 
-if [ -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} ];
-then
-    echo "Zip File '${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME}' defined by variable NON_MINIFIED_ZIP_FILENAME exists so renaming it"
 
-	mv ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME} ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES}${NON_MINIFIED_ZIP_FILENAME}_OLD
+
+#  cd to download orig directory 
+
+
+cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES} 
+
+cdExitValue=$?
+if [ $cdExitValue -ne 0 ] ; then
+	echo cd to ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES} failed with exit value $cdExitValue
+    exit $cdExitValue
+fi	
+
+
+echo pwd after cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES} 
+
+pwd
+
+
+if [ -f ${NON_MINIFIED_ZIP_FILENAME} ];
+then
+    echo "Zip File '${PATH_TO_MASON_VIEWER_DOWNLOAD_UN_MINIFIED_JS_FILES}${NON_MINIFIED_ZIP_FILENAME}' defined by variable NON_MINIFIED_ZIP_FILENAME exists so renaming it"
+
+	mv ${NON_MINIFIED_ZIP_FILENAME} ${NON_MINIFIED_ZIP_FILENAME}_OLD
+	
+	moveExitValue=$?
+	if [ $moveExitValue -ne 0 ] ; then
+		echo move of ${NON_MINIFIED_ZIP_FILENAME} to ${NON_MINIFIED_ZIP_FILENAME}_OLD failed with exit value $moveExitValue
+	    exit $moveExitValue
+	fi	
 fi
 
 
-cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_JS_FILES} && \
- zip -v -r -x\*.md ${NON_MINIFIED_ZIP_FILENAME} \
+
+#  Zip up the download orig directory
+
+zip -v -r -x\*.md ${NON_MINIFIED_ZIP_FILENAME} \
  mason_viewer.js \
  mason_viewer_registry.js \
  required_libraries 
 
 
+zipExitValue=$?
+if [ $zipExitValue -ne 0 ] ; then
+	echo zip -v -r -x\*.md ${NON_MINIFIED_ZIP_FILENAME}  failed with exit value $zipExitValue
+    exit $zipExitValue
+fi	
 
-if [ -f ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME} ];
+
+cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES_FROM_DOWNLOAD_ORIG_FILES} 
+
+
+cdExitValue=$?
+if [ $cdExitValue -ne 0 ] ; then
+	echo cd to ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES_FROM_DOWNLOAD_ORIG_FILES} failed with exit value $cdExitValue
+    exit $cdExitValue
+fi	
+
+
+echo pwd after cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES_FROM_DOWNLOAD_ORIG_FILES}  
+
+pwd
+
+
+if [ -f ${MINIFIED_ZIP_FILENAME} ];
 then
-    echo "Zip File '${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME}' defined by variable MINIFIED_ZIP_FILENAME exists so renaming it"
+    echo "Zip File '${MINIFIED_ZIP_FILENAME}' defined by variable MINIFIED_ZIP_FILENAME exists so renaming it"
 
-	mv ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME} ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES}${MINIFIED_ZIP_FILENAME}_OLD
+	mv ${MINIFIED_ZIP_FILENAME} ${MINIFIED_ZIP_FILENAME}_OLD
+
+	moveExitValue=$?
+	if [ $moveExitValue -ne 0 ] ; then
+		echo move of ${MINIFIED_ZIP_FILENAME} to ${MINIFIED_ZIP_FILENAME}_OLD failed with exit value $moveExitValue
+	    exit $moveExitValue
+	fi	
+	
 fi
 
 
-cd ${PATH_TO_MASON_VIEWER_DOWNLOAD_MINIFIED_JS_FILES} && \
- zip -v -r -x\*.md ${MINIFIED_ZIP_FILENAME} \
+
+#  Zip up the download min directory
+
+zip -v -r -x\*.md ${MINIFIED_ZIP_FILENAME} \
  mason_viewer-min.js \
  mason_viewer_registry-min.js \
  required_libraries
+
+
+zipExitValue=$?
+if [ $zipExitValue -ne 0 ] ; then
+	echo zip -v -r -x\*.md ${NON_MINIFIED_ZIP_FILENAME}  failed with exit value $zipExitValue
+    exit $zipExitValue
+fi	
+
 
 
