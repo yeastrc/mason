@@ -25,7 +25,7 @@ Each of these properties references a JavaScript object that contains defined ca
 
 - `mainRowsLabel_callbackFunctions` manages the appearance and behavior of the label to the left of each row. This property is required. `mainRowsLabel_callbackFunctions` is covered in detail <a href="callbacks/mainRowsLabel_callbackFunctions.md">here</a>.
 
-- `mainRowsBlocks_callbackFunctions` is covered in detail <a href="callbacks/mainRowsBlocks_callbackFunctions.md">here</a>.
+- `mainRowsBlocks_callbackFunctions` manages the appearance and behavior of the blocks in each row. This property is required. `mainRowsBlocks_callbackFunctions` is covered in detail <a href="callbacks/mainRowsBlocks_callbackFunctions.md">here</a>.
 
 - `rowTotalBar_callbackFunctions` is covered in detail <a href="callbacks/rowTotalBar_callbackFunctions.md">here</a>.
 
