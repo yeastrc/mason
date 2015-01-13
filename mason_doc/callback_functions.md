@@ -31,7 +31,7 @@ Each of these properties references a JavaScript object that contains defined ca
 
 - `combinedRow_callbackFunctions` manages the appearance and behavior of the blocks in the combined/summary row (if enabled). `combinedRow_callbackFunctions` is covered in detail <a href="callbacks/combinedRow_callbackFunctions.md">here</a>. (Optional)
 
-- `combinedRowTotalBar_callbackFunctions` is covered in detail <a href="callbacks/combinedRowTotalBar_callbackFunctions.md">here</a>.
+- `combinedRowTotalBar_callbackFunctions` manages the appearance and behavior of the total block to the right of the combined row (if enabled). `combinedRowTotalBar_callbackFunctions` is covered in detail <a href="callbacks/combinedRowTotalBar_callbackFunctions.md">here</a>. (Optional)
 
 - `mainRowsVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/mainRowsVerticalLines_callbackFunctions.md">here</a>.
 
