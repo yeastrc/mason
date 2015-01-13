@@ -33,10 +33,10 @@ Each of these properties references a JavaScript object that contains defined ca
 
 - `combinedRowTotalBar_callbackFunctions` manages the appearance and behavior of the total block to the right of the combined row (if enabled). `combinedRowTotalBar_callbackFunctions` is covered in detail <a href="callbacks/combinedRowTotalBar_callbackFunctions.md">here</a>. (Optional)
 
-- `mainRowsVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/mainRowsVerticalLines_callbackFunctions.md">here</a>.
+- `mainRowsVerticalLines_callbackFunctions` manages the appearance and behavior of the vertical lines which may optionally appear in each row. `mainRowsVerticalLines_callbackFunctions`is covered in detail <a href="callbacks/mainRowsVerticalLines_callbackFunctions.md">here</a>. (Optional)
 
-- `combinedRowVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/combinedRowVerticalLines_callbackFunctions.md">here</a>.
+- `combinedRowVerticalLines_callbackFunctions` manages the appearance and behavior of the vertical lines which may optionally appear in the combined/summary row (if enabled). `combinedRowVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/combinedRowVerticalLines_callbackFunctions.md">here</a>. (Optional)
 
-- `allRowsVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/allRowsVerticalLines_callbackFunctions.md">here</a>.
+- `allRowsVerticalLines_callbackFunctions` manages the appearance and behavior of the vertical lines that are defined to appear in all rows. `allRowsVerticalLines_callbackFunctions` is covered in detail <a href="callbacks/allRowsVerticalLines_callbackFunctions.md">here</a>. (Optional)
 
 
