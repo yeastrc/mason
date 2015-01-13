@@ -29,7 +29,7 @@ Each of these properties references a JavaScript object that contains defined ca
 
 - `rowTotalBar_callbackFunctions` manages the apperance and behavior of the totals block to the right of each row. `rowTotalBar_callbackFunctions` is covered in detail <a href="callbacks/rowTotalBar_callbackFunctions.md">here</a>. (Optional)
 
-- `combinedRow_callbackFunctions` is covered in detail <a href="callbacks/combinedRow_callbackFunctions.md">here</a>.
+- `combinedRow_callbackFunctions` manages the appearance and behavior of the blocks in the combined/summary row (if enabled). `combinedRow_callbackFunctions` is covered in detail <a href="callbacks/combinedRow_callbackFunctions.md">here</a>. (Optional)
 
 - `combinedRowTotalBar_callbackFunctions` is covered in detail <a href="callbacks/combinedRowTotalBar_callbackFunctions.md">here</a>.
 
