@@ -1,12 +1,8 @@
 
-# Info taken from 1_docs/2.c.c_mainRowsBlocks_callbackFunctions.txt
-
-# Callback Functions
+# mainRowsBlocks_callbackFunctions
 
 ## When are the callback functions called?
-Below is a description of when the various callback functions are called by the Mason viewer and what parameters are passed into them. Note that all functions take as their parameter a single properties object that associates specific property names with values. Every properties object should contain a property named `callbackDataStorage`, which can store data and retrieve it in subsequent function calls. An example use would be to precompute the the tool tip text and then return that on subsequent calls.
-
-For every block in the viewer, the following logic determines when a callback function will be called. For the specific callback function called, see the next section.
+For every block in the viewer, the following logic determines when a callback function will be called. For the specific callback function called, see the next section. `callbackDataStorage` is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call.
 
 1. A "precompute" function is called first.  This can be used to support complicated computations that can be shared between determining the color, the tool tip text, and the click handling.
 2. A get color function is then called to get the color of the block.
@@ -20,15 +16,20 @@ The specific callback function called in these cases is determined by the state 
 #### Case 1.  For blocks in main rows with no overlapping annotations:
 
 ```javascript
+
+	// perform any necessary computation when the viewer is created
 	mainRowsBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
 	precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
 
+	// return a color as a string to use for a given block, given the input parameters
 	mainRowsBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
 	getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
 
+	// return a string to show as a tooltip for this block
 	mainRowsBlocks_callbackFunctions.getNonOverlappingBlocksToolTipText ( getToolTipTextParams )
 	getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 
+	// perform an action when a user clicks on the block
 	mainRowsBlocks_callbackFunctions.processClick( processClickParams  )
 	processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
 ```
@@ -37,15 +38,7 @@ The specific callback function called in these cases is determined by the state 
 #### Case 2.  For blocks in main rows with overlapping annotations.
 
 
-In this case, the set of callbacks is called two different ways for two types of blocks.
-
-  One type of block:
-  
-	One type of block is the blocks that will be shown initially.
-	These blocks are created by Mason as it processes the overlaps of the blocks passed in.
-	The blockDataItems array passed to the callbacks will have one or more elements corresponding to the original blocks that went into that overlapping block.
-
-	For those blocks, the following callback functions are called
+In this case, blocks are created by Mason as it processes the overlapping segments. If two segments overlap, the overlapping section will appear functionally in mason as a separate block. The `blockDataItems` array passed into the callback will have one or more elements corresponding to the original blocks that went into that overlapping block. For all blocks in rows that contain overlapping blocks, the following callback functions are called:
 
 ```javascript
 		mainRowsBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
