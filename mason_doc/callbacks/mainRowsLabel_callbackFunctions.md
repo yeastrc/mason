@@ -19,6 +19,8 @@ For the label on the left side of each main row, the following logic determines 
 
 ```
 
-Note: the property named `callbackDataStorage`, is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call.
+`callbackDataStorage` is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call.
+
+`rowItem` is the `rowItem` element for this row as defined in the <a href="../request_params.md">request_params</a> when the Mason viewer is created.
 
 
