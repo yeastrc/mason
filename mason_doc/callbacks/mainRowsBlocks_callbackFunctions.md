@@ -19,48 +19,44 @@ The specific callback function called in these cases is determined by the state 
 
 	// perform any necessary computation when the viewer is created
 	mainRowsBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-	precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
+	//precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
 
 	// return a color as a string to use for a given block, given the input parameters
 	mainRowsBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
-	getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
+	//getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
 
 	// return a string to show as a tooltip for this block
 	mainRowsBlocks_callbackFunctions.getNonOverlappingBlocksToolTipText ( getToolTipTextParams )
-	getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
+	//getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 
 	// perform an action when a user clicks on the block
 	mainRowsBlocks_callbackFunctions.processClick( processClickParams  )
-	processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
+	//processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
 ```
 
 
 #### Case 2.  For blocks in main rows with overlapping annotations.
 
 
-In this case, blocks are created by Mason as it processes the overlapping segments. If two segments overlap, the overlapping section will appear functionally in mason as a separate block. The `blockDataItems` array passed into the callback will have one or more elements corresponding to the original blocks that went into that overlapping block. For all blocks in rows that contain overlapping blocks, the following callback functions are called:
+In this case, blocks are created by Mason as it processes the overlapping segments. If two segments overlap, the overlapping section will appear functionally in mason as a separate block. For example, if the segements 12-36 and 30-50 are passed in, mason will show blocks from 12-30, 30-36, and 36-50 in the viewer.The `blockDataItems` array passed into the callback will have one or more elements corresponding to the original blocks that went into that overlapping block. For blocks in rows that contain overlapping blocks, the following callback functions are called:
 
 ```javascript
+		// perform any necessary computation when the viewer is created
 		mainRowsBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-		precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
+		//precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
 		
-			Where forHiddenBlocks === false, splitAnyEntriesForRow === true
-
+		// get the color, as a string, to use for this blocks
 		mainRowsBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
 		getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
 
-			Where forHiddenBlocks === false
-			
+		// get the tooltip to show, as a string, for blocks present in rows with overlapping blocks	
 		mainRowsBlocks_callbackFunctions.getOverlappingBlocksToolTipText ( getToolTipTextParams )
 		getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 ```
 
-  Second type of block:
-  
-	The second type of block is the blocks that will be shown when the row is expanded, showing the blocks as passed into Mason.
-	The blockDataItems array passed to the callbacks will have one element corresponding to the original blocks.
+#### Case 3.  For blocks that are shown as a result of expanding a row with overlapping blocks.
 
-	For those blocks, the following callback functions are called
+Because each segment is guaranteed to not overlap with any other, the `blockDataItems` array passed to the callbacks will have one element corresponding to the single item passed into `blockDataItems` for this annotation. For these blocks, the following callback functions are called:
 
 ```javascript
 		mainRowsBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
