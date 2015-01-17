@@ -11,7 +11,7 @@ For every block in the viewer, the following logic determines when a callback fu
 
 The specific callback function called in these cases is determined by the state of the block (a block here is the displayed area between the start and end position of an annotation). Note the state of a block may be determined using the `splitAnyEntriesForRow` property (true for main row blocks if there were overlapping blocks) and the `forHiddenBlocks` property(true for the blocks that appear when a row is expanded to show non-overlapping blocks).
 
-The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockItem` is an element from the array `blockItems`, and `rowItem` is an element from the array`rowItems` from the input data.
+The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockDataItem` is the `blockData` property from an element in the `blockItems` array input to Mason, and `rowItem` is the element from the `rowItems` corresponding to the current row in the data input to Mason.
 
 #### Case 1.  For blocks in main rows with no overlapping annotations:
 
@@ -38,7 +38,7 @@ The specific callback functions called and their corresponding block states are 
 #### Case 2.  For blocks in main rows with overlapping annotations.
 
 
-In this case, blocks are created by Mason as it processes the overlapping segments. If two segments overlap, the overlapping section will appear functionally in mason as a separate block. For example, if the segements 12-36 and 30-50 are passed in, mason will show blocks from 12-30, 30-36, and 36-50 in the viewer.The `blockDataItems` array passed into the callback will have one or more elements corresponding to the original blocks that went into that overlapping block. For blocks in rows that contain overlapping blocks, the following callback functions are called:
+In this case, blocks are created by Mason as it processes the overlapping segments. If two segments overlap, the overlapping section will appear functionally in mason as a separate block. For example, if the segements 12-36 and 30-50 are passed in, mason will show blocks from 12-30, 30-36, and 36-50 in the viewer. The `blockDataItems` array passed into the callback will have one or more elements corresponding to the original blocks that went into that overlapping block. For blocks in rows that contain overlapping blocks, the following callback functions are called:
 
 ```javascript
 		// perform any necessary computation when the viewer is created
@@ -56,24 +56,25 @@ In this case, blocks are created by Mason as it processes the overlapping segmen
 
 #### Case 3.  For blocks that are shown as a result of expanding a row with overlapping blocks.
 
-Because each segment is guaranteed to not overlap with any other, the `blockDataItems` array passed to the callbacks will have one element corresponding to the single item passed into `blockDataItems` for this annotation. For these blocks, the following callback functions are called:
+Because each segment in the expansion is guaranteed to not overlap with any other, the `blockDataItems` array passed to the callbacks will have one element corresponding to the single `blockData` property defining the given block in the input data. For blocks shown when a row is expanded, the following callback functions are called:
 
 ```javascript
+		// perform any necessary computation when the viewer is created
 		mainRowsBlocks_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-		precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
+		//precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
 		
-			Where forHiddenBlocks === true, splitAnyEntriesForRow === true
-
+		// get the color, as a string, to use for this blocks
 		mainRowsBlocks_callbackFunctions.getColorForBlock( getColorForBlockParams )
-		getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
+		//getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
 
-			Where forHiddenBlocks === true
-			
+		// get the tooltip string to show when moused over
 		mainRowsBlocks_callbackFunctions.getOverlappingBlocksToolTipText ( getToolTipTextParams )
-		getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
+		//getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 		
-	mainRowsBlocks_callbackFunctions.processClick( processClickParams  )
-	processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
+		// execute this code when the user clicks on a block shown in an expanded row
+		mainRowsBlocks_callbackFunctions.processClick( processClickParams  )
+		//processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
 		
 ```
 
+<a href="../callback_functions.md">Back to the callback functions page</a>.
