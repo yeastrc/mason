@@ -31,7 +31,6 @@ For every row totals block in the viewer, the following logic determines when a 
 		or
 		a String of the format "#RRGGBB" where "RR", "GG", and "BB" are hex colors "00" to "FF"
 	*/
-	
 	rowTotalBar_callbackFunctions.getColorAndSize( getColorAndSizeParams )
 	// where getColorAndSizeParams = { rowItem, callbackDataStorage }
 
