@@ -35,58 +35,22 @@ The specific callback functions called and their corresponding block states are 
 ```
 
 
-#### Case 2.  For blocks in combined row with overlapping annotations.
+#### Case 2.  For blocks in main rows with overlapping annotations.
 
 
-In this case, the set of callbacks is called two different ways for two types of blocks.
-
-  One type of block:
-  
-	One type of block is the blocks that will be shown initially.
-	These blocks are created by Mason as it processes the overlaps of the blocks passed in.
-	The blockDataItems array passed to the callbacks will have one or more elements corresponding to the original blocks for all the rows that went into that overlapping block.
-
-	For those blocks, the following callback functions are called
+In this case, blocks are created by Mason as it processes the overlapping segments. If two segments overlap, the overlapping section will appear functionally in mason as a separate block. For example, if the segements 12-36 and 30-50 are passed in, mason will show blocks from 12-30, 30-36, and 36-50 in the viewer. The `blockDataItems` array passed into the callback will have one or more elements corresponding to the original blocks that went into that overlapping block. For blocks in rows that contain overlapping blocks, the following callback functions are called:
 
 ```javascript
+		// perform any necessary computation when the viewer is created
 		combinedRow_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-		precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
+		//precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
 		
-			Where forHiddenBlocks === false, splitAnyEntriesForRow === true
-
+		// get the color, as a string, to use for this blocks
 		combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams )
 		getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
 
-			Where forHiddenBlocks === false
-			
+		// get the tooltip to show, as a string, for blocks present in rows with overlapping blocks	
 		combinedRow_callbackFunctions.getOverlappingBlocksToolTipText ( getToolTipTextParams )
 		getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 ```
-
-  Second type of block:
-  
-	The second type of block is the blocks that will be shown when the row is expanded, showing the blocks as passed into Mason.
-	The blockDataItems array passed to the callbacks will have one or more elements corresponding to the original blocks at that position for all the rows.
-
-	For those blocks, the following callback functions are called
-
-```javascript
-		combinedRow_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-		precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
-		
-			Where forHiddenBlocks === true, splitAnyEntriesForRow === true
-
-		combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams )
-		getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
-
-			Where forHiddenBlocks === true
-			
-		combinedRow_callbackFunctions.getOverlappingBlocksToolTipText ( getToolTipTextParams )
-		getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
-		
-	combinedRow_callbackFunctions.processClick( processClickParams  )
-	processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
-		
-```
-
 
