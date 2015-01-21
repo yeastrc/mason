@@ -5,11 +5,6 @@ For the Combined Row totals block in the viewer, the following logic determines 
 
 `callbackDataStorage` is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call. `rowItem` is the element from the `rowItems` array corresponding to this row in the <a href="../request_params.md">request_params</a> passed into the Mason viewer when it was created.
 
-1. A "precompute" function is called first.  This can be used to support complicated computations that can be shared between determining the color, the tool tip text, and the click handling.
-2. A get color and block size function is then called to get the color and size of the block.
-3. When a mouseover event occurs on the block, a get tool tip function is called to get the tool tip text to display.
-4. When a click event occurs on the block, a handle click function is called.
-
 ```javascript
 
 	// A "precompute" function is called first.  This can be used to support complicated computations that can be shared between determining the color, the tool tip text, and the click handling.
