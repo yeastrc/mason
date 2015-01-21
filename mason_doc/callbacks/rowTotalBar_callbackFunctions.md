@@ -3,6 +3,8 @@
 
 For every row totals block in the viewer, the following logic determines when a callback function will be called. The row totals block is the optional block placed to the right of a row indicating some summary value for that row. For the specific callback function called, see the next section.
 
+`callbackDataStorage` is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call. `rowItem` is the element from the `rowItems` array corresponding to this row in the <a href="../request_params.md">request_params</a> passed into the Mason viewer when it was created.
+
 ```javascript
 
 	// called first, supports complicated computations that only should be run once .
