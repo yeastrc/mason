@@ -1,36 +1,32 @@
 
-# Info taken from 1_docs/2.c.g_mainRowsVerticalLines_callbackFunctions.txt
+# mainRowsVerticalLines_callbackFunctions
 
-# Callback Functions
+For vertical lines defined in rows, the following logic determines when a callback function will be called. For the specific callback function called, see the next section.
 
-## When are the callback functions called?
-Below is a description of when the various callback functions are called by the Mason viewer and what parameters are passed into them. Note that all functions take as their parameter a single properties object that associates specific property names with values. Every properties object should contain a property named `callbackDataStorage`, which can store data and retrieve it in subsequent function calls. An example use would be to precompute the the tool tip text and then return that on subsequent calls.
-
-For every vertical line in the viewer, the following logic determines when a callback function will be called. For the specific callback function called, see the next section.
-
-1. A "precompute" function is called first.  This can be used to support complicated computations that can be shared between determining the color, the tool tip text, and the click handling.
-2. A get color function is then called to get the color of the vertical line.
-3. When a mouseover event occurs on the vertical line, a get tool tip function is called to get the tool tip text to display.
-
-The specific callback function called in these cases is determined by the state of the vertical line (a vertical line here is the displayed area between the start and end position of an annotation). Note the state of a block may be determined using the `forHiddenBlocks` property(true for the vertical lines that appear when a row is expanded to show non-overlapping blocks).
-
+`callbackDataStorage` is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call. `vertLineData` is the `vertLineData` from the `vertLinesAllRowsItems` array for a given line, passed into Mason on start up. `linePos` is the value of the `linePos` property from the `vertLinesAllRowsItems` array for a given line, passed into Mason on start up. `forHiddenLines` is true if a given line only appears when a row is expanded, false otherwise.
 
 ```javascript
+
+	// A "precompute" function is called first.  This can be used to support complicated computations that can be shared between determining the color, the tool tip text, and the click handling.
 	mainRowsVerticalLines_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-	precomputeParams = { linePos, vertLineData, forHiddenLines, callbackDataStorage }
+	//precomputeParams = { linePos, vertLineData, forHiddenLines, callbackDataStorage }
 
-	mainRowsVerticalLines_callbackFunctions.getColorForLine( getColorForBlockParams )
-	getColorForBlockParams = { linePos, vertLineData, forHiddenLines, callbackDataStorage }
-
-		This function returns an String of the format "#RRGGBB"
+	/* A get color function is then called to get the color of the vertical line.
+	
+			This function returns an String of the format "#RRGGBB"
 			where the colors use hex values for the red, green, and blue for this line.
 			"RR" is the hex value for the red color
 			"GG" is the hex value for the green color
 			"BB" is the hex value for the blue color
 			The hex values are 00 to FF
-			
+		
+	*/
+	mainRowsVerticalLines_callbackFunctions.getColorForLine( getColorForBlockParams )
+	//getColorForBlockParams = { linePos, vertLineData, forHiddenLines, callbackDataStorage }
+
+	// When a mouseover event occurs on the vertical line, a get tool tip function is called to get the tool tip text to display.	
 	mainRowsVerticalLines_callbackFunctions.getLinesToolTipText( getToolTipTextParams )
-	getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
+	//getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 
 ```
 
