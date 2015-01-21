@@ -1,5 +1,5 @@
 
-# Info taken from 1_docs/2.c.h_combinedRowVerticalLines_callbackFunctions.txt
+# combinedRowVerticalLines_callbackFunctions
 
 For vertical lines that appear in the combined row the following logic and syntax applies to when and how the callback functions are called.
 
