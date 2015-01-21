@@ -1,5 +1,5 @@
 
-# allRowsVerticalLines_callbackFunctions.txt
+# allRowsVerticalLines_callbackFunctions
 
 Below is a description of when the various callback functions are called by the Mason viewer and what parameters are passed into them. For the vertical lines that span all the rows, the following logic determines when a callback function will be called. For the specific callback function called, see the next section.
 
