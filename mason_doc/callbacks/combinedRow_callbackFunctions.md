@@ -1,21 +1,17 @@
 
-# Info taken from 1_docs/2.c.e_combinedRow_callbackFunctions.txt
-
-# Callback Functions
+# combinedRow_callbackFunctions
 
 ## When are the callback functions called?
-Below is a description of when the various callback functions are called by the Mason viewer and what parameters are passed into them. Note that all functions take as their parameter a single properties object that associates specific property names with values. Every properties object should contain a property named `callbackDataStorage`, which can store data and retrieve it in subsequent function calls. An example use would be to precompute the the tool tip text and then return that on subsequent calls.
-
-For every block in the viewer, the following logic determines when a callback function will be called. For the specific callback function called, see the next section.
+For every block in the viewer, the following logic determines when a callback function will be called. For the specific callback function called, see the next section. `callbackDataStorage` is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call.
 
 1. A "precompute" function is called first.  This can be used to support complicated computations that can be shared between determining the color, the tool tip text, and the click handling.
 2. A get color function is then called to get the color of the block.
 3. When a mouseover event occurs on the block, a get tool tip function is called to get the tool tip text to display.
 4. When a click event occurs on the block, a handle click function is called.
 
-The specific callback function called in these cases is determined by the state of the block (a block here is the displayed area between the start and end position of an annotation). Note the state of a block may be determined using the `splitAnyEntriesForRow` property (true for combined row blocks if there were overlapping blocks) and the `forHiddenBlocks` property(true for the blocks that appear when a row is expanded to show non-overlapping blocks).
+The specific callback function called in these cases is determined by the state of the block (a block here is the displayed area between the start and end position of an annotation). Note the state of a block may be determined using the `splitAnyEntriesForRow` property (true for main row blocks if there were overlapping blocks) and the `forHiddenBlocks` property(true for the blocks that appear when a row is expanded to show non-overlapping blocks).
 
-!!!!!!!!!!!  REWRITE  !!!!!!!!!!!!!  The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockItem` is an element from the array `blockItems` and `peptideDataItems` is an array of `peptideData` elements from the input data `peptideData` under `peptideItems`.
+The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockDataItem` is the `blockData` property from an element in the `blockItems` array input to Mason, and `rowItem` is the element from the `rowItems` corresponding to the current row in the data input to Mason.
 
 #### Case 1.  For blocks in combined row with no overlapping annotations:
 
