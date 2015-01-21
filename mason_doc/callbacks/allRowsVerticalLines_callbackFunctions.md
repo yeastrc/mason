@@ -3,10 +3,7 @@
 
 Below is a description of when the various callback functions are called by the Mason viewer and what parameters are passed into them. For the vertical lines that span all the rows, the following logic determines when a callback function will be called. For the specific callback function called, see the next section.
 
-1. A "precompute" function is called first.  This can be used to support complicated computations that can be shared between determining the color, the tool tip text, and the click handling.
-2. A get color function is then called to get the color of the vertical line.
-3. When a mouseover event occurs on the vertical line, a get tool tip function is called to get the tool tip text to display.
-
+`callbackDataStorage` is an object used to store and retrieve data in subsequent function calls. This can be used to store and retrieve data derived from time-consuming computation which would be necessary with each successive function call. `vertLineData` is the `vertLineData` from the `vertLinesAllRowsItems` array for a given line, passed into Mason on start up. `linePos` is the value of the `linePos` property from the `vertLinesAllRowsItems` array for a given line, passed into Mason on start up. `forHiddenLines` is true if a given line only appears when a row is expanded, false otherwise.
 
 ```javascript
 
