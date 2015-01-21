@@ -1,7 +1,6 @@
 
 # rowTotalBar_callbackFunctions
 
-## When are the callback functions called?
 For every row totals block in the viewer, the following logic determines when a callback function will be called. The row totals block is the optional block placed to the right of a row indicating some summary value for that row. For the specific callback function called, see the next section.
 
 ```javascript
