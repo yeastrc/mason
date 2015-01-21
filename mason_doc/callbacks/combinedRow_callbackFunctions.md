@@ -13,20 +13,25 @@ The specific callback function called in these cases is determined by the state 
 
 The specific callback functions called and their corresponding block states are given below. In each case, the specific callback function call is shown first, and the properties of the input parameters are shown second. In this description, `blockDataItem` is the `blockData` property from an element in the `blockItems` array input to Mason, and `rowItem` is the element from the `rowItems` corresponding to the current row in the data input to Mason.
 
-#### Case 1.  For blocks in combined row with no overlapping annotations:
+#### Case 1.  For blocks in main rows with no overlapping annotations:
 
 ```javascript
+
+	// perform any necessary computation when the viewer is created
 	combinedRow_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
-	precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
+	//precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
 
+	// return a color as a string to use for a given block, given the input parameters
 	combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams )
-	getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
+	//getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
 
+	// return a string to show as a tooltip for this block
 	combinedRow_callbackFunctions.getNonOverlappingBlocksToolTipText ( getToolTipTextParams )
-	getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
+	//getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 
+	// perform an action when a user clicks on the block
 	combinedRow_callbackFunctions.processClick( processClickParams  )
-	processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
+	//processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
 ```
 
 
