@@ -54,3 +54,27 @@ In this case, blocks are created by Mason as it processes the overlapping segmen
 		getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
 ```
 
+#### Case 3.  For blocks that are shown as a result of expanding a row with overlapping blocks.
+
+Because each segment in the expansion is guaranteed to not overlap with any other, the `blockDataItems` array passed to the callbacks will have one element corresponding to the single `blockData` property defining the given block in the input data. For blocks shown when a row is expanded, the following callback functions are called:
+
+```javascript
+		// perform any necessary computation when the viewer is created
+		combinedRow_callbackFunctions.precomputeValuesOnCreate( precomputeParams )
+		//precomputeParams = { blockDataItems, forHiddenBlocks, splitAnyEntriesForRow, startPos, endPos, rowItem, callbackDataStorage }
+		
+		// get the color, as a string, to use for this blocks
+		combinedRow_callbackFunctions.getColorForBlock( getColorForBlockParams )
+		//getColorForBlockParams = { blockDataItems, forHiddenBlocks, startPos, endPos, rowItem, callbackDataStorage }
+
+		// get the tooltip string to show when moused over
+		combinedRow_callbackFunctions.getOverlappingBlocksToolTipText ( getToolTipTextParams )
+		//getToolTipTextParams = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage }
+		
+		// execute this code when the user clicks on a block shown in an expanded row
+		combinedRow_callbackFunctions.processClick( processClickParams  )
+		//processClickParams  = { blockDataItems, startPos, endPos, rowItem, callbackDataStorage	}
+		
+```
+
+<a href="../callback_functions.md">Back to the callback functions page</a>.
