@@ -38,3 +38,4 @@ For every row totals block in the viewer, the following logic determines when a 
 	rowTotalBar_callbackFunctions.processClick( processClickParams  )
 	processClickParams  = { rowItem, callbackDataStorage }
 ```
+<a href="../callback_functions.md">Back to the callback functions page</a>.
