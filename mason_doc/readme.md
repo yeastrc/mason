@@ -25,6 +25,8 @@ Installing Mason on a page is a simple matter of including the JavaScript files 
 <script type="text/javascript" src="js/mason_viewer/mason_viewer-min-munged.js"></script>
 ```
 
+You can download these files <a href="../mason_download/">here</a>.
+
 ## Creation of a Viewer
 Creating a viewer on the page is done via a JavaScript call in the form of:
 
