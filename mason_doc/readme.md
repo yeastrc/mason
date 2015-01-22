@@ -45,3 +45,8 @@ To enable inter-viewer communication that supports indicating where annotations 
 
 
 ## Building a Module
+Building a module comprises two major steps:
+
+### 1. Build a data parser to generate `requestParams`
+
+### 2. Define the callback functions passed into `callbackFunctionsObj`
