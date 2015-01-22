@@ -48,5 +48,6 @@ To enable inter-viewer communication that supports indicating where annotations 
 Building a module comprises two major steps:
 
 ### 1. Build a data parser to generate `requestParams`
+Typically the source data will define start and end points for sequence annotations, confidence scores, and possibly URLs to visit for more information. All of these data must be converted into the <a href="request_params.md">`requestParams` format that Mason is expecting</a>.
 
 ### 2. Define the callback functions passed into `callbackFunctionsObj`
