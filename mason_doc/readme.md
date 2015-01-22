@@ -50,4 +50,12 @@ Building a module comprises two major steps:
 ### 1. Build a data parser to generate `requestParams`
 Typically the source data will define start and end points for sequence annotations, confidence scores, and possibly URLs to visit for more information. All of these data must be converted into the <a href="request_params.md">`requestParams` format that Mason is expecting</a>.
 
+This conversion may act on files containing native output of sequence annotation programs, or JavaScript code may connect directly with a sequence annotation server via AJAX and convert the data returned from the remote server.  Examples of converters for both scenarios may be found at <a href="http://www.yeastrc.org/mason/">our pre-built module demo page</a>. Note: The Philius pre-built module connect directly via AJAX to a Philius prediction server.
+
 ### 2. Define the callback functions passed into `callbackFunctionsObj`
+The colors, tooltips, and click events are defined by a set of callback functions passed into the Mason creator function via an object we refer to as `callbackFunctionsObj`. Only two callback functions are required (the set corresponding to the blocks (annotated segments of the sequence) and set corresponding to the labels that appear to the left of the rows), though more may be provided that correspond to optional features of the viewer (such as an optional "combined" row, summary blocks, or lines noting positions of interest).
+
+Detailed informatoin about the callback functions may be found on <a href="callback_functions.md">callback functions page</a>.
+
+### 3. Done.
+At this point your module should be done. You can instantiate a new Mason viewer using the syntax above, passing in your data, callback functions, and configuration parameters for the viewer.
