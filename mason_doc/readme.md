@@ -15,7 +15,29 @@ In addition to the <a href="http://www.yeastrc.org/mason/generic-json-module.htm
 <a href="http://www.yeastrc.org/mason/">Go to the pre-built module page</a> for documentation, demos, and download files.
 
 ## Installation
+Installing Mason on a page is a simple matter of including the JavaScript files on the page:
+
+```html
+<script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" ></script>
+<script type="text/javascript" src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"></script>
+<script type="text/javascript" src="js/libraries/svg.min.js"></script>
+<script type="text/javascript" src="js/libraries/wz_tooltip-min.js"></script>
+<script type="text/javascript" src="js/mason_viewer/mason_viewer-min-munged.js"></script>
+```
 
 ## Creation of a Viewer
+Creating a viewer on the page is done via a JavaScript call in the form of:
+
+```javascript
+MasonViewer.createMasonViewer( $rootDiv, requestParams, configParams, callbackFunctionsObj );
+```
+
+Where:
+  * `$rootDiv` is the jQuery variable representing the DIV in which to place the viewer on the page.
+  * `requestParams` represents the data to be shown. `requestParams` is described in more detail <a href="request_params.md">here</a>.
+  * `configParams` represents the configuration parameters for the viewer. `configParams` is described in more detail <a href="config_params.md">here</a>.
+  * `callbackFunctionsObj` contains the core code of a module as a set of callback functions designed to handle tooltip generation, colors and shading and click handling. If you are writing your own module, this is where most of your work will be. `callbackFunctionsObj` is described in much more detail <a href="callback_functions.md">here</a>.
+
+## Inter-viewer Communication
 
 ## Building a Module
