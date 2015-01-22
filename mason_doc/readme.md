@@ -41,5 +41,7 @@ Where:
   * `callbackFunctionsObj` contains the core code of a module as a set of callback functions designed to handle tooltip generation, colors and shading and click handling. If you are writing your own module, this is where most of your work will be. `callbackFunctionsObj` is described in much more detail <a href="callback_functions.md">here</a>.
 
 ## Inter-viewer Communication
+To enable inter-viewer communication that supports indicating where annotations in one viewer align with annotations in other viewers annotating the same sequence, please see our <a href="http://www.yeastrc.org/mason/Example_Applications/Multiple_Viewers_on_One_Page_Example/Multiple_Viewers_on_One_Page_Example.html">"Multiple Viewers on One Page"</a> at our demo site.
+
 
 ## Building a Module
