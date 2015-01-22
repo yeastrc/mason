@@ -1,6 +1,8 @@
 # Mason Documentation
 This documentation is geared towards those wishing to build their own module or wishing to understand how Mason is architected. Developing your own module does require knowledge of JavaScript, and the steps for doing so are outlined below.
 
+## Demos and Examples
+<a href="http://www.yeastrc.org/mason/">Go to the demo page</a> for examples, demos, and download files.
 
 ## Generic JSON module
 You probably do not need to build your own module! We have developed a module that requires no knowledge of JavaScript to implement and is capable of parsing simple JSON containing data to be displayed, which supports overlapping annotations, user-specified coloring, user-specified per-block tooltips, and user-specified URLs for linking from annotations. 
