@@ -14,9 +14,13 @@
 
 
 <h1>Mason Viewer Pre-Built Module: Generic JSON</h1>
-<br/>
 
-Example 1, data loaded from JSON file on server<br>
+<div>The &quot;generic JSON&quot; module is meant to allow the flexible implementation of Mason without the need to know JavaScript. It supports a simplified input format as JSON that allows for custom coloring, tooltips, and URLs to visit if blocks are clicked on.
+To use the &quot;generic JSON&quot; module, one first needs to format their data as JSON, then either link to a file containing the JSON or include the JSON on the page as a JavaScript variable. (Note: this latter option does require very light use of JavaScript
+to implement.)</div>
+
+
+<h3>Example 1, data loaded from JSON file on server</h3>
 
 <!-- Optional enclosing div, it must have this class on it.
 		If this div exists, then the search for
@@ -56,8 +60,75 @@ Example 1, data loaded from JSON file on server<br>
 
 </div>
 
-<br>
-Example 2, data on the page in a Javascript object<br>
+
+
+
+<div style="width:90%;margin-top:20px;margin-bottom:10px;">
+	The above can be achieved for any data files using the HTML below and substituting in the location of your data. Note: The JSON file must be on the same hostname as the HTML files for security reasons.
+</div>
+<div class="code-block" style="margin-left: 20px;" >
+	&lt;div class="generic-json-mason-viewer"<br>
+		style="width:700px;" <br>
+		mason_data_json_file_uri="Generic_JSON_files/Generic_Mason_viewer_data.json"<br>
+		&gt;&lt;/div&gt;<br>
+</div>
+
+
+<div style="width:90%;margin-top:20px;margin-bottom:10px;">The contents of the JSON file are:</div>
+<div class="code-block" style="margin-left: 20px;" >
+<pre>
+{"sequenceLength":255,
+ "rows":
+  [
+   {"label":"Row Label 1",
+    "color":"#999999",
+    "xcolor":"#990000",
+	"blocks":
+	[
+	  {	"startPos":25,
+		"endPos":37,
+		"tooltip":"tooltip for this block",
+		"link":"http://google.com"
+	  }
+	]
+   },
+   {"label":"Row Label 2",
+    "color":"#337700",
+    "xcolor":"#000088",
+	"blocks":
+	[
+	  {	"startPos":55,
+		"endPos":77,
+		"tooltip":"tooltip for this block",
+		"link":"http://google.com"
+	  },
+	  {	"startPos":65,
+		"endPos":87,
+		"tooltip":"tooltip for this block",
+		"link":"http://google.com"
+	  }
+	]
+   },
+   {"label":"Row Label 3",
+    "color":"#880000",
+    "xcolor":"#008800",
+	"blocks":
+	[
+	  {	"startPos":41,
+		"endPos":77,
+		"tooltip":"",
+		"link":""
+	  }
+	]
+   }
+  ]
+}
+</pre>
+</div>
+
+
+
+<h3>Example 2, data on the page in a Javascript object</h3>
 
 
 <!-- Optional enclosing div, it must have this class on it.
@@ -103,42 +174,83 @@ Example 2, data on the page in a Javascript object<br>
 	The above can be achieved for any data files using the HTML below and substituting in the location of your data. Note: The sequence file must be on the same hostname as the HTML files for security reasons.
 </div>
 
-
-<div>Option 1 (retrieve Mason data from server):</div>
-<div class="code-block" style="margin-left: 20px;" >
-	&lt;div class="generic-json-mason-viewer"<br>
-		style="width:700px;" <br>
-		mason_data_json_file_uri="Generic_JSON_files/Generic_Mason_viewer_data.json"<br>
-		&gt;&lt;/div&gt;<br>
-</div>
-
-
-<div style="margin-top:20px;">Option 2 (Mason data on the page):</div>
 <div class="code-block" style="margin-left: 20px;" >
 	&lt;div id="generic-json-mason-viewer-page-data"<br>
 		style="width:700px;" <br>
 		&gt;&lt;/div&gt;<br>
 </div>
 
-
-
-<div style="margin-top:20px;">HTML to import required JavaScript files:</div>
+<div style="margin-top:20px;">In the HTML page, have the data present as a JavaScript object:</div>
 <div class="code-block" style="margin-left: 20px;" >
-&lt;script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" &gt;&lt;/script&gt;<br>
-
-&lt;script type="text/javascript"  src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"&gt;&lt;/script&gt;<br>
-
-&lt;script type="text/javascript"  src="js/libraries/svg.min.js"&gt;&lt;/script&gt;<br>
-&lt;script type="text/javascript"  src="js/libraries/wz_tooltip-min.js"&gt;&lt;/script&gt;<br>
-
-&lt;script type="text/javascript" src="js/mason_viewer/mason_viewer-min.js"&gt;&lt;/script&gt;<br>
+<pre>
+&lt;script&gt;
+var masonData =
 
 
-&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_creator.js"&gt;&lt;/script&gt;<br>
+			{"sequenceLength":255,
+			 "rows":
+			  [
+			   {"label":"Row Label 1",
+			    "color":"#999999",
+			    "xcolor":"#990000",
+				"blocks":
+				[
+				  {	"startPos":12,
+					"endPos":24,
+					"tooltip":"tooltip for this block",
+					"link":"http://google.com"
+				  }
+				]
+			   },
+			   {"label":"Row Label 2",
+			    "color":"#337700",
+			    "xcolor":"#000088",
+				"blocks":
+				[
+				  {	"startPos":55,
+					"endPos":77,
+					"tooltip":"tooltip for this block",
+					"link":"http://google.com"
+				  },
+				  {	"startPos":65,
+					"endPos":87,
+					"tooltip":"tooltip for this block",
+					"link":"http://google.com"
+				  }
+				]
+			   },
+			   {"label":"Row Label 3",
+			    "color":"#880000",
+			    "xcolor":"#008800",
+				"blocks":
+				[
+				  {	"startPos":51,
+					"endPos":77,
+					"tooltip":"",
+					"link":""
+				  }
+				]
+			   }
+			  ]
+			};
+&lt;/script&gt;
+</pre>
+</div>
 
-&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_creator.js"&gt;&lt;/script&gt;<br>
 
-&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_HTML_config_loader.js"&gt;&lt;/script&gt;<br>
+<h3>HTML to import required JavaScript files. <a href="js/">Download JavaScript files.</a></h3>
+<div class="code-block" style="margin-left: 20px;" >
+<pre>
+&lt;script type="text/javascript" src="js/libraries/jquery-1.8.0.min.js" &gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/libraries/modernizr.v2.7.1__custom.39924_min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/libraries/svg.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/libraries/wz_tooltip-min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/mason_viewer/mason_viewer-min.js"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_creator.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_creator.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/generic_json__mason_viewer_related_code/generic_json_HTML_config_loader.js"&gt;&lt;/script&gt;
+</pre>
 </div>
 
 
@@ -163,31 +275,31 @@ Example 2, data on the page in a Javascript object<br>
 $(document).ready( function(){
 
 	$(".mason-viewer-jq").each(function() {
-		
+
 		var $this = $( this );
-		
-		
+
+
 		//  Change the  width of the enclosing div of the mason viewers
-		//  from percent to pixels all at the same time so that 
+		//  from percent to pixels all at the same time so that
 		//  if they all have the same percentage they will all have the same width.
-		
+
 		//  This is done since the page may grow as each mason viewer is created,
 		//  the page may exceed the height of the browser view port and a scroll bar may
 		//  appear to the page changing the width of the view port, changing the width
-		//  of the divs since they are specified as a percentage, changing the width 
+		//  of the divs since they are specified as a percentage, changing the width
 		//  of the mason viewers created after the scroll bar appears.
-		
+
 		//  Change the width from percent to pixels
-		
+
 		// get the width in pixels
 		var divWidth = $this.width();
-		
+
 		//  set the width in pixels
 		$this.width( divWidth )
-		
+
 	});
-	
-	
+
+
 });
 
 </script>
@@ -223,103 +335,103 @@ $(document).ready( function(){
 <script type="text/javascript">
 
 
-var masonData = 
-	
-			
+var masonData =
+
+
 			{"sequenceLength":255,
 			 "rows":
 			  [
 			   {"label":"Row Label 1",
 			    "color":"#999999",
 			    "xcolor":"#990000",
-				"blocks": 
+				"blocks":
 				[
 				  {	"startPos":12,
 					"endPos":24,
-					"tooltip":"tooltip for this block", 
-					"link":"http://google.com" 
+					"tooltip":"tooltip for this block",
+					"link":"http://google.com"
 				  }
 				]
 			   },
 			   {"label":"Row Label 2",
 			    "color":"#337700",
 			    "xcolor":"#000088",
-				"blocks": 
+				"blocks":
 				[
 				  {	"startPos":55,
 					"endPos":77,
-					"tooltip":"tooltip for this block", 
-					"link":"http://google.com" 
+					"tooltip":"tooltip for this block",
+					"link":"http://google.com"
 				  },
 				  {	"startPos":65,
 					"endPos":87,
-					"tooltip":"tooltip for this block", 
-					"link":"http://google.com" 
+					"tooltip":"tooltip for this block",
+					"link":"http://google.com"
 				  }
 				]
 			   },
 			   {"label":"Row Label 3",
 			    "color":"#880000",
 			    "xcolor":"#008800",
-				"blocks": 
+				"blocks":
 				[
 				  {	"startPos":51,
 					"endPos":77,
-					"tooltip":"", 
-					"link":"" 
+					"tooltip":"",
+					"link":""
 				  }
 				]
 			   }
 			  ]
 			};
-			
-			
+
+
 
 //jQuery method of running code when page is loaded
 
 $(document).ready( function(){
-	
-	//  Run on a separate event so an error 
+
+	//  Run on a separate event so an error
 	//  doesn't stop anything else from running on document ready.
 
 	setTimeout(function(){
-						
-		
+
+
 		var $masonViewerRootDiv = $("#generic-json-mason-viewer-page-data");
-		
+
 		//  "#svg-not-supported" specifies id of div on page that will be shown if SVG is not supported.
 		//  $svg_not_supported.show();  is called.
-		
+
 		var $svg_not_supported = $(".mason-viewer-svg-not-supported");
-		
+
 		var $mason_viewer_failed_to_create = $(".mason-viewer-generic-json-failed-to-create");
-		
+
 		var $mason_enclosing_div = $masonViewerRootDiv.closest(".mason-enclosing-div");
-		
+
 		if ( $mason_enclosing_div.length !== 0 ) {
-		
+
 			$svg_not_supported = $mason_enclosing_div.find(".mason-viewer-svg-not-supported");
-		
+
 			$mason_viewer_failed_to_create = $mason_enclosing_div.find(".mason-viewer-generic-json-failed-to-create");
 		}
-		
-		
-		
-		
+
+
+
+
 		var create_MasonViewer_Generic_JSON_Pre_Built_ConstructorParams =
-		{ config: 
-		{ 
+		{ config:
+		{
 			mason_data: masonData,
-		
+
 			$masonViewerRootDiv: $masonViewerRootDiv,
 			$svgNotSupportedDiv: $svg_not_supported,
 			$mason_viewer_failed_to_create: $mason_viewer_failed_to_create } };
-		
+
 		var create_MasonViewer_Generic_JSON_Pre_Built = new Create_MasonViewer_Generic_JSON_Pre_Built( create_MasonViewer_Generic_JSON_Pre_Built_ConstructorParams );
-		
+
 		create_MasonViewer_Generic_JSON_Pre_Built.createCoverageMapIfNotCreated();
 
-		
+
 
 	}, 10);
 
