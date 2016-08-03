@@ -6,7 +6,7 @@ Mason is a JavaScript and SVG-based viewer meant to display annotated regions or
 ## Read the Paper or Cite Mason
 A thorough description of Mason, its features and capabilities, may be found in the following publication:
 
-Daniel Jaschob, Trisha N. Davis, and Michael Riffle. Mason: A JavaScript web site widget for visualizing and comparing annotated features in nucleotide or protein sequences. Journal. Date. Volume(Issue) Pages.
+Daniel Jaschob, Trisha N. Davis, and Michael Riffle. Mason: a JavaScript web site widget for visualizing and comparing annotated features in nucleotide or protein sequences. BMC Res Notes. 2015 Mar 7;8:70. doi: 10.1186/s13104-015-1009-z.
 
 ## Get Started with Mason
 
